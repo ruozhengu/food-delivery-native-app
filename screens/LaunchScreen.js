@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { Alert, Button, TextInput, ImageBackground, Text, View, StatusBar, StyleSheet } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 import AwesomeButtonRick from 'react-native-really-awesome-button';
-
+import { Icon } from 'react-native-elements'
 
 // or any pure javascript modules available in npm
 // import { Card } from 'react-native-elements'; // Version can be specified in package.json
 
 export default class LaunchScreen extends Component {
 
-	constructor(props) {
-	  super(props);
-	
-	  this.state = { locationResult: null };
-	 this.handlePress = this.handlePress.bind(this);
-	}
+  constructor(props) {
+    super(props);
+  
+    this.state = { locationResult: null };
+   this.handlePress = this.handlePress.bind(this);
+  }
 
 
-  	  componentDidMount() {
+      componentDidMount() {
     this._getLocationAsync();
   }
 
@@ -38,16 +38,16 @@ export default class LaunchScreen extends Component {
 
 
   render() {
-  	Alert.alert(
-  'Alert Title',
-  'My Alert Msg',
-  [
-    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
-  ],
-  { cancelable: false }
-  )
+  //  Alert.alert(
+  // 'Alert Title',
+  // 'My Alert Msg',
+  // [
+  //   {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+  //   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+  //   {text: 'OK', onPress: () => console.log('OK Pressed')},
+  // ],
+  // { cancelable: false }
+  // )
 
 
 
@@ -56,7 +56,9 @@ export default class LaunchScreen extends Component {
           source={{uri: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb'}}
           style={styles.backgroundImage}
         >
+
       <View style={styles.overlay}/>
+      <View style={styles.close}><Icon name='close' /></View>
       <Text style={styles.heading}>Hungry?</Text>
       <Text style={styles.paragraph}>Let's find something to eat</Text>
       <TextInput placeholder="Enter your address!"
@@ -64,7 +66,7 @@ export default class LaunchScreen extends Component {
       />
       <Text style={styles.paragraph}>or</Text>
       <View style={styles.button} >
- 		<AwesomeButtonRick 
+    <AwesomeButtonRick 
      backgroundShadow='#074a7a' 
      backgroundColor='#1073ba' 
      backgroundActive='#074a7a' 
@@ -79,33 +81,18 @@ export default class LaunchScreen extends Component {
 }
 
 
-// class MyButton extends Component {
-//  	function Button() {
-//      return (
-//       <AwesomeButtonRick 
-//      backgroundShadow='#074a7a' 
-//      backgroundColor='#1073ba' 
-//      backgroundActive='#074a7a' 
-//      type="primary"
-//      onPress={() => { console.log('button pressed'); Alert.alert('{this.state.locationResult}'); } }>
-//      Find Me!</AwesomeButtonRick>
-//      // <AwesomeButtonRick type="secondary">Rick's Secondary Button</AwesomeButtonRick>
-//     );
-//   }
-
-//   render() {
-//   	return  <Button title="Finds  Me!" color="#fff"  />;
-//   }
-// }
-
-
-
-
 
 const styles = StyleSheet.create({
-	button: {
-		backgroundColor: '#000',
-	},
+  button: {
+    backgroundColor: '#000',
+  },
+  close: {
+    position: 'absolute',
+    top: 46,
+    right: 40,
+    width: 25,
+    height: 25,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
