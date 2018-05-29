@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
@@ -18,6 +18,8 @@ export default class App extends React.Component {
           onFinish={this._handleFinishLoading}
         />
       );
+    } else if (this.state.){
+
     } else {
       return (
         <View style={styles.container}>
