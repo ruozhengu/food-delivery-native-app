@@ -18,8 +18,6 @@ export default class App extends React.Component {
           onFinish={this._handleFinishLoading}
         />
       );
-    } else if (this.state.){
-
     } else {
       return (
         <View style={styles.container}>
