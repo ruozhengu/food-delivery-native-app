@@ -15,6 +15,12 @@ import { Component } from 'react';
 import { Animated } from 'react-native';
 
 export default class Resturants extends React.Component {
+
+  static navigationOptions = {
+    header: null,
+  };
+
+  
   constructor() {
     super();
 

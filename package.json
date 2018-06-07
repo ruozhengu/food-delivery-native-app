@@ -13,6 +13,9 @@
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-elements": "^0.19.1",
+    "react-native-material-cards": "^1.0.8",
+    "react-native-parallax-header": "^1.0.6",
+    "react-native-parallax-scroll-view": "^0.21.0",
     "react-native-really-awesome-button": "^0.8.3",
     "react-navigation": "2.0.0",
     "semver": "^5.5.0"

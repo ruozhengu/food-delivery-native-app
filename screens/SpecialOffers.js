@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   Image,
   Platform,
   ScrollView,
@@ -9,6 +10,10 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+
+import {CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-material-cards'
+import { Card } from 'react-native-elements'; // Version can be specified in package.json
+
 
 import { MonoText } from '../components/StyledText';
 
@@ -30,6 +35,42 @@ export default class SpecialOffers extends React.Component {
             <Text style={styles.getStartedText}>
               Special Offers go here.
             </Text>
+
+                  <View style={styles.container}>
+        <Text style={styles.paragraph}>
+          Change code in the editor and watch it change on your phone!
+          Save to get a shareable url.
+        </Text>
+                  <TouchableOpacity onPress={()=>{Alert.alert("rowData.name")}}>
+
+      <Card>
+  <CardImage 
+    source={{uri: 'http://placehold.it/480x270'}} 
+    title="Above all i am here"
+  />
+  <CardTitle 
+    title="This is a title" 
+    subtitle="This is subtitle"
+   />
+  <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile" />
+  <CardAction 
+    separator={true} 
+    inColumn={false}>
+    <CardButton
+      onPress={() => {}}
+      title="Push"
+      color="blue"
+    />
+    <CardButton
+      onPress={() => {}}
+      title="Later"
+      color="blue"
+    />
+  </CardAction>
+</Card>
+</TouchableOpacity>
+      </View>
+
           </View>
 
         </ScrollView>
