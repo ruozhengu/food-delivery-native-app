@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import { Card } from 'react-native-elements'; // Version can be specified in package.json
+
 
 let data = [
         {name: 'Chinese', image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb'},
