@@ -7,11 +7,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import ResturantScreen from '../screens/Resturants';
+import RestaurantList from '../screens/RestaurantList';
 import CategoryScreen from '../screens/FoodCategories';
 import OffersScreen from '../screens/SpecialOffers';
 import CartScreen from '../screens/Cart';
-import StatusScreen from '../screens/Status';
+import StatusScreen from '../screens/Profile';
 
 const StatusTab = createStackNavigator({
   SttsTb : StatusScreen
@@ -21,6 +21,7 @@ StatusTab.navigationOptions = {
   tabBarIcon : ({focused}) => (
     <Feather 
       name="user"
+      color="grey"
       size={32}
     />
   )
@@ -35,6 +36,7 @@ CartTab.navigationOptions = {
   tabBarIcon : ({focused}) => (
   <MaterialCommunityIcons 
     name='cart' 
+    color="grey"
     size={30} 
     />)
 };
@@ -48,6 +50,7 @@ OffersTab.navigationOptions = {
     <SimpleLineIcons
       focused = {focused}
       name='exclamation'
+      color="grey"
       size={30}
     />
   )
@@ -61,21 +64,23 @@ CategoryTab.navigationOptions = {
   tabBarIcon : ({focused}) => (
     <MaterialCommunityIcons
       name='food'
+      color="grey"
       size={32}
     />
   )
 };
 
-const ResturantTab = createStackNavigator({
-  RstrntTb : ResturantScreen
-});
-ResturantTab.navigationOptions = {
-  tabBarLabel : "Resturants",
+const RestaurantListTab = createStackNavigator({
+  RstrntTb : RestaurantList
+}); 
+RestaurantListTab.navigationOptions = {
+  tabBarLabel : "Restaurants",
   tabBarIcon : ({focused}) => (
     <Ionicons
       focused={focused}
       name='ios-restaurant'
       size={32}
+      color="grey"
     />
   )
 };
@@ -89,6 +94,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
+      color="grey"
       name={
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
@@ -107,6 +113,7 @@ LinksStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
+      color="grey"
       name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
     />
   ),
@@ -121,13 +128,14 @@ SettingsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
+      color="grey"
       name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
-  ResturantTab,
+  RestaurantListTab,
   CategoryTab,
   OffersTab,
   CartTab,

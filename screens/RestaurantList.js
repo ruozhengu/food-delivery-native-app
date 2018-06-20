@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Button,
   Alert,
   TouchableOpacity,
   Dimensions,
@@ -14,6 +15,11 @@ import {
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
+import { Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { createStackNavigator } from 'react-navigation';
+
+import RestaurantPage from './RestaurantPage'
+
 let data = [
   {
     name: 'McDonalds',
@@ -21,6 +27,8 @@ let data = [
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
   },
   {
     name: 'KFC',
@@ -28,6 +36,8 @@ let data = [
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
   },
   {
     name: 'Italian',
@@ -35,6 +45,8 @@ let data = [
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
   },
   {
     name: 'French',
@@ -42,11 +54,14 @@ let data = [
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
   },
 ];
 
-class FoodCategories extends Component {
+class RestaurantList extends Component {
   static navigationOptions = {
+    title: 'Home',
     header: null,
   };
 
@@ -66,19 +81,26 @@ class FoodCategories extends Component {
         contentContainerStyle={styles.listContainer}
         dataSource={this.state.dataSource}
         renderRow={rowData => (
-          <TouchableOpacity style={styles.touchable}>
+          <TouchableOpacity style={styles.touchable}
+          onPress={() => this.props.navigation.navigate('Details')}>
             <Card containerStyle={styles.card} image={{ uri: rowData.image }}>
               <View style={styles.topRow}>
-                <Text style={styles.restaurantName}> {rowData.name} </Text>
+                <Text style={styles.restaurantName}> {rowData.name} - {rowData.price}</Text>
                 <Text style={styles.distance}> {rowData.distance} </Text>
               </View>
               <View style={styles.bottomRow}>
-                <Text style={styles.category}> {rowData.category} </Text>
-                <Text style={styles.rating}><Icon
-   name='g-translate'
-  color='yellow'
-  size='15'
-  onPress={() => console.log('hello')}/> {rowData.rating} </Text>
+                <Text style={styles.category}> {rowData.category} 
+                  <Feather 
+                  style={{ padding: 1, }} 
+    name='star' 
+    color="#d7e035"
+    size={20}
+    />
+    
+
+                  {rowData.rating}
+                </Text>
+                <Text style={styles.timing}> {rowData.timing} </Text>
               </View>
             </Card>
           </TouchableOpacity>
@@ -86,8 +108,7 @@ class FoodCategories extends Component {
         renderScrollComponent={props => (
           <ParallaxScrollView
             onScroll={onScroll}
-            headerBackgroundColor="#fff"
-            stickyHeaderHeight={STICKY_HEADER_HEIGHT}
+            headerBackgroundColor="#000"
             parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
             backgroundSpeed={10}
             renderBackground={() => (
@@ -99,15 +120,7 @@ class FoodCategories extends Component {
                     height: PARALLAX_HEADER_HEIGHT,
                   }}
                 />
-                <View
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    width: window.width,
-                    backgroundColor: 'rgba(0,0,0,0.4)',
-                    height: PARALLAX_HEADER_HEIGHT,
-                  }}
-                />
+                <View style={styles.overlay} />
               </View>
             )}
             renderForeground={() => (
@@ -123,6 +136,32 @@ class FoodCategories extends Component {
     );
   }
 }
+
+
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+        <Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+      </View>
+    );
+  }
+}
+
+export default createStackNavigator(
+  {
+  Home: RestaurantList,
+  Details: RestaurantPage,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
 
 const window = Dimensions.get('window');
 
@@ -154,19 +193,32 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   topRow: {
-    backgroundColor: 'rgba(0,0,0,0.4)',
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
-  restaurantName: { marginRight: 50, marginBottom: 0, marginTop: 0 },
-  distance: {},
-  bottomRow: {
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    flexDirection: 'row',
+  restaurantName: {
+    // fontSize: 16,
+    fontWeight: 'bold',
   },
-  category: {},
-  price: {},
-  rating: {},
+  distance: {
+
+  },
+  bottomRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+  },
+  category: {
+    
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    width: window.width,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    height: PARALLAX_HEADER_HEIGHT,
+  },
   Title: {
     color: 'white',
     fontSize: 32,
@@ -174,4 +226,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FoodCategories;
+//export default RestaurantList;

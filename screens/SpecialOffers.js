@@ -49,44 +49,8 @@ export default class SpecialOffers extends React.Component {
                 Save to get a shareable url.
               </Text>
 
-            ListView
-        dataSource={ ['aaa','gbgv','aswdd','gaaesdf'] }
-        
-        
-        
-
-        renderRow={(rowData) => (
-          <TouchableOpacity
-          style={{
-            backgroundColor: 'pink',
-            width: '55%',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-          <Card
-            dividerStyle={{ backgroundColor: 'pink' }}
-            containerStyle={{
-              backgroundColor: 'transparent',
-              height:100,
-              paddingBottom:100,
-              width: '90%',
-              marginTop: 0,
-            }}
-            image={{ uri: 'https://placeimg.com/640/480/tech' }}
-            imageStyle={{backgroundColor:'#000', height: 200}}
-            featuredTitle={rowData.name}
-            featuredTitleStyle={{ fontSize: 22, fontWeight: 'bold', marginBottom:'50%' }}>
-            
-
-          </Card>
-        </TouchableOpacity>
-
-         )}
-
-        />
-
-
             </View>
+            
           </View>
 
         </ScrollView>

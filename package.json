@@ -17,6 +17,7 @@
     "react-native-parallax-header": "^1.0.6",
     "react-native-parallax-scroll-view": "^0.21.0",
     "react-native-really-awesome-button": "^0.8.3",
+    "react-native-tab-view": "^1.0.2",
     "react-navigation": "2.0.0",
     "semver": "^5.5.0"
   },
