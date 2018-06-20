@@ -82,7 +82,7 @@ class RestaurantList extends Component {
         dataSource={this.state.dataSource}
         renderRow={rowData => (
           <TouchableOpacity style={styles.touchable}
-          onPress={() => this.props.navigation.navigate('Details')}>
+          onPress={() => this.props.navigation.navigate('Restaurant')}>
             <Card containerStyle={styles.card} image={{ uri: rowData.image }}>
               <View style={styles.topRow}>
                 <Text style={styles.restaurantName}> {rowData.name} - {rowData.price}</Text>
@@ -138,24 +138,11 @@ class RestaurantList extends Component {
 }
 
 
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
-      </View>
-    );
-  }
-}
 
 export default createStackNavigator(
   {
   Home: RestaurantList,
-  Details: RestaurantPage,
+  Restaurant: RestaurantPage,
   },
   {
     initialRouteName: 'Home',

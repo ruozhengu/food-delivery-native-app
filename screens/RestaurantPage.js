@@ -9,24 +9,10 @@ import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-elements'; // Version can be specified in package.json
 
+import OrderScreen from './OrderScreen'
+import ReviewScreen from './ReviewScreen'
+import InfoScreen from './InfoScreen'
 
-const FirstRoute = () => (
-  <View style={[styles.container, { backgroundColor: '#ff4081' }]} />
-);
-const SecondRoute = () => (
- <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Change code in the editor and watch it change on your phone!
-          Save to get a shareable url.
-        </Text>
-        <Card title="Local Modules">
-        </Card>
-      </View>
-);
-
-const ThirdRoute = () => (
-  <View style={[styles.container, { backgroundColor: '#1caf26' }]} />
-);
 
 
 
@@ -34,9 +20,9 @@ export default class RestaurantPage extends Component {
  state = {
     index: 0,
     routes: [
-      { key: 'first', title: 'Food' },
-      { key: 'second', title: 'Rating' },
-      { key: 'third' , title: 'Contact' },
+      { key: 'first', title: 'Order' },
+      { key: 'second', title: 'Reviews' },
+      { key: 'third' , title: 'Info' },
     ],
   };
 
@@ -45,9 +31,9 @@ export default class RestaurantPage extends Component {
       <TabView
         navigationState={this.state}
         renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
-          third: ThirdRoute,
+          first: OrderScreen,
+          second: ReviewScreen,
+          third: InfoScreen,
         })}
         onIndexChange={index => this.setState({ index })}
         initialLayout={{ width: Dimensions.get('window').width }}
