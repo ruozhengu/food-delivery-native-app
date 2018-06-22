@@ -138,8 +138,17 @@ class RestaurantList extends Component {
 }
 
 
+export default class app extends Component {
+    static navigationOptions = {
+    title: 'Home',
+    header: null,
+  };
+  render() {
+    return <RootNavi />;
+  }
+}
 
-export default createStackNavigator(
+let RootNavi = createStackNavigator(
   {
   Home: RestaurantList,
   Restaurant: RestaurantPage,
