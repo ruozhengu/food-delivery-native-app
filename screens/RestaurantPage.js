@@ -19,7 +19,7 @@ import InfoScreen from './InfoScreen'
 export default class RestaurantPage extends Component {
 
 static navigationOptions = {
-    title: 'Homebrews',
+    title: 'McDonalds',
     //header: null,
   };
  state = {
