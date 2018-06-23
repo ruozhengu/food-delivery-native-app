@@ -10,18 +10,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+
+import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
 import {
-  CardTitle,
-  CardContent,
-  CardAction,
-  CardButton,
-  CardImage,
-} from 'react-native-material-cards';
-import { Card } from 'react-native-elements'; // Version can be specified in package.json
-
-import { MonoText } from '../components/StyledText';
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  Feather,
+} from '@expo/vector-icons';
 
 export default class SpecialOffers extends React.Component {
   static navigationOptions = {
@@ -30,40 +27,76 @@ export default class SpecialOffers extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
+      <View
+        style={{
+          backgroundColor: '#000',
+          height: '100%',
+          width: '100%',
+          alignItems: 'center',
+        }}>
+        <Text
+          style={{
+            marginTop: '5%',
+            marginBottom: '7%',
+            color: '#fff',
+            fontSize: 34,
+            fontWeight: 'bold',
+          }}>
+          Explore
+        </Text>
 
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Special Offers</Text>
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>
-              Special Offers go here.
-            </Text>
+        <View style={{ flexDirection: 'row' }}>
+          <IconButton text="Carpool" name="car-side" type="material-community"/>
+          <IconButton text="Carpool" name="car-side" type="material-community"  />
+        </View>
 
-            <View style={styles.container}>
-              <Text style={styles.paragraph}>
-                Change code in the editor and watch it change on your phone!
-                Save to get a shareable url.
-              </Text>
+        <View style={{ flexDirection: 'row' }}>
+          <IconButton text="Carpool" name="car-side" type="material-community" />
+          <IconButton text="Carpool" name="car-side" type="material-community" />
+        </View>
 
-            </View>
-            
-          </View>
-
-        </ScrollView>
+        <View style={{ flexDirection: 'row' }}>
+          <IconButton text="Carpool" name="car-side" type="material-community" />
+          <IconButton text="Carpool" name="car-side" type="material-community" />
+        </View>
       </View>
     );
   }
 }
 
+const IconButton = ({ text, name, type }) => (
+  <TouchableOpacity>
+    <View
+      style={{
+        padding: 22,
+        paddingTop: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <Icon
+        reverse
+        name={name}
+        type={type}
+        // reverseColor=''
+        raised={true}
+        color="#517fa4"
+        size={42}
+      />
+      <Text
+        style={{
+          marginTop: '10%',
+          color: '#fff',
+          fontSize: 34,
+          fontWeight: 'bold',
+        }}>
+        {text}
+      </Text>
+    </View>
+  </TouchableOpacity>
+);
+
 const styles = StyleSheet.create({
-  container: {
-
-
-  },
+  container: {},
   contentContainer: {
     paddingTop: 30,
   },

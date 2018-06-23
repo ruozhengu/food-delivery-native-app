@@ -79,9 +79,7 @@ export default class App extends Component {
               size={35}
             />
           }
-          onPress={() => {
-            Linking.openURL({email});
-          }}
+
         />
 
         <ListItem
@@ -102,7 +100,7 @@ export default class App extends Component {
               size={35}
             />
           }
-          onPress={() => Alert.alert('aasfaf')}
+
         />
 
         <ListItem
@@ -123,7 +121,7 @@ export default class App extends Component {
               size={35}
             />
           }
-          onPress={() => Alert.alert('aasfaf')}
+          
         />
 
               

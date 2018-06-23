@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { Icon, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -45,11 +45,11 @@ const OffersTab = createStackNavigator({
   OffrsTb : OffersScreen
 });
 OffersTab.navigationOptions = {
-  tabBarLabel : "Special Offers",
+  tabBarLabel : "Explore",
   tabBarIcon : ({focused}) => (
-    <SimpleLineIcons
+    <FontAwesome
       focused = {focused}
-      name='exclamation'
+      name='wpexplorer'
       color="grey"
       size={30}
     />
