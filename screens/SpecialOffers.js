@@ -25,7 +25,23 @@ export default class SpecialOffers extends React.Component {
     header: null,
   };
 
+
+  state = { loading:  true };
+
+
+async componentWillMount() {
+await Expo.Font.loadAsync({
+'Ionicons': require("../Fonts/Ionicons.ttf"),
+'Entypo': require("../Fonts/Entypo.ttf"),
+'Material Design Icons': require('../Fonts/MaterialCommunityIcons.ttf'),
+});
+this.setState({ loading: false });
+}
+
   render() {
+  	  	    if (this.state.loading) {
+      return <Expo.AppLoading />;
+    }
     return (
       <View
         style={{
@@ -45,20 +61,22 @@ export default class SpecialOffers extends React.Component {
           Explore
         </Text>
 
-        <View style={{ flexDirection: 'row' }}>
-          <IconButton text="Carpool" name="car-side" type="material-community"/>
-          <IconButton text="Carpool" name="car-side" type="material-community"  />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width:'85%', alignSelf: 'center', }}>
+          <IconButton text="Carpool" name="ios-car" type="ionicon"/>
+          <IconButton text="Shopping" name="shopping" type="material-community"  />
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <IconButton text="Carpool" name="car-side" type="material-community" />
-          <IconButton text="Carpool" name="car-side" type="material-community" />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width:'85%', alignSelf: 'center', }}>
+          <IconButton text="Alcohol" name="drink" type="entypo" />
+          <IconButton text="Food Delivery" name="food" type="material-community" />
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <IconButton text="Carpool" name="car-side" type="material-community" />
-          <IconButton text="Carpool" name="car-side" type="material-community" />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width:'85%', alignSelf: 'center',  }}>
+          <IconButton text="Moving" name="truck-delivery" type="material-community" />
+          <IconButton text="Chores" name="human-greeting" type="material-community" />
         </View>
+
+
       </View>
     );
   }
@@ -80,13 +98,13 @@ const IconButton = ({ text, name, type }) => (
         // reverseColor=''
         raised={true}
         color="#517fa4"
-        size={42}
+        size={38}
       />
       <Text
         style={{
           marginTop: '10%',
           color: '#fff',
-          fontSize: 34,
+          fontSize: 30,
           fontWeight: 'bold',
         }}>
         {text}
