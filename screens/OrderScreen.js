@@ -54,6 +54,95 @@ let data = [
     timing: '11am - 12pm',
     spicy: 'hot',
   },
+  
+  
+    {
+    name: 'Biryani',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    distance: '15-20km',
+    category: 'Indian',
+    rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
+    spicy: 'hot',
+  },
+  {
+    name: 'Qorma',
+    image: 'https://placeimg.com/640/480/tech',
+    distance: '15-20km',
+    category: 'Indian',
+    rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
+    spicy: 'medium',
+  },
+  {
+    name: 'Pasta',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    distance: '15-20km',
+    category: 'Italian',
+    rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
+    spicy: 'mild',
+  },
+  {
+    name: 'Bibima',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    distance: '15-20km',
+    category: 'Korean',
+    rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
+    spicy: 'hot',
+  },
+  
+  
+  
+      {
+    name: 'Pizza',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    distance: '15-20km',
+    category: 'Italian',
+    rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
+    spicy: 'hot',
+  },
+  {
+    name: 'Butter Chicken',
+    image: 'https://placeimg.com/640/480/tech',
+    distance: '15-20km',
+    category: 'Indian',
+    rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
+    spicy: 'medium',
+  },
+  {
+    name: 'Roasted Duck',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    distance: '15-20km',
+    category: 'Italian',
+    rating: 3.5,
+    price: '$',
+    timing: '11am - 12pm',
+    spicy: 'mild',
+  },
+  {
+    name: 'Kimchi',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    distance: '15-20km',
+    category: 'Korean',
+    rating: 3.5,
+    price: '$$',
+    timing: '11am - 12pm',
+    spicy: 'hot',
+  },
 ];
 
 var processData = () => {
