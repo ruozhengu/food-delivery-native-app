@@ -187,7 +187,6 @@ export default class OrderScreen extends Component {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          paddingTop: 44,
           // width: '100%',
           // backgroundColor: '#ecf0f0',
         }}>
@@ -202,7 +201,7 @@ export default class OrderScreen extends Component {
               }}
               title={
                 <View style={{marginLeft:10}}>
-                <Text style={{fontSize:20, title: 'lucida grande'}}>{item.name}</Text>
+                <Text style={{fontSize:20,}}>{item.name}</Text>
                 <View style={{ flexDirection: 'row', marginLeft:0}}>
                   <Text style={{ fontSize: 15 }}>$15  | </Text>
                   <MaterialCommunityIcons

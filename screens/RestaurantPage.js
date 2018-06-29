@@ -41,7 +41,6 @@ static navigationOptions = {
           third: InfoScreen,
         })}
         onIndexChange={index => this.setState({ index })}
-        initialLayout={{ width: Dimensions.get('window').width }}
       />
     );
   }
