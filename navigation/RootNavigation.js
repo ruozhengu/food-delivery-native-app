@@ -3,13 +3,20 @@ import { Notifications } from 'expo';
 import { createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import LaunchScreen from '../screens/LaunchScreen'
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const AppNavigator = createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+  Launch: LaunchScreen,
   Main: MainTabNavigator,
-});
+},
+{
+  initialRouteName: 'Launch',
+}
+
+);
 
 export default class RootNavigation extends React.Component {
   componentDidMount() {
