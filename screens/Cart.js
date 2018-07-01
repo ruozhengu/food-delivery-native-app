@@ -10,11 +10,22 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
+import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { Badge, Icon, Avatar } from 'react-native-material-ui';
+
 import { MonoText } from '../components/StyledText';
 
 export default class Cart extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'asf',
+    tabBarLabel : "Categories",
+     tabBarIcon : ({focused}) => (
+    <Badge text="3" >
+  <MaterialCommunityIcons 
+    name='cart' 
+    size={25} 
+    />
+    </Badge>),
   };
 
   render() {

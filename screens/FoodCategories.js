@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
-import { Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
 
 
 let data = [
@@ -78,6 +78,13 @@ let data = [
 export default class App extends Component {
   static navigationOptions = {
     header: null,
+      tabBarLabel : "Categories",
+  tabBarIcon : ({focused}) => (
+    <MaterialIcons
+      name='search'
+      size={25}
+    />
+  )
   };
 
   constructor(props) {

@@ -18,7 +18,7 @@ export default class LaunchScreen extends Component {
     super(props);
 
     this.state = { locationResult: null };
-    this.handlePress = this.handlePress.bind(this);
+    this.handleFindPress = this.handleFindPress.bind(this);
   }
 
   componentDidMount() {
@@ -37,9 +37,16 @@ export default class LaunchScreen extends Component {
     this.setState({ locationResult: JSON.stringify(location) });
   };
 
-  handlePress() {
-    console.log('button pressed');
+  handleFindPress() {
+    console.log('Find me button pressed');
     Alert.alert(this.state.locationResult);
+    this.props.navigation.navigate('Main', {location:this.state.locationResult});
+  }
+  
+  handleClosePress() {
+    console.log('close button pressed');
+    Alert.alert(this.state.locationResult);
+    this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
 
   render() {
@@ -53,7 +60,11 @@ export default class LaunchScreen extends Component {
         <View style={styles.overlay} />
 
         <View style={styles.close}>
-          <MaterialIcons name="close" color="white" size={33} />
+          <MaterialIcons
+          name="close" 
+          color="white" 
+          size={35} 
+          onPress={()=> this.handleClosePress()} />
         </View>
 
         <Text style={styles.heading}>Hungry?</Text>
@@ -71,7 +82,7 @@ export default class LaunchScreen extends Component {
             backgroundColor="#1073ba"
             backgroundActive="#074a7a"
             type="primary"
-            onPress={() => this.handlePress()}>
+            onPress={() => this.handleFindPress()}>
             Find Me!
           </AwesomeButtonRick>
         </View>
@@ -88,8 +99,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 46,
     right: 40,
-    width: 25,
-    height: 25,
+    width: 35,
+    height: 35,
+    alignItems:'center',
+    justifyContent:'center',
   },
   overlay: {
     position: 'absolute',
@@ -106,7 +119,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: '30%',
-    //marginRight: '45%',
     color: '#e8e1e1',
   },
   paragraph: {

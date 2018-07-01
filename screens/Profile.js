@@ -14,13 +14,22 @@ import {
 import { Avatar, Icon, ListItem } from 'react-native-elements';
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import { MaterialIcons, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+// import MaterialIcons from '../Icons/MaterialIcons.tff';
+// import Ionicons from '../Icons/Ionicons.tff';
+// import MaterialCommunityIcons from '../Icons/MaterialCommunityIcons.tff';
 
 
-
-export default class App extends Component {
+export default class ProfileScreen extends Component {
   static navigationOptions = {
     header: null,
+      tabBarLabel : "Profile",
+  tabBarIcon : ({focused}) => (
+    <Feather 
+      name="user"
+      size={25}
+    />
+  )
   };
 
   constructor(props) {

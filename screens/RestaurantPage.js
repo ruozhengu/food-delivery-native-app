@@ -18,10 +18,17 @@ import InfoScreen from './InfoScreen'
 
 export default class RestaurantPage extends Component {
 
-static navigationOptions = {
-    title: 'McDonalds',
-    //header: null,
+  static navigationOptions = ({ navigation }) => {
+    // const { params } = navigation.state;
+
+    return {
+      title:navigation.state.params.name,
+      
+      // header:<Text style={{backgroundColor:'#fff'}}>THIS IS THE HEADER</Text>,
+    };
   };
+
+
  state = {
     index: 0,
     routes: [

@@ -13,16 +13,20 @@ import {
 
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
-import {
-  Ionicons,
-  MaterialCommunityIcons,
-  SimpleLineIcons,
-  Feather,
-} from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
 
-export default class SpecialOffers extends React.Component {
+export default class Explore extends React.Component {
   static navigationOptions = {
     header: null,
+    tabBarAccessibilityLabel:'Explore',
+      tabBarLabel : "Explore",
+  tabBarIcon : ({focused}) => (
+    <FontAwesome
+      focused = {focused}
+      name='wpexplorer'
+      size={25}
+    />
+  )
   };
 
 
@@ -68,7 +72,7 @@ this.setState({ loading: false });
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', width:'85%', alignSelf: 'center', }}>
           <IconButton text="Alcohol" name="drink" type="entypo" />
-          <IconButton text="Food Delivery" name="food" type="material-community" />
+          <IconButton text="Delivery" name="food" type="material-community" />
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', width:'85%', alignSelf: 'center',  }}>

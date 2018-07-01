@@ -15,7 +15,7 @@ import {
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
-import { Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation';
 
 import RestaurantPage from './RestaurantPage'
@@ -23,25 +23,27 @@ import RestaurantPage from './RestaurantPage'
 let data = [
   {
     name: 'McDonalds',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image:
+      'https://www.mcdonalds.com/content/dam/prelaunch/ca/web/promotions/desktop/en/McDELIVERY-PromoTile.jpg',
     distance: '15-20km',
-    category: 'Mexican',
+    category: 'Fast Food',
     rating: 3.5,
     price: '$$',
     timing: '11am - 12pm',
   },
   {
     name: 'KFC',
-    image: 'https://placeimg.com/640/480/tech',
+    image: 'http://digitalspyuk.cdnds.net/17/26/980x490/landscape-1498837520-kfc-chicken-1.jpg',
     distance: '15-20km',
-    category: 'Mexican',
+    category: 'Fast Food',
     rating: 3.5,
     price: '$',
     timing: '11am - 12pm',
   },
   {
     name: 'Italian',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
@@ -50,7 +52,8 @@ let data = [
   },
   {
     name: 'French',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image:
+      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
@@ -65,12 +68,13 @@ class RestaurantList extends Component {
     header: null,
   };
 
-  constructor(props) {
+  constructor(props) {  
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2,
       }).cloneWithRows(data),
+      location:this.props.navigation.state.params.location,
     };
   }
 
@@ -82,7 +86,7 @@ class RestaurantList extends Component {
         dataSource={this.state.dataSource}
         renderRow={rowData => (
           <TouchableOpacity style={styles.touchable}
-          onPress={() => this.props.navigation.navigate('Restaurant')}>
+          onPress={() => this.props.navigation.navigate('Restaurant', { name: rowData.name })}>
             <Card containerStyle={styles.card} image={{ uri: rowData.image }}>
               <View style={styles.topRow}>
                 <Text style={styles.restaurantName}> {rowData.name} - {rowData.price}</Text>
@@ -138,23 +142,31 @@ class RestaurantList extends Component {
 }
 
 
-export default class app extends Component {
-    static navigationOptions = {
-    title: 'Home',
-    header: null,
-  };
-  render() {
-    return <RootNavi />;
-  }
-}
+// export default class app extends Component {
+//     static navigationOptions = {
+//     title: 'Home',
+//     header: null,
+//   };
+//   render() {
+//     return <RootNavi />;
+//   }
+// }
 
-let RootNavi = createStackNavigator(
+export default RootNavi = createStackNavigator(
   {
-  Home: RestaurantList,
-  Restaurant: RestaurantPage,
+  Home: {
+    screen: RestaurantList
+
   },
+  Restaurant: {
+    screen: RestaurantPage
+  }
+
+  },
+
   {
     initialRouteName: 'Home',
+    initialRouteParams: { location: 'something' }
   }
 );
 
