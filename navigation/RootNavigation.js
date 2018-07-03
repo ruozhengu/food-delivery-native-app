@@ -9,11 +9,15 @@ import registerForPushNotificationsAsync from '../api/registerForPushNotificatio
 const AppNavigator = createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  Launch: LaunchScreen,
-  Main: MainTabNavigator,
+  Launch: {
+    screen:LaunchScreen
+  },
+  Main: {
+    screen:MainTabNavigator
+  },
 },
 {
-  initialRouteName: 'Launch',
+  initialRouteName: 'Main',
 }
 
 );

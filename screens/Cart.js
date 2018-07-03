@@ -6,49 +6,72 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
 
-import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import {
+  MaterialIcons,
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  Feather,
+} from '@expo/vector-icons';
 import { Badge, Icon, Avatar } from 'react-native-material-ui';
 
-import { MonoText } from '../components/StyledText';
+import { addToCart, removeFromCart } from '../actions/actions';
 
-export default class Cart extends React.Component {
-  static navigationOptions = {
-    title: 'asf',
-    tabBarLabel : "Categories",
-     tabBarIcon : ({focused}) => (
-    <Badge text="3" >
-  <MaterialCommunityIcons 
-    name='cart' 
-    size={25} 
-    />
-    </Badge>),
+import { connect } from 'react-redux';
+
+var badge = '3';
+
+// console.log(store.getState())
+
+export class Cart extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      tabBarLabel: 'Orders',
+      tabBarIcon: () => (
+        <Badge text={badge}>
+          <MaterialCommunityIcons name="cart" size={25} />
+        </Badge>
+      ),
+    };
   };
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-         
-
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Cart</Text>
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>
-              Items in the cart go here.
-            </Text>
-          </View>
-
-        </ScrollView>
+      <View
+        style={{
+          paddingTop: 33,
+          flex: 1,
+          alignSelf: 'stretch',
+          backgroundColor: '#000',
+        }}>
+        <Button
+          onPress={() =>
+            this.props.navigation.setParams({
+              count: this.props.count.toString(),
+            })
+          }
+          color="#FFF"
+          title="Choose Color"
+        />
       </View>
     );
   }
-
 }
+
+const mapStateToProps = state => {
+  badge = state.manageCart.count.toString();
+  return {
+    data: state.manageCart.items,
+    count: state.manageCart.count,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);
 
 const styles = StyleSheet.create({
   container: {
@@ -79,16 +102,15 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
   },
-  titleContainer : {
-    alignItems : 'center',
-    marginBottom : 10
-
+  titleContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
   },
 
-  titleText : {
-    fontSize : 30,
-    color : '#000',
-    textAlign : 'left'
+  titleText: {
+    fontSize: 30,
+    color: '#000',
+    textAlign: 'left',
   },
   tabBarInfoContainer: {
     position: 'absolute',

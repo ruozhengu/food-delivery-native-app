@@ -22,8 +22,10 @@
     "react-native-star-rating": "^1.0.9",
     "react-native-tab-view": "^1.0.2",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^2.0.2",
+    "react-navigation": "^2.5.5",
     "react-navigation-material-bottom-tabs": "^0.3.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "semver": "^5.5.0"
   },
   "devDependencies": {

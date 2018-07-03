@@ -3,7 +3,14 @@ import { Text, View, StyleSheet, Dimensions } from 'react-native';
 
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 
-
+import {
+  MaterialIcons,
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  Feather,
+  FontAwesome,
+} from '@expo/vector-icons';
 // You can import from local files
 
 // or any pure javascript modules available in npm
@@ -23,7 +30,7 @@ export default class RestaurantPage extends Component {
 
     return {
       title:navigation.state.params.name,
-      
+
       // header:<Text style={{backgroundColor:'#fff'}}>THIS IS THE HEADER</Text>,
     };
   };
@@ -38,7 +45,21 @@ export default class RestaurantPage extends Component {
     ],
   };
 
+  renderTabBar=props =>
+  <TabBar
+    {...props}
+    indicatorStyle={{ backgroundColor: '#fff' }}
+    renderIcon={(props) => {<MaterialCommunityIcons
+                    name={'chili-mild' }
+                    color="red"
+                    size={19}
+                  />}}
+    tabStyle={{backgroundColor: "#000", height:45}}
+  />
+
+  
   render() {
+  	// console.log(this.props)
     return (
       <TabView
         navigationState={this.state}
@@ -48,6 +69,7 @@ export default class RestaurantPage extends Component {
           third: InfoScreen,
         })}
         onIndexChange={index => this.setState({ index })}
+        renderTabBar={this.renderTabBar}
       />
     );
   }

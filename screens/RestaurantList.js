@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-import {
-  Button,
-  Alert,
-  TouchableOpacity,
-  Dimensions,
-  Image,
-  ListView,
-  PixelRatio,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {TouchableOpacity, Dimensions, Image, ListView, StyleSheet, Text, View} from 'react-native';
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
 
-import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons, Feather } from '@expo/vector-icons';
+import {
+  MaterialIcons,
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons,
+  Feather,
+} from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation';
 
-import RestaurantPage from './RestaurantPage'
+import RestaurantPage from './RestaurantPage';
 
 let data = [
   {
@@ -41,26 +37,27 @@ let data = [
     timing: '11am - 12pm',
   },
   {
-    name: 'Italian',
+  name: 'Congee Queen',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://cdn.doordash.com/media/restaurant/cover/Congee-Queen.png',
     distance: '15-20km',
-    category: 'Mexican',
+    category: 'Chinese',
     rating: 3.5,
     price: '$',
     timing: '11am - 12pm',
   },
   {
-    name: 'French',
+    name: 'BBQ Tonight',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'http://rave.pk/wp-content/uploads/2015/07/bbq.jpg',
     distance: '15-20km',
-    category: 'Mexican',
+    category: 'Pakistani',
     rating: 3.5,
     price: '$$',
     timing: '11am - 12pm',
   },
 ];
+
 
 class RestaurantList extends Component {
   static navigationOptions = {
@@ -68,40 +65,49 @@ class RestaurantList extends Component {
     header: null,
   };
 
-  constructor(props) {  
+  constructor(props) {
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2,
       }).cloneWithRows(data),
-      location:this.props.navigation.state.params.location,
+      // location: this.props.navigation.state.params.location,
     };
   }
 
   render() {
+    // console.log(this.props.navigation);
     const { onScroll = () => {} } = this.props;
     return (
       <ListView
         contentContainerStyle={styles.listContainer}
         dataSource={this.state.dataSource}
         renderRow={rowData => (
-          <TouchableOpacity style={styles.touchable}
-          onPress={() => this.props.navigation.navigate('Restaurant', { name: rowData.name })}>
+          <TouchableOpacity
+            style={styles.touchable}
+            onPress={() =>
+              this.props.navigation.navigate('Restaurant', {
+                name: rowData.name,
+              })
+            }>
             <Card containerStyle={styles.card} image={{ uri: rowData.image }}>
               <View style={styles.topRow}>
-                <Text style={styles.restaurantName}> {rowData.name} - {rowData.price}</Text>
+                <Text style={styles.restaurantName}>
+                  {' '}
+                  {rowData.name} - {rowData.price}
+                </Text>
                 <Text style={styles.distance}> {rowData.distance} </Text>
               </View>
               <View style={styles.bottomRow}>
-                <Text style={styles.category}> {rowData.category} 
-                  <Feather 
-                  style={{ padding: 1, }} 
-    name='star' 
-    color="#d7e035"
-    size={20}
-    />
-    
-
+                <Text style={styles.category}>
+                  {' '}
+                  {rowData.category}
+                  <Feather
+                    style={{ padding: 1 }}
+                    name="star"
+                    color="#d7e035"
+                    size={20}
+                  />
                   {rowData.rating}
                 </Text>
                 <Text style={styles.timing}> {rowData.timing} </Text>
@@ -119,7 +125,8 @@ class RestaurantList extends Component {
               <View key="background">
                 <Image
                   source={{
-                    uri: 'https://i.pinimg.com/736x/7b/ff/9f/7bff9fcfe8d530c7326a57ba66479b81--restaurant-branding-restaurant-interiors.jpg',
+                    uri:
+                      'https://i.pinimg.com/736x/7b/ff/9f/7bff9fcfe8d530c7326a57ba66479b81--restaurant-branding-restaurant-interiors.jpg',
                     width: window.width,
                     height: PARALLAX_HEADER_HEIGHT,
                   }}
@@ -129,9 +136,7 @@ class RestaurantList extends Component {
             )}
             renderForeground={() => (
               <View key="parallax-header" style={styles.parallaxHeader}>
-                <Text style={styles.Title}>
-                  Restaurants
-                </Text>
+                <Text style={styles.Title}>Restaurants</Text>
               </View>
             )}
           />
@@ -142,39 +147,25 @@ class RestaurantList extends Component {
 }
 
 
-// export default class app extends Component {
-//     static navigationOptions = {
-//     title: 'Home',
-//     header: null,
-//   };
-//   render() {
-//     return <RootNavi />;
-//   }
-// }
 
-export default RootNavi = createStackNavigator(
+export default (RootNavi = createStackNavigator(
   {
-  Home: {
-    screen: RestaurantList
-
+    Home: {
+      screen: RestaurantList,
+    },
+    Restaurant: {
+      screen: RestaurantPage,
+    },
   },
-  Restaurant: {
-    screen: RestaurantPage
-  }
-
-  },
-
   {
     initialRouteName: 'Home',
-    initialRouteParams: { location: 'something' }
+    // initialRouteParams: { location: 'something' },
   }
-);
-
+));
 
 const window = Dimensions.get('window');
 
-const AVATAR_SIZE = 120;
-const ROW_HEIGHT = 60;
+
 const PARALLAX_HEADER_HEIGHT = 150;
 const STICKY_HEADER_HEIGHT = 70;
 
@@ -209,17 +200,12 @@ const styles = StyleSheet.create({
     // fontSize: 16,
     fontWeight: 'bold',
   },
-  distance: {
-
-  },
+  distance: {},
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
   },
-  category: {
-    
-  },
+  category: {},
   overlay: {
     position: 'absolute',
     top: 0,

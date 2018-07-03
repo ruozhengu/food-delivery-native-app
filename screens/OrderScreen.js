@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Image, SectionList, Text, View, StyleSheet } from 'react-native';
-import { Avatar, Icon, ListItem } from 'react-native-elements';
+import { Alert, Image, SectionList, Text, View, StyleSheet } from 'react-native';
+import {  Avatar, Icon, ListItem } from 'react-native-elements';
 import {
   MaterialIcons,
   Ionicons,
@@ -9,6 +9,16 @@ import {
   Feather,
   FontAwesome,
 } from '@expo/vector-icons';
+
+
+import {
+  addToCart,
+} from '../actions/actions'
+
+import { connect } from 'react-redux'
+
+
+
 
 // You can import from local files
 let data = [
@@ -175,11 +185,19 @@ var processData = () => {
   return { dt };
 };
 
-console.log(processData().dt);
 
-// console.log(dd.secIDs);
+
+
+
+
 // or any pure javascript modules available in npm
-export default class OrderScreen extends Component {
+export class OrderScreen extends Component {
+	
+
+	handleAddToCart(obj) {
+    	this.props.dispatch(addToCart(obj))
+  	}
+
   render() {
     return (
       <View
@@ -195,34 +213,36 @@ export default class OrderScreen extends Component {
           renderItem={({ item, index, section }) => (
             <ListItem
               containerStyle={{
-                height: 72,
+              	backgroundColor:"#ecf0f1",
+                height: 70,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
               title={
                 <View style={{marginLeft:10}}>
-                <Text style={{fontSize:20,}}>{item.name}</Text>
+                <Text style={{fontSize:19,}}>{item.name}</Text>
                 <View style={{ flexDirection: 'row', marginLeft:0}}>
-                  <Text style={{ fontSize: 15 }}>$15  | </Text>
+                  <Text style={{ fontSize: 14 }}>$15  | </Text>
                   <MaterialCommunityIcons
                     name={'chili-' + item.spicy}
                     color="red"
-                    size={19}
+                    size={18}
                   />
                 </View>
                 </View>
               }
               titleStyle={{ backgroundColor:'#000' }}
               avatar={<Image
-          style={{width: 80, height: 55}}
+          style={{width: 75, height: 50}}
           source={{uri: item.image}}
         />}
               rightIcon={
                 <FontAwesome
-                  style={{ alignSelf: 'center', padding:8 }}
+                  style={{ alignSelf: 'center', paddingRight:13 }}
                   name="cart-arrow-down"
                   color="#a09f9f"
-                  size={35}
+                  size={30}
+                  onPress={()=>{this.handleAddToCart(item)}}
                 />
               }
             />
@@ -238,19 +258,30 @@ export default class OrderScreen extends Component {
   }
 }
 
+
+const mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+// upgrade our component to become Redux-aware
+export default connect(mapStateToProps)(OrderScreen)
+
+
 const InfoText = ({ text }) => (
   <View
     style={{
-      paddingTop: 20,
-      paddingBottom: 12,
-      backgroundColor: '#F4F5F4',
+      paddingTop: 10,
+      paddingBottom: 10,
+      backgroundColor: '#9d9da5',
       width: '100%',
     }}>
     <Text
       style={{
         fontSize: 16,
         marginLeft: 20,
-        color: 'gray',
+        color: '#fff',
         fontWeight: '500',
       }}>
       {text}
