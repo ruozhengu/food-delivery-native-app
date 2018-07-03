@@ -2,13 +2,19 @@ import React from 'react';
 import {
   Image,
   Platform,
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   Button,
   View,
+  ListView,
+  InteractionManager,
 } from 'react-native';
+
+import {  ListItem } from 'react-native-elements';
+
 
 import {
   MaterialIcons,
@@ -24,48 +30,128 @@ import { addToCart, removeFromCart } from '../actions/actions';
 
 import { connect } from 'react-redux';
 
-var badge = '3';
-
-// console.log(store.getState())
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+    });
 
 export class Cart extends React.Component {
   static navigationOptions = ({ navigation }) => {
+    badgeCount = navigation.state.params ? navigation.state.params.count : '0'
     return {
       tabBarLabel: 'Orders',
       tabBarIcon: () => (
-        <Badge text={badge}>
+        <Badge text={badgeCount}>
           <MaterialCommunityIcons name="cart" size={25} />
         </Badge>
       ),
     };
   };
 
+
+
+constructor(props) {
+    super(props);
+
+    this.state = {
+      dataSource: ds.cloneWithRows([]),
+    };
+  }
+
+
+
+
+
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.count != this.props.count) {
+      this.setState({dataSource: ds.cloneWithRows(nextProps.data) });
+      this.props.navigation.setParams({ count: nextProps.count.toString() });
+      console.log();
+    }
+  }
+
+
+  handleRemoveFromCart(obj) {
+      this.props.dispatch(removeFromCart(obj))
+    }
+
+
   render() {
+    // console.log(this.props.navigation.state)
     return (
-      <View
-        style={{
-          paddingTop: 33,
-          flex: 1,
-          alignSelf: 'stretch',
-          backgroundColor: '#000',
-        }}>
-        <Button
-          onPress={() =>
-            this.props.navigation.setParams({
-              count: this.props.count.toString(),
-            })
-          }
-          color="#FFF"
-          title="Choose Color"
+      
+
+      
+       <View style={styles.container}>
+        <InfoText text='Your Orders' />
+        <ListView
+        enableEmptySections={true}
+        style={{backgroundColor:'#fff',}}
+          dataSource={this.state.dataSource}
+          renderRow={rowData => (
+            
+            <ListItem
+              containerStyle={{
+                backgroundColor:"#ecf0f1",
+                height: 70,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              title={
+                <View style={{marginLeft:10}}>
+                <Text style={{fontSize:19,}}>{rowData.item.name}</Text>
+                <View style={{ flexDirection: 'row', marginLeft:0}}>
+                  <Text style={{ fontSize: 14 }}>$15  | </Text>
+                  <MaterialCommunityIcons
+                    name={'chili-' + rowData.item.spicy}
+                    color="red"
+                    size={18}
+                  />
+                </View>
+                </View>
+              }
+              titleStyle={{ backgroundColor:'#000' }}
+              avatar={<Image
+          style={{width: 75, height: 50}}
+          source={{uri: rowData.item.image}}
+        />}
+              rightIcon={
+                <TouchableOpacity 
+                style={{width: 65, height:42, alignItems:'center',justifyContent:'center'}}
+                onPress={()=>{this.handleRemoveFromCart(rowData.item)}}
+                >
+                <FontAwesome
+                  // style={{ alignSelf: 'center', paddingRight:13 }}
+                  name="close"
+                  color="#e23147"
+                  size={30}
+                  
+                />
+                </TouchableOpacity>
+              }
+            />
+
+
+            
+          )}
         />
+
       </View>
+
+
+
+
+
     );
   }
 }
 
 const mapStateToProps = state => {
-  badge = state.manageCart.count.toString();
+  console.log('------------------------')
+  console.log(state.manageCart.items)
+  console.log('------------------------')
   return {
+
     data: state.manageCart.items,
     count: state.manageCart.count,
   };
@@ -73,10 +159,38 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(Cart);
 
+
+
+
+const InfoText = ({ text }) => (
+  <View
+    style={{
+      paddingTop: 12,
+      paddingBottom: 12,
+      backgroundColor: '#F4F5F4',
+    }}>
+    <Text
+      style={{
+        fontSize: 16,
+        marginLeft: 20,
+        color: '#000',
+        fontWeight: '500',
+      }}>
+      {text}
+    </Text>
+  </View>
+);
+
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F4F5F4',
+    // alignItems:'center',
+    // justifyContent:'center',
+    paddingTop:12,
   },
   contentContainer: {
     paddingTop: 30,

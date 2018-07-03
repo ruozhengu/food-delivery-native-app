@@ -35,6 +35,9 @@ export function addToCart(item) {
 }
 
 export function removeFromCart(item) {
+	console.log('===============')
+	console.log(item)
+	console.log('===============')
   return { type: REMOVE_FROM_CART, item }
 }
 

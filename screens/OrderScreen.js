@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, SectionList, Text, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, Alert, Image, SectionList, Text, View, StyleSheet } from 'react-native';
 import {  Avatar, Icon, ListItem } from 'react-native-elements';
 import {
   MaterialIcons,
@@ -237,13 +237,18 @@ export class OrderScreen extends Component {
           source={{uri: item.image}}
         />}
               rightIcon={
+              	<TouchableOpacity 
+              	style={{width: 65, height:42, alignItems:'center',justifyContent:'center'}}
+              	onPress={()=>{this.handleAddToCart(item)}}
+              	>
                 <FontAwesome
-                  style={{ alignSelf: 'center', paddingRight:13 }}
+                  // style={{ alignSelf: 'center', paddingRight:13 }}
                   name="cart-arrow-down"
-                  color="#a09f9f"
+                  color="#25aa4d"
                   size={30}
-                  onPress={()=>{this.handleAddToCart(item)}}
+                  
                 />
+                </TouchableOpacity>
               }
             />
           )}
@@ -274,14 +279,14 @@ const InfoText = ({ text }) => (
     style={{
       paddingTop: 10,
       paddingBottom: 10,
-      backgroundColor: '#9d9da5',
+      backgroundColor: '#F4F5F4',
       width: '100%',
     }}>
     <Text
       style={{
         fontSize: 16,
         marginLeft: 20,
-        color: '#fff',
+        color: '#000',
         fontWeight: '500',
       }}>
       {text}
