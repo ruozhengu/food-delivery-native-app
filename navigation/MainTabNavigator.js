@@ -119,7 +119,7 @@ export default createMaterialBottomTabNavigator({
   CartScreen: { screen: CartScreen },
   ProfileScreen: { screen: ProfileScreen },
 }, {
-  initialRouteName: 'CartScreen',
+  initialRouteName: 'RestaurantList',
   activeTintColor: 'blue',
   inactiveTintColor: '#3e2465',
   barStyle: { backgroundColor: '#dfdee0', height:'7%', alignItems:'center', justifyContent:'center'},

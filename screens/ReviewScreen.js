@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ListView, Alert, Text, View, StyleSheet } from 'react-native';
+import { Button, ListView, TextInput, Alert, Text, View, StyleSheet } from 'react-native';
 import { Constants } from 'expo';
 
 import ActionButton from 'react-native-action-button';
-
+import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
 import {
   Ionicons,
   MaterialCommunityIcons,
@@ -157,9 +157,68 @@ this.setState({ loading: false });
           )}
         />
         
+
+
+        <PopupDialog
+        containerStyle={{paddingBottom:'50%'}}
+        height={254}
+        dialogTitle={<DialogTitle title="How was your experience?" titleTextStyle={{alignSelf:'center',fontSize:23,fontWeight:'bold'}} />}
+    ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+  >
+
+    <View style={{}}>
+    <StarRating
+        disabled={false}
+        emptyStar={'md-star-outline'}
+        fullStar={'md-star'}
+        halfStar={'md-star-half'}
+        iconSet={'Ionicons'}
+        maxStars={5}
+        rating={this.state.ratings}
+        selectedStar={(rating) => this.ratingCompleted(rating)}
+        fullStarColor={'red'}
+        starSize={60}
+        containerStyle={{justifyContent: 'center'}}/>
+
+      <TextInput 
+      ref={input => { this.textInput = input }} 
+      style={{margin: 5,
+      height: 60,
+      borderColor: '#000',
+      borderWidth: 1}}
+      multiline={true}
+      underlineColorAndroid="#fff"
+      placeholder="Say something nice..."/>
+      <Button 
+              onPress={() => {
+      this.popupDialog.dismiss();
+      this.textInput.clear();
+    }}
+
+      title='Submit'/>
+    </View>
+
+  </PopupDialog>
+
+
+
                 <ActionButton 
         buttonColor="rgba(231,76,60,1)"
-        size={44}
+        size={43}
+        
+        onPress={() => {
+      this.popupDialog.show();
+    }}
+
+        renderIcon={() => <Feather
+                    style={{ padding: 1, alignSelf: 'center' }}
+                    name="plus"
+                    color="#fff"
+                    size={26}
+                  />}
+        // buttonText="order"
+        // buttonTextStyle={{fontSize:13}}
+
         />
       </View>
     );

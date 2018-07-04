@@ -244,7 +244,7 @@ export class OrderScreen extends Component {
                 <FontAwesome
                   // style={{ alignSelf: 'center', paddingRight:13 }}
                   name="cart-arrow-down"
-                  color="#25aa4d"
+                  color="green"
                   size={30}
                   
                 />

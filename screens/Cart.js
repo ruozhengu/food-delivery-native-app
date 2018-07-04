@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import {  ListItem } from 'react-native-elements';
+import ActionButton from 'react-native-action-button';
 
 
 import {
@@ -26,13 +27,25 @@ import {
 } from '@expo/vector-icons';
 import { Badge, Icon, Avatar } from 'react-native-material-ui';
 
-import { addToCart, removeFromCart } from '../actions/actions';
+import {MapView} from 'expo'
+import { addToCart, removeFromCart, emptyCart } from '../actions/actions';
 
 import { connect } from 'react-redux';
 
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
     });
+
+
+const data = {
+  email: 'myrestaurant@gmail.com',
+  phone: '209-532-7895',
+  address: "15 Merchant's Wharf, Toronto",
+  latitude: 43.642234,
+  longitude: -79.376046,
+};
+
+
 
 export class Cart extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -54,6 +67,12 @@ constructor(props) {
 
     this.state = {
       dataSource: ds.cloneWithRows([]),
+       mapRegion: {
+      latitude: data.latitude,
+      longitude: data.longitude,
+      latitudeDelta: 0.0622,
+      longitudeDelta: 0.0321,
+    },
     };
   }
 
@@ -75,18 +94,28 @@ constructor(props) {
       this.props.dispatch(removeFromCart(obj))
     }
 
+  handleOrderCart(){
+    Alert.alert('Place Order',
+      'Are you sure you want to place this order?'
+      ,[
+    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+    {text: 'OK', onPress: () => {console.log('OK Pressed'); this.props.dispatch(emptyCart())}},
+  ])
+  }
 
   render() {
     // console.log(this.props.navigation.state)
     return (
       
 
-      
+      <View style={{paddingTop:12,height:'100%'}}>
+
+      <InfoText text='Your Orders' />
+       
        <View style={styles.container}>
-        <InfoText text='Your Orders' />
         <ListView
         enableEmptySections={true}
-        style={{backgroundColor:'#fff',}}
+        style={{backgroundColor:'#b7b3b3',height:'100%'}}
           dataSource={this.state.dataSource}
           renderRow={rowData => (
             
@@ -136,10 +165,47 @@ constructor(props) {
           )}
         />
 
+
+                <ActionButton 
+        buttonColor="rgba(231,76,60,1)"
+        position='center'
+        buttonColor='#000'
+        size={44}
+        onPress={()=>{this.handleOrderCart()}}
+
+        renderIcon={() => <MaterialIcons
+                    style={{ padding: 1, alignSelf: 'center' }}
+                    name="playlist-add-check"
+                    color="#fff"
+                    size={30}
+                  />}
+        // buttonText="order"
+        // buttonTextStyle={{fontSize:13}}
+
+        />
+      </View>
+      
+
+// <InfoText text="Track your Delivery" />
+      <View style={{height:'45%'}}>
+      <MapView
+          style={{ alignSelf: 'stretch', height: '100%' }}
+          region={this.state.mapRegion}
+          zoomEnabled={false}
+          scrollEnabled={false}
+          loadingEnabled={true}
+          
+        >
+                      <MapView.Marker
+          coordinate={ this.state.mapRegion }
+        />
+      
+        
+      </MapView>
       </View>
 
 
-
+</View>
 
 
     );
@@ -186,11 +252,10 @@ const InfoText = ({ text }) => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#F4F5F4',
     // alignItems:'center',
     // justifyContent:'center',
-    paddingTop:12,
+    height:'45%'
   },
   contentContainer: {
     paddingTop: 30,
