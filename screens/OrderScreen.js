@@ -25,17 +25,14 @@ let data = [
   {
     name: 'Cheesburger',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-    distance: '15-20km',
+      'https://daily.jstor.org/wp-content/uploads/2017/11/dim_sum_dumplings_1050x700.jpg',
     category: 'Mexican',
-    rating: 3.5,
     price: '$$',
-    timing: '11am - 12pm',
     spicy: 'hot',
   },
   {
     name: 'Shrimp Fried Rice',
-    image: 'https://placeimg.com/640/480/tech',
+    image: 'https://s3-media2.fl.yelpcdn.com/bphoto/ynj5HBZ4MvYeNzeYBrQcJg/ls.jpg',
     distance: '15-20km',
     category: 'Italian',
     rating: 3.5,
@@ -45,7 +42,7 @@ let data = [
   },
   {
     name: 'Chicken Curry',
-    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    image: 'http://finedininglovers.cdn.crosscast-system.com/BlogPost/l_4620_StockFood-00400734.jpg',
     distance: '15-20km',
     category: 'Mexican',
     rating: 3.5,
@@ -56,7 +53,7 @@ let data = [
   {
     name: 'Pork Dumplings',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://www.gourmetfoodstore.com/images/gfs/topcat/right-french-cheese.jpg',
     distance: '15-20km',
     category: 'Chinese',
     rating: 3.5,
@@ -69,7 +66,7 @@ let data = [
     {
     name: 'Biryani',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://img.aws.livestrongcdn.com/ls-article-image-673/ds-photo/getty/article/83/159/496069654.jpg',
     distance: '15-20km',
     category: 'Indian',
     rating: 3.5,
@@ -79,7 +76,7 @@ let data = [
   },
   {
     name: 'Qorma',
-    image: 'https://placeimg.com/640/480/tech',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kielbasas.jpg/200px-Kielbasas.jpg',
     distance: '15-20km',
     category: 'Indian',
     rating: 3.5,
@@ -89,7 +86,7 @@ let data = [
   },
   {
     name: 'Pasta',
-    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    image: 'https://i.ytimg.com/vi/qgC9JY5y7Kc/maxresdefault.jpg',
     distance: '15-20km',
     category: 'Italian',
     rating: 3.5,
@@ -100,7 +97,7 @@ let data = [
   {
     name: 'Bibima',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kielbasas.jpg/200px-Kielbasas.jpg',
     distance: '15-20km',
     category: 'Korean',
     rating: 3.5,
@@ -114,7 +111,7 @@ let data = [
       {
     name: 'Pizza',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kielbasas.jpg/200px-Kielbasas.jpg',
     distance: '15-20km',
     category: 'Italian',
     rating: 3.5,
@@ -124,7 +121,7 @@ let data = [
   },
   {
     name: 'Butter Chicken',
-    image: 'https://placeimg.com/640/480/tech',
+    image: 'https://daily.jstor.org/wp-content/uploads/2017/11/dim_sum_dumplings_1050x700.jpg',
     distance: '15-20km',
     category: 'Indian',
     rating: 3.5,
@@ -134,7 +131,7 @@ let data = [
   },
   {
     name: 'Roasted Duck',
-    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    image: 'https://i.ytimg.com/vi/qgC9JY5y7Kc/maxresdefault.jpg',
     distance: '15-20km',
     category: 'Italian',
     rating: 3.5,
@@ -145,7 +142,7 @@ let data = [
   {
     name: 'Kimchi',
     image:
-      'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+      'https://s3-media2.fl.yelpcdn.com/bphoto/ynj5HBZ4MvYeNzeYBrQcJg/ls.jpg',
     distance: '15-20km',
     category: 'Korean',
     rating: 3.5,
@@ -192,11 +189,11 @@ var processData = () => {
 
 // or any pure javascript modules available in npm
 export class OrderScreen extends Component {
-	
+  
 
-	handleAddToCart(obj) {
-    	this.props.dispatch(addToCart(obj))
-  	}
+  handleAddToCart(obj) {
+      this.props.dispatch(addToCart(obj))
+    }
 
   render() {
     return (
@@ -213,7 +210,7 @@ export class OrderScreen extends Component {
           renderItem={({ item, index, section }) => (
             <ListItem
               containerStyle={{
-              	backgroundColor:"#ecf0f1",
+                backgroundColor:"#ecf0f1",
                 height: 70,
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -237,10 +234,10 @@ export class OrderScreen extends Component {
           source={{uri: item.image}}
         />}
               rightIcon={
-              	<TouchableOpacity 
-              	style={{width: 65, height:42, alignItems:'center',justifyContent:'center'}}
-              	onPress={()=>{this.handleAddToCart(item)}}
-              	>
+                <TouchableOpacity 
+                style={{width: 65, height:42, alignItems:'center',justifyContent:'center'}}
+                onPress={()=>{this.handleAddToCart(item)}}
+                >
                 <FontAwesome
                   // style={{ alignSelf: 'center', paddingRight:13 }}
                   name="cart-arrow-down"

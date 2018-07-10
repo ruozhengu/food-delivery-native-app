@@ -19,63 +19,35 @@ import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLin
 let data = [
   {
     name: 'Chinese',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://daily.jstor.org/wp-content/uploads/2017/11/dim_sum_dumplings_1050x700.jpg',
   },
   {
     name: 'Indian',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://s3-media2.fl.yelpcdn.com/bphoto/ynj5HBZ4MvYeNzeYBrQcJg/ls.jpg',
   },
   {
     name: 'Italian',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'http://finedininglovers.cdn.crosscast-system.com/BlogPost/l_4620_StockFood-00400734.jpg',
   },
   {
     name: 'French',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://www.gourmetfoodstore.com/images/gfs/topcat/right-french-cheese.jpg',
   },
   {
     name: 'Spicy',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://img.aws.livestrongcdn.com/ls-article-image-673/ds-photo/getty/article/83/159/496069654.jpg',
   },
   {
     name: 'Polish',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kielbasas.jpg/200px-Kielbasas.jpg',
   },
   {
     name: 'German',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'food',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 9',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 10',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 11',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 12',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 13',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
-  },
-  {
-    name: 'Category 14',
-    image: 'https://images.pexels.com/photos/89432/pexels-photo-89432.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb',
+    image: 'https://i.ytimg.com/vi/qgC9JY5y7Kc/maxresdefault.jpg',
   },
 ];
 
-export default class App extends Component {
+export default class FoodCategoryScreen extends Component {
   static navigationOptions = {
     header: null,
       tabBarLabel : "Categories",
@@ -108,11 +80,11 @@ export default class App extends Component {
         this.setState(
           {
             isLoading: false,
-            dataSource: ds.cloneWithRows(responseJson),
+            dataSource: ds.cloneWithRows(data),
           },
           function() {
             // In this block you can do something with new state.
-            this.arrayholder = responseJson;
+            this.arrayholder = data;
           }
         );
       })
@@ -127,7 +99,7 @@ export default class App extends Component {
 
   SearchFilterFunction(text) {
     const newData = this.arrayholder.filter(function(item) {
-      const itemData = item.fruit_name.toUpperCase();
+      const itemData = item.name.toUpperCase();
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
@@ -200,6 +172,7 @@ export default class App extends Component {
             
           renderRow={rowData => (
             <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('RestaurantList')}
               style={{
                 // backgroundColor: 'pink',
                 width: '50%',
@@ -219,9 +192,9 @@ export default class App extends Component {
                   width: '100%',
                   marginTop: 0,
                 }}
-                image={{ uri: 'https://placeimg.com/640/480/animals' }}
+                image={{ uri: rowData.image }}
                 imageStyle={{ backgroundColor: '#000', height: 120 }}
-                featuredTitle={rowData.fruit_name}
+                featuredTitle={rowData.name}
                 featuredTitleStyle={{ fontSize: 22, fontWeight: 'bold' }}
               />
             </TouchableOpacity>
