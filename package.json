@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "aws-amplify": "^0.4.8",
+    "aws-amplify-react-native": "^0.2.19",
     "babel-plugin-flow-react-proptypes": "^24.0.1",
     "babel-preset-es2016": "^6.24.1",
     "expo": "^27.0.1",

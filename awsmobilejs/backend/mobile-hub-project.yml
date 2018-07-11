@@ -4,44 +4,38 @@ apps:
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
-      sampleCloudApi: !com.amazonaws.mobilehub.v0.API 
+      RatedItemsCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
-          name: sampleCloudApi
+          name: RatedItemsCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths:
-          /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180709203842.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
+          /RatedItems: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/RatedItems-20180710192730.zip
+            description: 'Handler for calls to resource path : /RatedItems/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 8j0pP4LCVjaSnnPRIyZtAdaO+yEPlpYIry+Ub6Eeskw=
+            hashcode: SuGvcGSFV48RYyKKkaKlYzTaG02qmPgBrcd8kl8w3rQ=
             memorySize: '128'
-            modified: '2018-07-10T00:40:10.019+0000'
-            name: sampleLambda
+            modified: '2018-07-10T23:28:42.238+0000'
+            name: RatedItems
             runtime: nodejs6.10
             timeout: '3'
-            version: skwX907Z6rx1_0XHiGX5culSqNSYmFrc
-          '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/sampleLambda-20180709203842.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
+            version: 0ZC58sxL70vWP5g7mg572W.dp6fprnVl
+          '/RatedItems/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/RatedItems-20180710192730.zip
+            description: 'Handler for calls to resource path : /RatedItems/{proxy+}'
             enableCORS: true
             environment: {}
             handler: lambda.handler
-            hashcode: 8j0pP4LCVjaSnnPRIyZtAdaO+yEPlpYIry+Ub6Eeskw=
+            hashcode: SuGvcGSFV48RYyKKkaKlYzTaG02qmPgBrcd8kl8w3rQ=
             memorySize: '128'
-            modified: '2018-07-10T00:40:10.019+0000'
-            name: sampleLambda
+            modified: '2018-07-10T23:28:42.238+0000'
+            name: RatedItems
             runtime: nodejs6.10
             timeout: '3'
-            version: VjuDPJucIfq9JUHt6Z6K_WXpofyD5dsa
-  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
-    attributes:
-      enabled: true
-      visibility: public-global
-    components:
-      release: !com.amazonaws.mobilehub.v0.Bucket {}
+            version: kew9h9.4Kpi92Fq89_AZWPi3K3aLVu78
   database: !com.amazonaws.mobilehub.v0.Database 
     components:
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
@@ -49,14 +43,11 @@ features:
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               category: S
-              image: S
+              details: S
               itemId: S
-              latitude: N
-              longitude: N
               name: S
-              something1: S
-              something2: S
-              spicy: S
+              ratingCount: N
+              ratingValue: N
               userId: S
             hashKeyName: userId
             hashKeyType: S
@@ -64,60 +55,16 @@ features:
               - !com.amazonaws.mobilehub.v0.NoSQLIndex 
                 hashKeyName: category
                 hashKeyType: S
-                indexName: Categories
-                rangeKeyName: longitude
+                indexName: Ratings
+                rangeKeyName: ratingValue
                 rangeKeyType: N
             rangeKeyName: itemId
             rangeKeyType: S
-            tableName: ___DYNAMIC_PREFIX___-TestLocation
-            tablePrivacy: public
-          - !com.amazonaws.mobilehub.v0.NoSQLTable 
-            attributes:
-              email: S
-              personId: S
-              personName: S
-              phone: S
-              teamId: S
-            hashKeyName: teamId
-            hashKeyType: S
-            indexes:
-              - !com.amazonaws.mobilehub.v0.NoSQLIndex 
-                hashKeyName: teamId
-                hashKeyType: S
-                indexName: personName-index
-                rangeKeyName: personName
-                rangeKeyType: S
-            rangeKeyName: personId
-            rangeKeyType: S
-            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
-            tablePrivacy: public
+            tableName: ___DYNAMIC_PREFIX___-RatedItems
+            tablePrivacy: protected
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
-      messaging-sms: !com.amazonaws.mobilehub.v0.PinpointMessaging 
-        attributes:
-          deliveryType: sms
-  sign-in: !com.amazonaws.mobilehub.v0.SignIn 
-    attributes:
-      enabled: true
-      optional-sign-in: true
-    components:
-      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
-        attributes:
-          alias-attributes:
-            - email
-            - phone_number
-          mfa-configuration: ON
-          name: userpool
-          password-policy: !com.amazonaws.mobilehub.ConvertibleMap 
-            min-length: '8'
-            require-lower-case: true
-            require-numbers: true
-            require-symbols: true
-            require-upper-case: true
-  user-files: !com.amazonaws.mobilehub.v0.UserFiles 
-    attributes:
-      enabled: true
-      wildcard-cors-policy: true
-name: FoodDelivery
-region: us-east-2
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn {}
+name: FoodDeliveryApp
+region: us-east-1

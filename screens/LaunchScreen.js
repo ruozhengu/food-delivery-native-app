@@ -13,13 +13,20 @@ import AwesomeButtonRick from 'react-native-really-awesome-button';
 import { MaterialIcons } from '@expo/vector-icons';
 
 
+import Amplify, { API } from 'aws-amplify';
+import aws_exports from '../aws-exports';
+Amplify.configure(aws_exports);
+
+
+
 export default class LaunchScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { locationResult: null };
+    this.state = { locationResult: null, apiResponse: null, noteId: '111' };
     this.handleFindPress = this.handleFindPress.bind(this);
   }
+
 
   componentDidMount() {
     this._getLocationAsync();
@@ -37,8 +44,59 @@ export default class LaunchScreen extends Component {
     this.setState({ locationResult: JSON.stringify(location) });
   };
 
+
+    async getRating() {
+
+      let options = {
+"queryStringParameters": { "category": "Mexican" }
+}
+
+      const path = "/RatedItems";
+      try {
+        const apiResponse = await API.get("RatedItemsCRUD", path);
+        console.log(apiResponse);
+        this.setState({apiResponse});
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+
+  // Create a new Note according to the columns we defined earlier
+  async saveRating() {
+    console.log('save rating called')
+    let newRating = {
+      body: {
+
+        "category": "Italian",
+        "details": "THIS WAS ONE OF THE BEST THINGS I EVER HAD",
+        "itemId": "this is it",
+        "name": "Mucho Burrito",
+        "ratingCount": 1,
+        "ratingValue": 2,
+        "final": "finalll",
+      }
+    }
+    const path = "/RatedItems";
+
+    // Use the API module to save the note to the database
+    console.log('reached try block')
+    try {
+      console.log('try start')
+      const apiResponse = await API.put("RatedItemsCRUD", path, newRating)
+      console.log('apiResponse called')
+      console.log(apiResponse);
+      this.setState({apiResponse});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
+
   handleFindPress() {
     console.log('Find me button pressed');
+    this.saveRating();
     Alert.alert(this.state.locationResult);
     this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
@@ -46,7 +104,8 @@ export default class LaunchScreen extends Component {
   handleClosePress() {
     console.log('close button pressed');
     Alert.alert(this.state.locationResult);
-    this.props.navigation.navigate('Main', {location:this.state.locationResult});
+    this.getRating();
+    // this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
 
   render() {
@@ -82,7 +141,7 @@ export default class LaunchScreen extends Component {
             backgroundColor="#1073ba"
             backgroundActive="#074a7a"
             type="primary"
-            onPress={() => this.handleFindPress()}>
+            onPress={() => this.saveRating()}>
             Find Me!
           </AwesomeButtonRick>
         </View>

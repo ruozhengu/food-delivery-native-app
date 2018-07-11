@@ -1,0 +1,22 @@
+? Select from one of the choices below. Create CRUD API for an existing Amazon DynamoDB table
+? Select Amazon DynamoDB table to connect to a CRUD API RatedItems
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/RatedItems/
+...
+Path to be used on API for get and remove an object should be like:
+/RatedItems/object/:itemId
+
+Path to be used on API for list objects on get method should be like:
+/RatedItems
+
+JSON to be used as data on put request should be like:
+{
+  "category": "INSERT VALUE HERE",
+  "details": "INSERT VALUE HERE",
+  "itemId": "INSERT VALUE HERE",
+  "name": "INSERT VALUE HERE",
+  "ratingCount": "INSERT VALUE HERE",
+  "ratingValue": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke RatedItemsCRUD <method> <path> [init]
