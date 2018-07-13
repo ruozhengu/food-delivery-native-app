@@ -1,3 +1,180 @@
+###############################################################################################################
+CUSTOMER PROFILE TABLE
+###############################################################################################################
+
+
+? Select Amazon DynamoDB table to connect to a CRUD API CustomerProfileTable
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/CustomerProfileTable/
+...
+Path to be used on API for get and remove an object should be like:
+/CustomerProfileTable/object/:itemId
+
+Path to be used on API for list objects on get method should be like:
+/CustomerProfileTable
+
+JSON to be used as data on put request should be like:
+{
+  "default_address": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "firstname": "INSERT VALUE HERE",
+  "history_order_id": "INSERT VALUE HERE",
+  "itemId": "INSERT VALUE HERE",
+  "lastname": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "profile_img": "INSERT VALUE HERE",
+  "real_address": "INSERT VALUE HERE",
+  "sex": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke CustomerProfileTableCRUD <method> <path> [init]
+
+
+###############################################################################################################
+RESTAURANT PROFILE TABLE
+###############################################################################################################
+
+? Select Amazon DynamoDB table to connect to a CRUD API RestaurantProfileTable
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/staurantProfileTable/
+...
+Path to be used on API for get and remove an object should be like:
+/RestaurantProfileTable/object/:rest_id
+
+Path to be used on API for list objects on get method should be like:
+/RestaurantProfileTable
+
+JSON to be used as data on put request should be like:
+{
+  "category": "INSERT VALUE HERE",
+  "closetime": "INSERT VALUE HERE",
+  "curr_holding_count": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "image": "INSERT VALUE HERE",
+  "item_count_number": "INSERT VALUE HERE",
+  "location": "INSERT VALUE HERE",
+  "menu": "INSERT VALUE HERE",
+  "mtl_order_count": "INSERT VALUE HERE",
+  "mtl_revenue": "INSERT VALUE HERE",
+  "onduty": "INSERT VALUE HERE",
+  "opentime": "INSERT VALUE HERE",
+  "owner_name": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "rating": "INSERT VALUE HERE",
+  "rest_id": "INSERT VALUE HERE",
+  "rest_name": "INSERT VALUE HERE",
+  "spicy_level": "INSERT VALUE HERE",
+  "total_order_count": "INSERT VALUE HERE",
+  "total＿revenue": "INSERT VALUE HERE",
+  "url": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke RestaurantProfileTableCRUD <method> <path> [init]
+
+
+
+
+###############################################################################################################
+RESTAURANT REVIEW TABLE
+###############################################################################################################
+
+
+? Select Amazon DynamoDB table to connect to a CRUD API RestaurantReviewTable
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/RestaurantReviewTable/
+...
+Path to be used on API for get and remove an object should be like:
+/RestaurantReviewTable/object/:cust_id
+
+Path to be used on API for list objects on get method should be like:
+/RestaurantReviewTable
+
+JSON to be used as data on put request should be like:
+{
+  "comment": "INSERT VALUE HERE",
+  "cust_id": "INSERT VALUE HERE",
+  "rating": "INSERT VALUE HERE",
+  "rest_id": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke RestaurantReviewTableCRUD <method> <path> [init]
+
+
+
+###############################################################################################################
+RESTAURANT REVIEW
+###############################################################################################################
+
+
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/RestaurantReview/
+...
+Path to be used on API for get and remove an object should be like:
+/RestaurantReview/object/:userId/:rest_id
+
+Path to be used on API for list objects on get method should be like:
+/RestaurantReview/:userId
+
+JSON to be used as data on put request should be like:
+{
+  "comment": "INSERT VALUE HERE",
+  "cust_id": "INSERT VALUE HERE",
+  "order_id": "INSERT VALUE HERE",
+  "rating": "INSERT VALUE HERE",
+  "rest_id": "INSERT VALUE HERE",
+  "timestamp": "INSERT VALUE HERE",
+  "userId": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke RestaurantReviewCRUD <method> <path> [init]
+
+
+
+################################################################################################################
+
+################################################################################################################
+RESTAURANT PROFILE
+################################################################################################################
+
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/RestaurantProfile/
+...
+Path to be used on API for get and remove an object should be like:
+/RestaurantProfile/object/:userId
+
+Path to be used on API for list objects on get method should be like:
+/RestaurantProfile/:userId
+
+JSON to be used as data on put request should be like:
+{
+  "category": "INSERT VALUE HERE",
+  "closetime": "INSERT VALUE HERE",
+  "curr_holding_count": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "item_count": "INSERT VALUE HERE",
+  "location": "INSERT VALUE HERE",
+  "menu": "INSERT VALUE HERE",
+  "mtl_order_count": "INSERT VALUE HERE",
+  "mtl_revenue": "INSERT VALUE HERE",
+  "onduty": "INSERT VALUE HERE",
+  "opentime": "INSERT VALUE HERE",
+  "owner_name": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "rating": "INSERT VALUE HERE",
+  "rest_name": "INSERT VALUE HERE",
+  "spicy_level": "INSERT VALUE HERE",
+  "total_order_count": "INSERT VALUE HERE",
+  "total_revenue": "INSERT VALUE HERE",
+  "userId": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke RestaurantProfileCRUD <method> <path> [init]
+
+
+
+
+################################################################################################################
+################################################################################################################
 ? Select from one of the choices below. Create CRUD API for an existing Amazon DynamoDB table
 ? Select Amazon DynamoDB table to connect to a CRUD API RatedItems
 Adding lambda function code on:

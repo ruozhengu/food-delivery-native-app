@@ -4,6 +4,70 @@ apps:
 features: 
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic
     components: 
+      CustomerProfileTableCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: CustomerProfileTableCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths: 
+          /CustomerProfileTable: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
+            description: "Handler for calls to resource path : /CustomerProfileTable/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:51.543+0000"
+            name: CustomerProfileTable
+            runtime: nodejs6.10
+            timeout: "3"
+            version: 2NSxhlGceY.AjoC4IAsIXHBahySOzyvh
+          "/CustomerProfileTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
+            description: "Handler for calls to resource path : /CustomerProfileTable/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:51.543+0000"
+            name: CustomerProfileTable
+            runtime: nodejs6.10
+            timeout: "3"
+            version: 5Qn56BRKEtNU.lhqKrP.SOmHe1H0x5fT
+      FinalTestCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: FinalTestCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths: 
+          /FinalTest: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/FinalTest-20180712192228.zip
+            description: "Handler for calls to resource path : /FinalTest/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: mQP4zc/yObksss7pjFHr75DV7vJ47+PRnBfGRPDVP8I=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:50.998+0000"
+            name: FinalTest
+            runtime: nodejs6.10
+            timeout: "3"
+            version: EjM3l2iper21XrZpHu2ZWqZO38Yy8EpK
+          "/FinalTest/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/FinalTest-20180712192228.zip
+            description: "Handler for calls to resource path : /FinalTest/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: mQP4zc/yObksss7pjFHr75DV7vJ47+PRnBfGRPDVP8I=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:50.998+0000"
+            name: FinalTest
+            runtime: nodejs6.10
+            timeout: "3"
+            version: LD.Ww3aX1OBgEW0jdR0VHI5gJ42rq5u_
       RatedItemsCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
           name: RatedItemsCRUD
@@ -11,35 +75,342 @@ features:
           sdk-generation-stage-name: Development
         paths: 
           /RatedItems: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RatedItems-20180710192730.zip
+            codeFilename: uploads/RatedItems-20180712192228.zip
             description: "Handler for calls to resource path : /RatedItems/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: SuGvcGSFV48RYyKKkaKlYzTaG02qmPgBrcd8kl8w3rQ=
+            hashcode: xhzF8uPO9595BN5C6Lu5xYFUA4RBusP62Y7mXZUWQRA=
             memorySize: "128"
-            modified: "2018-07-10T23:28:42.238+0000"
+            modified: "2018-07-12T23:25:55.513+0000"
             name: RatedItems
             runtime: nodejs6.10
             timeout: "3"
-            version: 0ZC58sxL70vWP5g7mg572W.dp6fprnVl
+            version: PtXNlIstNQDyCmppGli.W93Ka8joCyjj
           "/RatedItems/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RatedItems-20180710192730.zip
+            codeFilename: uploads/RatedItems-20180712192228.zip
             description: "Handler for calls to resource path : /RatedItems/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: SuGvcGSFV48RYyKKkaKlYzTaG02qmPgBrcd8kl8w3rQ=
+            hashcode: xhzF8uPO9595BN5C6Lu5xYFUA4RBusP62Y7mXZUWQRA=
             memorySize: "128"
-            modified: "2018-07-10T23:28:42.238+0000"
+            modified: "2018-07-12T23:25:55.513+0000"
             name: RatedItems
             runtime: nodejs6.10
             timeout: "3"
-            version: kew9h9.4Kpi92Fq89_AZWPi3K3aLVu78
+            version: WPWFggB462b3eXVwAI7J4pV46kn8UNfx
+      RestaurantProfileCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: RestaurantProfileCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths: 
+          /RestaurantProfile: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/RestaurantProfile-20180712192228.zip
+            description: "Handler for calls to resource path : /RestaurantProfile/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: vtCBaZRD1QTpiyIZhvnx8WbAi4PFLKC5oOHp/0nLC/c=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:51.659+0000"
+            name: RestaurantProfile
+            runtime: nodejs6.10
+            timeout: "3"
+            version: XDrY9siKDuvTnSeu1MbKofvdBVlBJLsH
+          "/RestaurantProfile/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/RestaurantProfile-20180712192228.zip
+            description: "Handler for calls to resource path : /RestaurantProfile/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: vtCBaZRD1QTpiyIZhvnx8WbAi4PFLKC5oOHp/0nLC/c=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:51.659+0000"
+            name: RestaurantProfile
+            runtime: nodejs6.10
+            timeout: "3"
+            version: AA_Uz0pwS89knub1GNgRNADmHMpgV.MC
+      RestaurantProfileTableCRUD: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: RestaurantProfileTableCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths: 
+          /RestaurantProfileTable: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/staurantProfileTable-20180712192228.zip
+            description: "Handler for calls to resource path : /RestaurantProfileTable/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: ccII2Xai2lKNlx9zTTc5H5pfY/v2kdCsSH4C57YpWDU=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:52.376+0000"
+            name: staurantProfileTable
+            runtime: nodejs6.10
+            timeout: "3"
+            version: .kkN8jUCML7xNvy0Ruw20uFcDojCkxIh
+          "/RestaurantProfileTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/staurantProfileTable-20180712192228.zip
+            description: "Handler for calls to resource path : /RestaurantProfileTable/{proxy+}"
+            enableCORS: true
+            environment:  {}
+            handler: lambda.handler
+            hashcode: ccII2Xai2lKNlx9zTTc5H5pfY/v2kdCsSH4C57YpWDU=
+            memorySize: "128"
+            modified: "2018-07-12T23:25:52.376+0000"
+            name: staurantProfileTable
+            runtime: nodejs6.10
+            timeout: "3"
+            version: P4FnID8r2oF6w07x3N5xPod8GVtJ2I58
+      newTest: !com.amazonaws.mobilehub.v0.API
+        attributes: 
+          name: newTest
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths: 
+          /items: !com.amazonaws.mobilehub.v0.Function
+            description: "Handler for calls to resource path : /items/{proxy+}"
+            environment:  {}
+            handler: index.handler
+            hashcode: +OseghAo9ur20IwwGt+dScb9iZZ2dbaznvSLc9vy2zY=
+            memorySize: "128"
+            modified: "2018-07-12T02:38:41.526+0000"
+            name: itemsHandler
+            runtime: nodejs6.10
+            timeout: "3"
+            version: VQqoXTjG.X2cE4bJLUmxPp.GW91TYNmS
+          "/items/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            description: "Handler for calls to resource path : /items/{proxy+}"
+            environment:  {}
+            handler: index.handler
+            hashcode: +OseghAo9ur20IwwGt+dScb9iZZ2dbaznvSLc9vy2zY=
+            memorySize: "128"
+            modified: "2018-07-12T02:38:41.526+0000"
+            name: itemsHandler
+            runtime: nodejs6.10
+            timeout: "3"
+            version: nf1LHMrDydCrHvZK4r3BvxBu0WMXsWgj
   database: !com.amazonaws.mobilehub.v0.Database
     components: 
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase
         tables: 
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              category: S
+              closetime: S
+              curr_holding_count: N
+              email: S
+              item_count: N
+              location: M
+              menu: L
+              mtl_order_count: N
+              mtl_revenue: N
+              onduty: BOOL
+              opentime: S
+              owner_name: S
+              phone: S
+              rating: N
+              rest_name: S
+              spicy_level: S
+              total_order_count: N
+              total_revenue: N
+              url: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-RestaurantProfile
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              closetime: S
+              createtime: S
+              cust_id: S
+              delivery_fee_withtax: N
+              destination_location: M
+              eta: N
+              extra_comment: S
+              meal_fee_withtax: N
+              order_detail: L
+              order_status: M
+              rest_id: S
+              taker_id: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: cust_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-OrderTransaction
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              default_address: S
+              email: S
+              firstname: S
+              history_order_id: L
+              itemId: S
+              lastname: N
+              phone: S
+              profile_img: S
+              real_address: M
+              sex: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: itemId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-CustomerProfileTable
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              default_address: M
+              email: S
+              firstname: S
+              history_order_id: L
+              lastname: S
+              phone: S
+              profile_img: S
+              real_address: M
+              sex: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-CustomerProfile
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              closetime: S
+              createtime: S
+              cust_id: S
+              delivery_fee_withtax: N
+              destination_location: M
+              eta: N
+              extra_comment: S
+              meal_fee_withtax: N
+              orderId: S
+              order_detail: L
+              order_status: M
+              rest_id: S
+              taker_id: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: orderId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-OrderTransactionTable
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              category: S
+              closetime: S
+              curr_holding_count: N
+              email: S
+              image: S
+              item_count_number: N
+              location: M
+              menu: L
+              mtl_order_count: N
+              mtl_revenue: N
+              onduty: BOOL
+              opentime: S
+              owner_name: S
+              phone: N
+              rating: N
+              rest_id: S
+              rest_name: S
+              spicy_level: S
+              total_order_count: N
+              total＿revenue: N
+              url: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: rest_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-RestaurantProfileTable
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              curr_holding_count: N
+              dly_completed_count: N
+              dly_earning: N
+              driverId: S
+              driving_license_id: S
+              email: S
+              location: M
+              mtl_completed_count: N
+              mtl_earning: N
+              onduty: BOOL
+              phone: S
+              plate: S
+              sex: S
+              taker_name: S
+              userId: S
+              working_hour: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: driverId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-OrderTakerTable
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              comment: S
+              cust_id: S
+              order_id: S
+              rating: N
+              rest_id: S
+              timestamp: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: rest_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-RestaurantReview
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              curr_holding_count: N
+              dly_completed_count: N
+              dly_earning: N
+              driving_license_id: S
+              email: S
+              location: M
+              mtl_completed_count: N
+              mtl_earning: N
+              onduty: BOOL
+              phone: N
+              plate: S
+              sex: S
+              taker_name: S
+              userId: S
+              working_hour: N
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-OrderTaker
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              comment: S
+              cust_id: S
+              order_id: S
+              rating: N
+              rest_id: S
+              timestamp: N
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: rest_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-RestaurantReviewTable
+            tablePrivacy: protected
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
               category: S
@@ -61,7 +432,7 @@ features:
             rangeKeyName: itemId
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-RatedItems
-            tablePrivacy: protected
+            tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint
     components: 
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}

@@ -55,6 +55,9 @@ export default class App extends Component {
   };
 
   render() {
+    // console.log('------------------------');
+    // console.log(this.props);
+    // console.log('------------------------');
     const email = 'mailto:' + data.email + '?subject=mailsubject&body=mailbody';
     // Alert.alert(email)
     const { onScroll = () => {} } = this.props;
@@ -62,7 +65,7 @@ export default class App extends Component {
       <View>
       <View style={{ alignSelf: 'stretch', height: '32%' }}>
         <ListItem
-          title={data.email}
+          title={this.props.route.data.email}
           containerStyle={styles.listItemContainer}
           leftIcon={
             <MaterialIcons
@@ -83,7 +86,7 @@ export default class App extends Component {
         />
 
         <ListItem
-          title={data.phone}
+          title={this.props.route.data.phone}
           containerStyle={styles.listItemContainer}
           leftIcon={
             <MaterialIcons
@@ -104,7 +107,7 @@ export default class App extends Component {
         />
 
         <ListItem
-          title={data.address}
+          title={this.props.route.data.location}
           containerStyle={styles.listItemContainer}
           leftIcon={
             <MaterialIcons

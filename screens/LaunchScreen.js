@@ -45,15 +45,14 @@ export default class LaunchScreen extends Component {
   };
 
 
-    async getRating() {
+    async getRestaurant() {
+      console.log('getRestaurant started')
+      const path = "/RestaurantProfileTable";
 
-      let options = {
-"queryStringParameters": { "category": "Mexican" }
-}
-
-      const path = "/RatedItems";
       try {
-        const apiResponse = await API.get("RatedItemsCRUD", path);
+        console.log('try started')
+        const apiResponse = await API.get("RestaurantProfileTableCRUD", path);
+        console.log('After api response')
         console.log(apiResponse);
         this.setState({apiResponse});
       } catch (e) {
@@ -63,27 +62,84 @@ export default class LaunchScreen extends Component {
 
 
   // Create a new Note according to the columns we defined earlier
-  async saveRating() {
+  async saveRestaurant() {
     console.log('save rating called')
-    let newRating = {
+    let newRestaurant = {
       body: {
-
-        "category": "Italian",
-        "details": "THIS WAS ONE OF THE BEST THINGS I EVER HAD",
-        "itemId": "this is it",
-        "name": "Mucho Burrito",
-        "ratingCount": 1,
-        "ratingValue": 2,
-        "final": "finalll",
-      }
+  "category": "new post TEST FOOD",
+  "closetime": "11pm",
+  "curr_holding_count": 0,
+  "email": "kfc@ofwa.com",
+  "image": "http://digitalspyuk.cdnds.net/17/26/980x490/landscape-1498837520-kfc-chicken-1.jpg",
+  "item_count_number": 14,
+  "location": "44 clifton's Wharf, Norhtja jwjaf",
+  "menu": [
+    {
+    category: 'Main',
+    item_id: 'porkdumpling1',
+    name: 'Pork Dumplings',
+    image:
+      'https://www.gourmetfoodstore.com/images/gfs/topcat/right-french-cheese.jpg',
+    price: '$$',
+    spicy: 'hot',
+    rest_id: 'kfc1'
+  },  {
+    category: 'Main',
+    item_id: 'shrimpfriedrice1',
+    name: 'Shrimp Fried Rice',
+    image:
+      'https://s3-media2.fl.yelpcdn.com/bphoto/ynj5HBZ4MvYeNzeYBrQcJg/ls.jpg',
+    price: '$$',
+    spicy: 'medium',
+    rest_id: 'kfc1'
+  },  {
+    category: 'Dessert',
+    item_id: 'chickencurry1',
+    name: 'Chicken Curry',
+    image:
+      'http://finedininglovers.cdn.crosscast-system.com/BlogPost/l_4620_StockFood-00400734.jpg',
+    price: '$$$',
+    spicy: 'hot',
+    rest_id: 'kfc1'
+  }],
+  "mtl_order_count": 43,
+  "mtl_revenue": 665,
+  "onduty": true,
+  "opentime": "9:00 AM",
+  "owner_name": "Gabriel Gu",
+  "phone": "kfc 134 2156",
+  "rating": 3,
+  "rest_id": "test1",
+  "rest_name": "Testing",
+  "spicy_level": "hot",
+  "total_order_count": 11,
+  "total＿revenue": 44,
+  "url": "www.kfc.com",
+  "reviews": [
+  {rating:5,
+    comment:'TERRRIBBLLEEEE FOOOODDDDDDD',
+    cust_id:'ali212', 
+    cust_name: "Emily Saeed", 
+    cust_image: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg", 
+    rest_id:'kfc1'
+  },
+  {rating:5,
+    comment:'Worst Food Every',
+    cust_id:'gab212', 
+    cust_name: "Gabriel Gu", 
+    cust_image: "https://scontent.fybz1-1.fna.fbcdn.net/v/t1.0-9/31502761_579624915749268_6836237842327273472_n.jpg?_nc_cat=0&oh=1dcc79e8c4bf387980043b63c3ff99f5&oe=5BC05D63", 
+    rest_id:'testkfc1'
+  },
+  ]
+}
     }
-    const path = "/RatedItems";
+    const path = "/RestaurantProfileTable";
 
     // Use the API module to save the note to the database
     console.log('reached try block')
     try {
       console.log('try start')
-      const apiResponse = await API.put("RatedItemsCRUD", path, newRating)
+      const apiResponse = await API.put("RestaurantProfileTableCRUD", path, newRestaurant)
       console.log('apiResponse called')
       console.log(apiResponse);
       this.setState({apiResponse});
@@ -96,7 +152,7 @@ export default class LaunchScreen extends Component {
 
   handleFindPress() {
     console.log('Find me button pressed');
-    this.saveRating();
+    //this.saveRating();
     Alert.alert(this.state.locationResult);
     this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
@@ -104,8 +160,9 @@ export default class LaunchScreen extends Component {
   handleClosePress() {
     console.log('close button pressed');
     Alert.alert(this.state.locationResult);
-    this.getRating();
-    // this.props.navigation.navigate('Main', {location:this.state.locationResult});
+    //this.getRating();
+    console.log('After get rating');
+    this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
 
   render() {
@@ -123,7 +180,7 @@ export default class LaunchScreen extends Component {
           name="close" 
           color="white" 
           size={35} 
-          onPress={()=> this.handleClosePress()} />
+          onPress={()=> this.saveRestaurant()} />
         </View>
 
         <Text style={styles.heading}>Hungry?</Text>
@@ -141,7 +198,7 @@ export default class LaunchScreen extends Component {
             backgroundColor="#1073ba"
             backgroundActive="#074a7a"
             type="primary"
-            onPress={() => this.saveRating()}>
+            onPress={() => this.handleFindPress()}>
             Find Me!
           </AwesomeButtonRick>
         </View>

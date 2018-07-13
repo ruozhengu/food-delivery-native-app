@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TouchableOpacity, Dimensions, Image, ListView, StyleSheet, Text, View} from 'react-native';
+import {TouchableOpacity, Dimensions,ActivityIndicator, Image, ListView, StyleSheet, Text, View} from 'react-native';
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { Icon, Card } from 'react-native-elements'; // Version can be specified in package.json
@@ -12,51 +12,61 @@ import {
   SimpleLineIcons,
   Feather,
 } from '@expo/vector-icons';
+
 import { createStackNavigator } from 'react-navigation';
 
 import RestaurantPage from './RestaurantPage';
 
-let data = [
-  {
-    name: 'McDonalds',
-    image:
-      'https://www.mcdonalds.com/content/dam/prelaunch/ca/web/promotions/desktop/en/McDELIVERY-PromoTile.jpg',
-    distance: '15-20km',
-    category: 'Fast Food',
-    rating: 3.5,
-    price: '$$',
-    timing: '11am - 12pm',
-  },
-  {
-    name: 'KFC',
-    image: 'http://digitalspyuk.cdnds.net/17/26/980x490/landscape-1498837520-kfc-chicken-1.jpg',
-    distance: '15-20km',
-    category: 'Fast Food',
-    rating: 3.5,
-    price: '$',
-    timing: '11am - 12pm',
-  },
-  {
-  name: 'Congee Queen',
-    image:
-      'https://cdn.doordash.com/media/restaurant/cover/Congee-Queen.png',
-    distance: '15-20km',
-    category: 'Chinese',
-    rating: 3.5,
-    price: '$',
-    timing: '11am - 12pm',
-  },
-  {
-    name: 'BBQ Tonight',
-    image:
-      'http://rave.pk/wp-content/uploads/2015/07/bbq.jpg',
-    distance: '15-20km',
-    category: 'Pakistani',
-    rating: 3.5,
-    price: '$$',
-    timing: '11am - 12pm',
-  },
-];
+
+import Amplify, { API } from 'aws-amplify';
+import aws_exports from '../aws-exports';
+Amplify.configure(aws_exports);
+
+
+
+
+// let data = [
+//   {
+//     name: 'McDonalds',
+//     image:
+//       'https://www.mcdonalds.com/content/dam/prelaunch/ca/web/promotions/desktop/en/McDELIVERY-PromoTile.jpg',
+//     distance: '15-20km',
+//     category: 'Fast Food',
+//     rating: 3.5,
+//     price: '$$',
+//     timing: '11am - 12pm',
+//   },
+//   {
+//     name: 'KFC',
+//     image: 'http://digitalspyuk.cdnds.net/17/26/980x490/landscape-1498837520-kfc-chicken-1.jpg',
+//     distance: '15-20km',
+//     category: 'Fast Food',
+//     rating: 3.5,
+//     price: '$',
+//     timing: '11am - 12pm',
+//   },
+//   {
+//   name: 'Congee Queen',
+//     image:
+//       'https://cdn.doordash.com/media/restaurant/cover/Congee-Queen.png',
+//     distance: '15-20km',
+//     category: 'Chinese',
+//     rating: 3.5,
+//     price: '$',
+//     timing: '11am - 12pm',
+//   },
+//   {
+//     name: 'BBQ Tonight',
+//     image:
+//       'http://rave.pk/wp-content/uploads/2015/07/bbq.jpg',
+//     distance: '15-20km',
+//     category: 'Pakistani',
+//     rating: 3.5,
+//     price: '$$',
+//     timing: '11am - 12pm',
+//   },
+// ];
+
 
 
 class RestaurantList extends Component {
@@ -68,16 +78,75 @@ class RestaurantList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2,
-      }).cloneWithRows(data),
+      apiResponse: null,
+      isLoading: true,
+      // dataSource: new ListView.DataSource({
+      //   rowHasChanged: (r1, r2) => r1 !== r2,
+      // }).cloneWithRows(data),
       // location: this.props.navigation.state.params.location,
     };
   }
 
+
+  async componentDidMount() {
+    console.log('getRestaurant started')
+
+      const path = "/RestaurantProfileTable";
+      try {
+        const apiResponse = await API.get("RestaurantProfileTableCRUD", path);
+        //this.setState({apiResponse});
+        let ds = new ListView.DataSource({
+          rowHasChanged: (r1, r2) => r1 !== r2,
+        });
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: ds.cloneWithRows(apiResponse),
+          });
+      } catch (e) {
+        console.log(e);
+      }
+
+  }
+
+
+    // async getRestaurant() {
+    //   console.log('getRestaurant started')
+    //   const path = "/RestaurantProfileTable";
+
+    //   try {
+    //     console.log('try started')
+    //     const apiResponse = await API.get("RestaurantProfileTableCRUD", path);
+    //     console.log('After api response')
+    //     console.log(apiResponse);
+    //     //this.setState({apiResponse});
+    //     console.log('Before setState')
+    //     this.setState(
+    //       {
+    //         isLoading: false,
+    //         dataSource: ds.cloneWithRows(apiResponse),
+    //       });
+    //     console.log('After setState')
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
+
+
+
   render() {
     // console.log(this.props.navigation);
     const { onScroll = () => {} } = this.props;
+
+    if(this.state.isLoading) {
+      return (
+        <View style={{ flex: 1, paddingTop: 80 }}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
+
     return (
       <ListView
         contentContainerStyle={styles.listContainer}
@@ -87,30 +156,31 @@ class RestaurantList extends Component {
             style={styles.touchable}
             onPress={() =>
               this.props.navigation.navigate('Restaurant', {
-                name: rowData.name,
+                data: rowData,
               })
             }>
             <Card containerStyle={styles.card} image={{ uri: rowData.image }}>
               <View style={styles.topRow}>
                 <Text style={styles.restaurantName}>
                   {' '}
-                  {rowData.name} - {rowData.price}
+                  {rowData.rest_name}
                 </Text>
-                <Text style={styles.distance}> {rowData.distance} </Text>
-              </View>
-              <View style={styles.bottomRow}>
-                <Text style={styles.category}>
-                  {' '}
-                  {rowData.category}
-                  <Feather
+                <Text style={styles.distance}> 
+                                  <Feather
                     style={{ padding: 1 }}
                     name="star"
                     color="#d7e035"
                     size={20}
                   />
-                  {rowData.rating}
+                  {rowData.rating}.5
+                 </Text>
+              </View>
+              <View style={styles.bottomRow}>
+                <Text style={styles.category}>
+                  {' '}
+                  {rowData.category}
                 </Text>
-                <Text style={styles.timing}> {rowData.timing} </Text>
+                <Text style={styles.timing}>{rowData.opentime} - {rowData.closetime}</Text>
               </View>
             </Card>
           </TouchableOpacity>

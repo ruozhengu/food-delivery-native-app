@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ListView, TextInput, Alert, Text, View, StyleSheet } from 'react-native';
+import { Button, Keyboard, ListView, TextInput, Alert, Text, View, StyleSheet } from 'react-native';
 import { Constants } from 'expo';
 
 import ActionButton from 'react-native-action-button';
@@ -18,6 +18,44 @@ import {Icon, Rating, Divider, Avatar, Card, ListItem } from 'react-native-eleme
 import StarRating from 'react-native-star-rating';
 
 
+import Amplify, { API } from 'aws-amplify';
+import aws_exports from '../aws-exports';
+Amplify.configure(aws_exports);
+
+
+// let rev = [
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"Thimend it to everyone",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"This restaurant has the best food ever...I recommend it to everyone",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"BAD FOOD....Very bad food. Don't go to this restaurant ever again!!!. this has been the worst experience of my life so far...! cnat beleive it. Cant releive it isanf kalisjd gfasdeglrkj  fliwws",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"This restaurant has the best food ever...I recommend it to everyone",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"This restaurant has the best food ever...I recommend it to everyone",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//         {name: 'Emily Washington', 
+//           rating: 3.4, 
+//           comment:"This restaurant has the best food ever...I recommend it to everyone",
+//           avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//         },
+//       ];
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -26,42 +64,11 @@ export default class App extends Component {
     });
     this.state = {
       starCount: 3.5,
-      ratings: 3,
+      ratings: 4,
       loading: true,
-      dataSource: ds.cloneWithRows([
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"Thimend it to everyone",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"This restaurant has the best food ever...I recommend it to everyone",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"BAD FOOD....Very bad food. Don't go to this restaurant ever again!!!. this has been the worst experience of my life so far...! cnat beleive it. Cant releive it isanf kalisjd gfasdeglrkj  fliwws",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"This restaurant has the best food ever...I recommend it to everyone",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"This restaurant has the best food ever...I recommend it to everyone",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-        {name: 'Emily Washington', 
-          rating: 3.4, 
-          comment:"This restaurant has the best food ever...I recommend it to everyone",
-          avatar:'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        },
-      ]),
+      dataSource: ds.cloneWithRows(this.props.route.data.reviews),
+      comment: "",
     };
-    this.ratingCompleted = this.ratingCompleted.bind(this);
   }
 
 async componentWillMount() {
@@ -70,11 +77,61 @@ await Expo.Font.loadAsync({
 });
 this.setState({ loading: false });
 }
-  ratingCompleted(rating) {
-    this.setState({ ratings: rating });
+
+
+
+
+  async saveReview(data) {
+    console.log('save rating called')
+    let newReview = {
+      body: data
+    }
+    const path = "/RestaurantProfileTable";
+
+    // Use the API module to save the note to the database
+    console.log('reached try block')
+    try {
+      console.log('try start')
+      const apiResponse = await API.put("RestaurantProfileTableCRUD", path, newReview)
+      console.log('apiResponse called')
+      console.log(apiResponse);
+      this.setState({apiResponse});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
+
+
+
+  handleSubmit() {
+    // console.log(this.props.route.data.rest_id);
+    let newReview = {
+       "comment": this.state.comment,
+       "cust_id": "ali212",
+       "cust_image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+       "cust_name": "Emily Saeed",
+       "rating": this.state.rating,
+       "rest_id": this.props.route.data.rest_id,
+    };
+    let revNo = this.props.route.data.reviews.length;
+    this.props.route.data.reviews[revNo] = newReview;
+    // console.log(this.props.route.data);
+    this.popupDialog.dismiss();
+    // console.log(this.props.route.data.reviews.length);
+    this.setState({comment:""});
+    Keyboard.dismiss();
+    this.saveReview(this.props.route.data);
   }
 
   render() {
+
+    // console.log('------------------------');
+    // console.log(this.props);
+    // console.log('------------------------');
+
+
   	    if (this.state.loading) {
       return <Expo.AppLoading />;
     }
@@ -82,6 +139,7 @@ this.setState({ loading: false });
       <View style={styles.container}>
 
         <ListView
+        enableEmptySections={true}
         renderHeader={()=>
         <View style={{alignItems:'center', justifyContent: 'center'}}>
         <StarRating
@@ -91,12 +149,12 @@ this.setState({ loading: false });
         halfStar={'md-star-half'}
         iconSet={'Ionicons'}
         maxStars={5}
-        rating={this.state.ratings}
-        selectedStar={(rating) => this.ratingCompleted(rating)}
+        rating={this.props.route.data.rating}
+        // selectedStar={(rating) => this.ratingCompleted(rating)}
         fullStarColor={'red'}
         starSize={60}
         containerStyle={{justifyContent: 'center'}}/>
-        <Text style={{lineHeight:32, fontSize:20,}}>Rating: <Text style={{ color:'red', fontSize:30,}}>{this.state.ratings}</Text>/5</Text>
+        <Text style={{lineHeight:32, fontSize:20,}}>Rating: <Text style={{ color:'red', fontSize:30,}}>{this.props.route.data.rating}</Text>/5</Text>
           </View>
         }
         
@@ -127,12 +185,12 @@ this.setState({ loading: false });
                   titleStyle={{ backgroundColor: '#000' }}
                   source={{
                     uri:
-                      rowData.avatar,
+                      rowData.cust_image,
                   }}
                   onPress={() => console.log('Works!')}
                   activeOpacity={0.7}
                 />
-                <Text style={{ paddingLeft: 13 }}> {rowData.name}</Text>
+                <Text style={{ paddingLeft: 13 }}> {rowData.cust_name}</Text>
                 </View>
                 
                 <View style={{alignItems: 'center',}}>
@@ -175,26 +233,27 @@ this.setState({ loading: false });
         iconSet={'Ionicons'}
         maxStars={5}
         rating={this.state.ratings}
-        selectedStar={(rating) => this.ratingCompleted(rating)}
+        selectedStar={(rating) => this.setState({ ratings: rating })}
         fullStarColor={'red'}
         starSize={60}
         containerStyle={{justifyContent: 'center'}}/>
 
       <TextInput 
       ref={input => { this.textInput = input }} 
+      clearButtonMode="always"
+      // onSubmitEditing={Alert.alert('submitted')}
       style={{margin: 5,
       height: 60,
       borderColor: '#000',
       borderWidth: 1}}
       multiline={true}
       underlineColorAndroid="#fff"
+      value = {this.state.comment}
+      onChangeText = { (text) => {this.setState({comment: text}) } }
       placeholder="Say something nice..."/>
-      <Button 
-              onPress={() => {
-      this.popupDialog.dismiss();
-      this.textInput.clear();
-    }}
 
+      <Button 
+              onPress={() => {this.handleSubmit()}}
       title='Submit'/>
     </View>
 

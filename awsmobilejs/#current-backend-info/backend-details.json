@@ -4,7 +4,7 @@
 	"region": "us-east-1",
 	"state": "NORMAL",
 	"createdDate": "2018-07-10T23:02:12.025Z",
-	"lastUpdatedDate": "2018-07-10T23:28:11.516Z",
+	"lastUpdatedDate": "2018-07-12T23:59:01.419Z",
 	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/495f55c6-619d-4666-afdf-9c6c2ff40960/build",
 	"resources": [
 		{
@@ -14,8 +14,98 @@
 			"feature": "database",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "a7624751-10af-4840-b6f2-29d807281ee6",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-RestaurantProfile",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-RestaurantProfile",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "f86506df-915e-4f51-8faf-73e50c08ff98"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-OrderTransaction",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-OrderTransaction",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "7e945eed-f12f-4f38-b2be-32af0c833ea1"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-CustomerProfileTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-CustomerProfileTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "1686da19-6034-4fa4-8695-1918c6783eb9"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-CustomerProfile",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-CustomerProfile",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "62b371f0-68f2-4ff0-9ac1-c2b62c272973"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-OrderTransactionTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-OrderTransactionTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "e9193871-5a93-4683-828a-42dfd3208a0d"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-RestaurantProfileTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-RestaurantProfileTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "df701602-1b44-4146-9e76-3d473ffabbf8"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-OrderTakerTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-OrderTakerTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "873676d7-bc64-41fa-aa32-d5a9003d2fc3"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-RestaurantReview",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-RestaurantReview",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "907ad341-eecb-4dab-bfdc-1fee592509d9"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-OrderTaker",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-OrderTaker",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "37f703ef-01f6-41f5-8f71-eaa318de2175"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-RestaurantReviewTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-RestaurantReviewTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09"
 			}
 		},
 		{
@@ -64,7 +154,7 @@
 			"feature": "analytics",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "a7624751-10af-4840-b6f2-29d807281ee6",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
 			}
 		},
@@ -74,36 +164,146 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "8d01759f5164ce24bd02e840caea2cae",
-				"lastUpdateRequestID": "a7624751-10af-4840-b6f2-29d807281ee6",
-				"versionID": "yCZMW.xenbsoUQk1USgUTkehPptXwNRj"
+				"eTag": "6e6a326872cc594ca73c97e44ab5ecc0",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": "GZ2G.GIrH7LpAehmDIQ6oSCvagp7KC6F"
 			}
 		},
 		{
 			"type": "AWS::S3::File",
-			"name": "uploads/RatedItems-20180710192730.zip",
+			"name": "FinalTestCRUD/api/FinalTestCRUD.json",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "fbc96f7af40d8af96887cfdd576797ca-3",
-				"lastUpdateRequestID": "a7624751-10af-4840-b6f2-29d807281ee6",
-				"versionID": "kew9h9.4Kpi92Fq89_AZWPi3K3aLVu78"
+				"eTag": "8fc59f0a16058bddd10b26379f6102f2",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": "_QDa2tzSvMirskMhvWNi3RN_WFLJWKUq"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "newTest/api/newTest.json",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "c5706df92066c95f4021cd11f85323f7",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": "JANvGNJu.ivUT6kqawvvmHUbE42L5QPB"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "CustomerProfileTable/api/CustomerProfileTable.json",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "424c1e57aced46710bbefec47c3bb77f",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": "vjHC0hvF8N96vUYpDWjOQUT9hU6Nqd2L"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "RestaurantProfileTab/api/RestaurantProfileTab.json",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "f179a1655be520c75e74cbe5e4d4ef48",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": "Xes.95RD0qSKecrD9JR2wmrKqUGEG7z_"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "RestaurantProfileCRU/api/RestaurantProfileCRU.json",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "b874a3fdc6c74205beb8fd8667fd329a",
+				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"versionID": ".oZrAgnGn7JtemA0WJWHBhzQkjrewWwr"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "uploads/FinalTest-20180712192228.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "54e32dfddcdc20e5028dd8f807f6ed4d-3",
+				"lastUpdateRequestID": "43a6b546-52fc-4259-b2a8-0bef0830705e",
+				"versionID": "LD.Ww3aX1OBgEW0jdR0VHI5gJ42rq5u_"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "newTest/lambda/itemsHandler.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "e9ff167c0a6af3adeddf5ebda6ff9506",
+				"lastUpdateRequestID": "854c1cfd-7c63-4c75-9b51-9ed1fbd2c0a3",
+				"versionID": "nf1LHMrDydCrHvZK4r3BvxBu0WMXsWgj"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "uploads/staurantProfileTable-20180712192228.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "c463640faec3f8dde0f1681fe2d7f5dd-3",
+				"lastUpdateRequestID": "43a6b546-52fc-4259-b2a8-0bef0830705e",
+				"versionID": "P4FnID8r2oF6w07x3N5xPod8GVtJ2I58"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "uploads/RatedItems-20180712192228.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "775bbb7a0ecb8ab6e39d646fc6cde4e0-3",
+				"lastUpdateRequestID": "43a6b546-52fc-4259-b2a8-0bef0830705e",
+				"versionID": "WPWFggB462b3eXVwAI7J4pV46kn8UNfx"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "uploads/RestaurantProfile-20180712192228.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "44bd6c145070cd7e72b2de37146480e2-3",
+				"lastUpdateRequestID": "43a6b546-52fc-4259-b2a8-0bef0830705e",
+				"versionID": "AA_Uz0pwS89knub1GNgRNADmHMpgV.MC"
+			}
+		},
+		{
+			"type": "AWS::S3::File",
+			"name": "uploads/CustomerProfileTable-20180712192228.zip",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"eTag": "c7fc9316e10599419ee70db9a00e58a3-3",
+				"lastUpdateRequestID": "43a6b546-52fc-4259-b2a8-0bef0830705e",
+				"versionID": "5Qn56BRKEtNU.lhqKrP.SOmHe1H0x5fT"
 			}
 		},
 		{
 			"type": "AWS::ApiGateway::RestApi",
-			"name": "RatedItemsCRUD-MobileHub-211733734",
+			"name": "newTest-MobileHub-211733734",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"cfLogicalID": "RatedItemsCRUDMobileHub211733734",
-				"cfPhysicalID": "shrumjuvhl",
-				"configApiName": "RatedItemsCRUD",
-				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/shrumjuvhl/resources",
-				"lastUpdateTimestamp": "1531265319449",
+				"cfLogicalID": "newTestMobileHub211733734",
+				"cfPhysicalID": "0ifkzck6id",
+				"configApiName": "newTest",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/0ifkzck6id/resources",
+				"lastUpdateTimestamp": "1531437947847",
 				"reason": "none",
 				"region": "us-east-1",
-				"status": "CREATE_COMPLETE"
+				"status": "UPDATE_COMPLETE"
 			}
 		},
 		{
@@ -116,6 +316,481 @@
 				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:RatedItemsCRUD-RatedItems-mobilehub-211733734:Development",
 				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RatedItemsCRUD-RatedItems-mobilehub-211733734/Development",
 				"lastUpdateTimestamp": "1531265326166",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Function",
+			"name": "RestaurantProfileCRU-RestaurantProfile-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileCRURestaurantProfilemobilehub211733734",
+				"cfPhysicalID": "RestaurantProfileCRU-RestaurantProfile-mobilehub-211733734",
+				"configApiName": "RestaurantProfileCRUD",
+				"configHandlerName": "RestaurantProfile",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RestaurantProfileCRU-RestaurantProfile-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531437952185",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Stage",
+			"name": "RestaurantProfileTab-Development-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileTabDevelopmentMobileHub211733734",
+				"cfPhysicalID": "Development",
+				"lastUpdateTimestamp": "1531438016532",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-lamb-1S44HJTE6EHJG",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "lambdaexecutionpolicy",
+				"cfPhysicalID": "MOBIL-lamb-1S44HJTE6EHJG",
+				"lastUpdateTimestamp": "1531265315525",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Function",
+			"name": "CustomerProfileTable-CustomerProfileTable-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "CustomerProfileTableCustomerProfileTablemobilehub211733734",
+				"cfPhysicalID": "CustomerProfileTable-CustomerProfileTable-mobilehub-211733734",
+				"configApiName": "CustomerProfileTableCRUD",
+				"configHandlerName": "CustomerProfileTable",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/CustomerProfileTable-CustomerProfileTable-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531437952976",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Alias",
+			"name": "FinalTestCRUD-FinalTest-Development-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "DevelopmentFinalTestCRUDFinalTestaliasmobilehub211733734",
+				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:FinalTestCRUD-FinalTest-mobilehub-211733734:Development",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/FinalTestCRUD-FinalTest-mobilehub-211733734/Development",
+				"lastUpdateTimestamp": "1531363967214",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Permission",
+			"name": "MOBILEHUB-211733734-Development-CloudLogic-newTestitemsHandlerpermissionmobilehub2117-1EX0ILFHYUCRY",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "newTestitemsHandlerpermissionmobilehub211733734",
+				"cfPhysicalID": "MOBILEHUB-211733734-Development-CloudLogic-newTestitemsHandlerpermissionmobilehub2117-1EX0ILFHYUCRY",
+				"lastUpdateTimestamp": "1531363149663",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Stage",
+			"name": "CustomerProfileTable-Development-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "CustomerProfileTableDevelopmentMobileHub211733734",
+				"cfPhysicalID": "Development",
+				"lastUpdateTimestamp": "1531437997476",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Alias",
+			"name": "RestaurantProfileTab-staurantProfileTable-Development-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "DevelopmentRestaurantProfileTabstaurantProfileTablealiasmobilehub211733734",
+				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:RestaurantProfileTab-staurantProfileTable-mobilehub-211733734:Development",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RestaurantProfileTab-staurantProfileTable-mobilehub-211733734/Development",
+				"lastUpdateTimestamp": "1531437957191",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-1B8G2L6I97V12",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicyRestaurantProfileCRUMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-1B8G2L6I97V12",
+				"lastUpdateTimestamp": "1531356678961",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::RestApi",
+			"name": "RatedItemsCRUD-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RatedItemsCRUDMobileHub211733734",
+				"cfPhysicalID": "shrumjuvhl",
+				"configApiName": "RatedItemsCRUD",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/shrumjuvhl/resources",
+				"lastUpdateTimestamp": "1531437951450",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "CustomerProfileTable-Development30f2f7ff0c6bffde-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "CustomerProfileTableDevelopment30f2f7ff0c6bffdeMobileHub211733734",
+				"cfPhysicalID": "2ue2z8",
+				"lastUpdateTimestamp": "1531437993075",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::RestApi",
+			"name": "RestaurantProfileTab-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileTabMobileHub211733734",
+				"cfPhysicalID": "m9t932tff5",
+				"configApiName": "RestaurantProfileTableCRUD",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/m9t932tff5/resources",
+				"lastUpdateTimestamp": "1531437947850",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::RestApi",
+			"name": "RestaurantProfileCRU-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileCRUMobileHub211733734",
+				"cfPhysicalID": "r2n9lmdp84",
+				"configApiName": "RestaurantProfileCRUD",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/r2n9lmdp84/resources",
+				"lastUpdateTimestamp": "1531437947518",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "FinalTestCRUD-Developmentf68927e351790a13-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "FinalTestCRUDDevelopmentf68927e351790a13MobileHub211733734",
+				"cfPhysicalID": "r5qpym",
+				"lastUpdateTimestamp": "1531438047747",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-7FS5KMKNPZ5A",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicyCustomerProfileTableMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-7FS5KMKNPZ5A",
+				"lastUpdateTimestamp": "1531438001064",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Stage",
+			"name": "RestaurantProfileCRU-Development-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileCRUDevelopmentMobileHub211733734",
+				"cfPhysicalID": "Development",
+				"lastUpdateTimestamp": "1531437955269",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::RestApi",
+			"name": "CustomerProfileTable-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "CustomerProfileTableMobileHub211733734",
+				"cfPhysicalID": "7wpc3tmy7b",
+				"configApiName": "CustomerProfileTableCRUD",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/7wpc3tmy7b/resources",
+				"lastUpdateTimestamp": "1531437947902",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-3O7H5ZUSF74I",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicyRestaurantProfileTabMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-3O7H5ZUSF74I",
+				"lastUpdateTimestamp": "1531438019653",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-11Z40E5KEOO95",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicyRatedItemsCRUDMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-11Z40E5KEOO95",
+				"lastUpdateTimestamp": "1531265329918",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "RestaurantProfileCRU-Developmentcbdbecc872e8e710-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileCRUDevelopmentcbdbecc872e8e710MobileHub211733734",
+				"cfPhysicalID": "p0j5xf",
+				"lastUpdateTimestamp": "1531437951396",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "RestaurantProfileTab-Developmentdbf7f85e7304b0b5-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileTabDevelopmentdbf7f85e7304b0b5MobileHub211733734",
+				"cfPhysicalID": "nc19d6",
+				"lastUpdateTimestamp": "1531438011945",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "RatedItemsCRUD-Development6221e4362f7b98ef-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RatedItemsCRUDDevelopment6221e4362f7b98efMobileHub211733734",
+				"cfPhysicalID": "pkuz5i",
+				"lastUpdateTimestamp": "1531438069313",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Permission",
+			"name": "MOBILEHUB-211733734-Development-CloudLogic-FinalTestCRUDFinalTestpermissionmobilehub2-WCZDRMGYEMP1",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "FinalTestCRUDFinalTestpermissionmobilehub211733734",
+				"cfPhysicalID": "MOBILEHUB-211733734-Development-CloudLogic-FinalTestCRUDFinalTestpermissionmobilehub2-WCZDRMGYEMP1",
+				"lastUpdateTimestamp": "1531363980280",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Function",
+			"name": "RatedItemsCRUD-RatedItems-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RatedItemsCRUDRatedItemsmobilehub211733734",
+				"cfPhysicalID": "RatedItemsCRUD-RatedItems-mobilehub-211733734",
+				"configApiName": "RatedItemsCRUD",
+				"configHandlerName": "RatedItems",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RatedItemsCRUD-RatedItems-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531437956159",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Stage",
+			"name": "newTest-Development-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "newTestDevelopmentMobileHub211733734",
+				"cfPhysicalID": "Development",
+				"lastUpdateTimestamp": "1531437955084",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Alias",
+			"name": "CustomerProfileTable-CustomerProfileTable-Development-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "DevelopmentCustomerProfileTableCustomerProfileTablealiasmobilehub211733734",
+				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:CustomerProfileTable-CustomerProfileTable-mobilehub-211733734:Development",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/CustomerProfileTable-CustomerProfileTable-mobilehub-211733734/Development",
+				"lastUpdateTimestamp": "1531437957234",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Permission",
+			"name": "MOBILEHUB-211733734-Development-CloudLogic-RestaurantProfileCRURestaurantProfilepermi-1VIJTILTAYCXL",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileCRURestaurantProfilepermissionmobilehub211733734",
+				"cfPhysicalID": "MOBILEHUB-211733734-Development-CloudLogic-RestaurantProfileCRURestaurantProfilepermi-1VIJTILTAYCXL",
+				"lastUpdateTimestamp": "1531356646247",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Alias",
+			"name": "RestaurantProfileCRU-RestaurantProfile-Development-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "DevelopmentRestaurantProfileCRURestaurantProfilealiasmobilehub211733734",
+				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:RestaurantProfileCRU-RestaurantProfile-mobilehub-211733734:Development",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RestaurantProfileCRU-RestaurantProfile-mobilehub-211733734/Development",
+				"lastUpdateTimestamp": "1531356633247",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Function",
+			"name": "RestaurantProfileTab-staurantProfileTable-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "RestaurantProfileTabstaurantProfileTablemobilehub211733734",
+				"cfPhysicalID": "RestaurantProfileTab-staurantProfileTable-mobilehub-211733734",
+				"configApiName": "RestaurantProfileTableCRUD",
+				"configHandlerName": "staurantProfileTable",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RestaurantProfileTab-staurantProfileTable-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531437953742",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::ApiGateway::Deployment",
+			"name": "newTest-Development112e3593d5867170-MobileHub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "newTestDevelopment112e3593d5867170MobileHub211733734",
+				"cfPhysicalID": "ka0mbl",
+				"lastUpdateTimestamp": "1531437951539",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "CREATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Function",
+			"name": "newTest-itemsHandler-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "newTestitemsHandlermobilehub211733734",
+				"cfPhysicalID": "newTest-itemsHandler-mobilehub-211733734",
+				"configApiName": "newTest",
+				"configHandlerName": "itemsHandler",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/newTest-itemsHandler-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531363964237",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-13C1BKEC5H5Q8",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicynewTestMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-13C1BKEC5H5Q8",
+				"lastUpdateTimestamp": "1531364114372",
 				"reason": "none",
 				"region": "us-east-1",
 				"status": "CREATE_COMPLETE"
@@ -145,55 +820,86 @@
 				"cfLogicalID": "CloudLogic",
 				"cfPhysicalID": "arn:aws:cloudformation:us-east-1:447144508653:stack/MOBILEHUB-211733734-Development-CloudLogic-U06CTKD55HLR/eb4149a0-8498-11e8-9667-5044334e0ab3",
 				"deeplinkURL": "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stack/detail?stackId=arn:aws:cloudformation:us-east-1:447144508653:stack/MOBILEHUB-211733734-Development-CloudLogic-U06CTKD55HLR/eb4149a0-8498-11e8-9667-5044334e0ab3",
-				"lastUpdateTimestamp": "1531265343088",
+				"lastUpdateTimestamp": "1531438105843",
 				"reason": "none",
 				"region": "us-east-1",
-				"status": "CREATE_COMPLETE"
+				"status": "UPDATE_COMPLETE"
 			}
 		},
 		{
 			"type": "AWS::Lambda::Function",
-			"name": "RatedItemsCRUD-RatedItems-mobilehub-211733734",
+			"name": "FinalTestCRUD-FinalTest-mobilehub-211733734",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"cfLogicalID": "RatedItemsCRUDRatedItemsmobilehub211733734",
-				"cfPhysicalID": "RatedItemsCRUD-RatedItems-mobilehub-211733734",
-				"configApiName": "RatedItemsCRUD",
-				"configHandlerName": "RatedItems",
-				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/RatedItemsCRUD-RatedItems-mobilehub-211733734",
-				"lastUpdateTimestamp": "1531265324027",
+				"cfLogicalID": "FinalTestCRUDFinalTestmobilehub211733734",
+				"cfPhysicalID": "FinalTestCRUD-FinalTest-mobilehub-211733734",
+				"configApiName": "FinalTestCRUD",
+				"configHandlerName": "FinalTest",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/FinalTestCRUD-FinalTest-mobilehub-211733734",
+				"lastUpdateTimestamp": "1531437951909",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Permission",
+			"name": "MOBILEHUB-211733734-Development-CloudLogic-CustomerProfileTableCustomerProfileTablepe-JBGG9UI8FQI7",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "CustomerProfileTableCustomerProfileTablepermissionmobilehub211733734",
+				"cfPhysicalID": "MOBILEHUB-211733734-Development-CloudLogic-CustomerProfileTableCustomerProfileTablepe-JBGG9UI8FQI7",
+				"lastUpdateTimestamp": "1531437970930",
 				"reason": "none",
 				"region": "us-east-1",
 				"status": "CREATE_COMPLETE"
 			}
 		},
 		{
-			"type": "AWS::ApiGateway::Deployment",
-			"name": "RatedItemsCRUD-Development8d01759f5164ce24-MobileHub-211733734",
+			"type": "AWS::ApiGateway::Stage",
+			"name": "FinalTestCRUD-Development-MobileHub-211733734",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"cfLogicalID": "RatedItemsCRUDDevelopment8d01759f5164ce24MobileHub211733734",
-				"cfPhysicalID": "9afwlr",
-				"lastUpdateTimestamp": "1531265322441",
+				"cfLogicalID": "FinalTestCRUDDevelopmentMobileHub211733734",
+				"cfPhysicalID": "Development",
+				"lastUpdateTimestamp": "1531438052129",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::Lambda::Alias",
+			"name": "newTest-itemsHandler-Development-mobilehub-211733734",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "DevelopmentnewTestitemsHandleraliasmobilehub211733734",
+				"cfPhysicalID": "arn:aws:lambda:us-east-1:447144508653:function:newTest-itemsHandler-mobilehub-211733734:Development",
+				"deeplinkURL": "https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/newTest-itemsHandler-mobilehub-211733734/Development",
+				"lastUpdateTimestamp": "1531363132354",
 				"reason": "none",
 				"region": "us-east-1",
 				"status": "CREATE_COMPLETE"
 			}
 		},
 		{
-			"type": "AWS::IAM::Policy",
-			"name": "MOBIL-lamb-1S44HJTE6EHJG",
+			"type": "AWS::ApiGateway::RestApi",
+			"name": "FinalTestCRUD-MobileHub-211733734",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"cfLogicalID": "lambdaexecutionpolicy",
-				"cfPhysicalID": "MOBIL-lamb-1S44HJTE6EHJG",
-				"lastUpdateTimestamp": "1531265315525",
+				"cfLogicalID": "FinalTestCRUDMobileHub211733734",
+				"cfPhysicalID": "oohmfla68b",
+				"configApiName": "FinalTestCRUD",
+				"deeplinkURL": "https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/oohmfla68b/resources",
+				"lastUpdateTimestamp": "1531437947252",
 				"reason": "none",
 				"region": "us-east-1",
-				"status": "CREATE_COMPLETE"
+				"status": "UPDATE_COMPLETE"
 			}
 		},
 		{
@@ -204,7 +910,21 @@
 			"attributes": {
 				"cfLogicalID": "RatedItemsCRUDDevelopmentMobileHub211733734",
 				"cfPhysicalID": "Development",
-				"lastUpdateTimestamp": "1531265326038",
+				"lastUpdateTimestamp": "1531438073308",
+				"reason": "none",
+				"region": "us-east-1",
+				"status": "UPDATE_COMPLETE"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "MOBIL-Poli-EUO74JYD8W04",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"cfLogicalID": "PolicyFinalTestCRUDMobileHub211733734",
+				"cfPhysicalID": "MOBIL-Poli-EUO74JYD8W04",
+				"lastUpdateTimestamp": "1531363970521",
 				"reason": "none",
 				"region": "us-east-1",
 				"status": "CREATE_COMPLETE"
@@ -225,14 +945,14 @@
 			}
 		},
 		{
-			"type": "AWS::IAM::Policy",
-			"name": "MOBIL-Poli-11Z40E5KEOO95",
+			"type": "AWS::Lambda::Permission",
+			"name": "MOBILEHUB-211733734-Development-CloudLogic-RestaurantProfileTabstaurantProfileTablepe-12MIW7IWGYOTM",
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"cfLogicalID": "PolicyRatedItemsCRUDMobileHub211733734",
-				"cfPhysicalID": "MOBIL-Poli-11Z40E5KEOO95",
-				"lastUpdateTimestamp": "1531265329918",
+				"cfLogicalID": "RestaurantProfileTabstaurantProfileTablepermissionmobilehub211733734",
+				"cfPhysicalID": "MOBILEHUB-211733734-Development-CloudLogic-RestaurantProfileTabstaurantProfileTablepe-12MIW7IWGYOTM",
+				"lastUpdateTimestamp": "1531437970760",
 				"reason": "none",
 				"region": "us-east-1",
 				"status": "CREATE_COMPLETE"
@@ -259,7 +979,7 @@
 				"region": "us-east-1",
 				"stack-arn": "arn:aws:cloudformation:us-east-1:447144508653:stack/MOBILEHUB-211733734-Development/e90626b0-8498-11e8-ba49-50d5cd265c36",
 				"stateDetails": "none",
-				"stateSummary": "CREATE_COMPLETE"
+				"stateSummary": "UPDATE_COMPLETE"
 			}
 		}
 	]

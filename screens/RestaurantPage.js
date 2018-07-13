@@ -21,6 +21,11 @@ import ReviewScreen from './ReviewScreen'
 import InfoScreen from './InfoScreen'
 
 
+import Amplify, { API } from 'aws-amplify';
+import aws_exports from '../aws-exports';
+Amplify.configure(aws_exports);
+
+
 
 
 export default class RestaurantPage extends Component {
@@ -39,9 +44,9 @@ export default class RestaurantPage extends Component {
  state = {
     index: 0,
     routes: [
-      { key: 'first', title: 'Order' },
-      { key: 'second', title: 'Reviews' },
-      { key: 'third' , title: 'Info' },
+      { key: 'first', title: 'Order', data: this.props.navigation.state.params.data},
+      { key: 'second', title: 'Reviews', data: this.props.navigation.state.params.data},
+      { key: 'third' , title: 'Info', data: this.props.navigation.state.params.data}
     ],
   };
 
@@ -59,7 +64,7 @@ export default class RestaurantPage extends Component {
 
   
   render() {
-  	// console.log(this.props)
+  	// console.log(this.props.navigation.state.params)
     return (
       <TabView
         navigationState={this.state}
