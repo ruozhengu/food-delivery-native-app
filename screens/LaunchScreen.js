@@ -180,7 +180,7 @@ export default class LaunchScreen extends Component {
           name="close" 
           color="white" 
           size={35} 
-          onPress={()=> this.saveRestaurant()} />
+          onPress={()=> this.handleClosePress()} />
         </View>
 
         <Text style={styles.heading}>Hungry?</Text>

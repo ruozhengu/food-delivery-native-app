@@ -1,33 +1,33 @@
 ###############################################################################################################
-CUSTOMER PROFILE TABLE
+CUSTOMER TABLE
 ###############################################################################################################
 
 
-? Select Amazon DynamoDB table to connect to a CRUD API CustomerProfileTable
+? Select Amazon DynamoDB table to connect to a CRUD API CustomerTable
 Adding lambda function code on:
-/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/CustomerProfileTable/
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/CustomerTable/
 ...
 Path to be used on API for get and remove an object should be like:
-/CustomerProfileTable/object/:itemId
+/CustomerTable/object/:cust_id
 
 Path to be used on API for list objects on get method should be like:
-/CustomerProfileTable
+/CustomerTable
 
 JSON to be used as data on put request should be like:
 {
+  "cust_id": "INSERT VALUE HERE",
   "default_address": "INSERT VALUE HERE",
   "email": "INSERT VALUE HERE",
   "firstname": "INSERT VALUE HERE",
   "history_order_id": "INSERT VALUE HERE",
-  "itemId": "INSERT VALUE HERE",
+  "image": "INSERT VALUE HERE",
   "lastname": "INSERT VALUE HERE",
   "phone": "INSERT VALUE HERE",
-  "profile_img": "INSERT VALUE HERE",
   "real_address": "INSERT VALUE HERE",
   "sex": "INSERT VALUE HERE"
 }
 To test the api from the command line (after awsmobile push) use this commands
-awsmobile cloud-api invoke CustomerProfileTableCRUD <method> <path> [init]
+awsmobile cloud-api invoke CustomerTableCRUD <method> <path> [init]
 
 
 ###############################################################################################################

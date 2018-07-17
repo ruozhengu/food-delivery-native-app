@@ -112,11 +112,14 @@ this.setState({ loading: false });
        "cust_id": "ali212",
        "cust_image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
        "cust_name": "Emily Saeed",
-       "rating": this.state.rating,
+       "rating": this.state.ratings,
        "rest_id": this.props.route.data.rest_id,
     };
+    let newRating = (this.props.route.data.rating + this.state.ratings)/2;
     let revNo = this.props.route.data.reviews.length;
+
     this.props.route.data.reviews[revNo] = newReview;
+    this.props.route.data.rating = newRating;
     // console.log(this.props.route.data);
     this.popupDialog.dismiss();
     // console.log(this.props.route.data.reviews.length);

@@ -4,7 +4,7 @@
 	"region": "us-east-1",
 	"state": "NORMAL",
 	"createdDate": "2018-07-10T23:02:12.025Z",
-	"lastUpdatedDate": "2018-07-12T23:59:01.419Z",
+	"lastUpdatedDate": "2018-07-15T17:35:49.014Z",
 	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/495f55c6-619d-4666-afdf-9c6c2ff40960/build",
 	"resources": [
 		{
@@ -14,8 +14,17 @@
 			"feature": "database",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
+			}
+		},
+		{
+			"type": "AWS::DynamoDB::Table",
+			"name": "fooddeliveryapp-mobilehub-211733734-CustomerTable",
+			"arn": "arn:aws:dynamodb:us-east-1:447144508653:table/fooddeliveryapp-mobilehub-211733734-CustomerTable",
+			"feature": "database",
+			"attributes": {
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241"
 			}
 		},
 		{
@@ -154,7 +163,7 @@
 			"feature": "analytics",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
 			}
 		},
@@ -164,9 +173,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "6e6a326872cc594ca73c97e44ab5ecc0",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": "GZ2G.GIrH7LpAehmDIQ6oSCvagp7KC6F"
+				"eTag": "b904209a04cf18e3a6ef06160462e524",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "gnWd8PqqzyTvuBmCYDlG.cv_D7vdZOJu"
 			}
 		},
 		{
@@ -175,9 +184,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "8fc59f0a16058bddd10b26379f6102f2",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": "_QDa2tzSvMirskMhvWNi3RN_WFLJWKUq"
+				"eTag": "e83609751f2f40c0ce16aa19ba34888e",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "h1DWCMY27fCoEH7GWVOd3mtBGSK6Z22t"
 			}
 		},
 		{
@@ -186,9 +195,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "c5706df92066c95f4021cd11f85323f7",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": "JANvGNJu.ivUT6kqawvvmHUbE42L5QPB"
+				"eTag": "92561d21a216dcb1bb46f8f652d415c0",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "oCNSfo0ogiZiGlCLhnoFN0ls30lOPucy"
 			}
 		},
 		{
@@ -197,9 +206,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "424c1e57aced46710bbefec47c3bb77f",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": "vjHC0hvF8N96vUYpDWjOQUT9hU6Nqd2L"
+				"eTag": "9e90a0c6229dd7ce89d38fb3fae1b7ef",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "KmAzDQKrxuBfnRARPsqu3zQlRYbyY3mH"
 			}
 		},
 		{
@@ -208,9 +217,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "f179a1655be520c75e74cbe5e4d4ef48",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": "Xes.95RD0qSKecrD9JR2wmrKqUGEG7z_"
+				"eTag": "499e17552fd7f46436345fca4e6b4924",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "PR7ema9aE24.W9Sd2Tlj91cYIFwQEbl0"
 			}
 		},
 		{
@@ -219,9 +228,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "b874a3fdc6c74205beb8fd8667fd329a",
-				"lastUpdateRequestID": "767edb48-c19c-41cb-bded-4317d5a64e09",
-				"versionID": ".oZrAgnGn7JtemA0WJWHBhzQkjrewWwr"
+				"eTag": "b33335b34b6b04318bd3136c443f9a2c",
+				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"versionID": "pr2O.NkU8L2vjGf3FRtCPGd3il4yE8wi"
 			}
 		},
 		{
@@ -975,6 +984,7 @@
 			"feature": "cloud-api",
 			"attributes": {
 				"cfHash": "2107370096",
+				"locked": "true",
 				"primary": "true",
 				"region": "us-east-1",
 				"stack-arn": "arn:aws:cloudformation:us-east-1:447144508653:stack/MOBILEHUB-211733734-Development/e90626b0-8498-11e8-ba49-50d5cd265c36",

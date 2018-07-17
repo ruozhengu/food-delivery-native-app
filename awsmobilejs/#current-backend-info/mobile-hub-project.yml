@@ -138,6 +138,7 @@ features:
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
+          /: !com.amazonaws.mobilehub.v0.Function {}
           /RestaurantProfileTable: !com.amazonaws.mobilehub.v0.Function
             codeFilename: uploads/staurantProfileTable-20180712192228.zip
             description: "Handler for calls to resource path : /RestaurantProfileTable/{proxy+}"
@@ -196,6 +197,25 @@ features:
     components: 
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase
         tables: 
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              cust_id: S
+              default_address: M
+              email: S
+              firstname: S
+              history_order_id: L
+              image: S
+              lastname: S
+              phone: S
+              real_address: M
+              sex: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: cust_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-CustomerTable
+            tablePrivacy: protected
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
               category: S
@@ -312,7 +332,7 @@ features:
               email: S
               image: S
               item_count_number: N
-              location: M
+              location: S
               menu: L
               mtl_order_count: N
               mtl_revenue: N

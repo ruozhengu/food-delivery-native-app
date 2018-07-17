@@ -14,7 +14,17 @@ import {
 } from 'react-native';
 
 import {  ListItem } from 'react-native-elements';
+
+import {
+  FormLabel,
+  FormInput,
+  FormValidationMessage,
+} from 'react-native-elements';
+
+
 import ActionButton from 'react-native-action-button';
+
+import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
 
 
 import {
@@ -60,7 +70,9 @@ export class Cart extends React.Component {
     };
   };
 
-
+state = {
+  formName:"outside constructor",
+}
 
 constructor(props) {
     super(props);
@@ -72,14 +84,27 @@ constructor(props) {
       longitude: data.longitude,
       latitudeDelta: 0.0622,
       longitudeDelta: 0.0321,
+      formName: "inside constructor",
     },
     };
   }
 
 
+componentWillMount () {
+  // this.setState({navigate:true});
+      console.log('compdidmount called')
+    // console.log(this.state.navigate)
+    // if (this.state.navigate) {
+      // console.log('if statement is true')
+      // this.state.navigate = false;
+      this.props.navigation.navigate('RestaurantList');
+      console.log('after navigation')
+    // }
+}
 
+  componentDidMount() {
 
-
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.count != this.props.count) {
@@ -95,12 +120,13 @@ constructor(props) {
     }
 
   handleOrderCart(){
-    Alert.alert('Place Order',
-      'Are you sure you want to place this order?'
-      ,[
-    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-    {text: 'OK', onPress: () => {console.log('OK Pressed'); this.props.dispatch(emptyCart())}},
-  ])
+  //   Alert.alert('Place Order',
+  //     'Are you sure you want to place this order?'
+  //     ,[
+  //   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+  //   {text: 'OK', onPress: () => {console.log('OK Pressed'); this.props.dispatch(emptyCart())}},
+  // ])
+  this.popupDialog.show();
   }
 
   render() {
@@ -110,9 +136,11 @@ constructor(props) {
 
       <View style={{paddingTop:12,height:'100%'}}>
 
+
       <InfoText text='Your Orders' />
        
        <View style={styles.container}>
+
         <ListView
         enableEmptySections={true}
         style={{backgroundColor:'#b7b3b3',height:'100%'}}
@@ -164,7 +192,7 @@ constructor(props) {
             
           )}
         />
-
+ 
 
                 <ActionButton 
         buttonColor="rgba(231,76,60,1)"
@@ -183,11 +211,14 @@ constructor(props) {
         // buttonTextStyle={{fontSize:13}}
 
         />
+
       </View>
       
 
 // <InfoText text="Track your Delivery" />
+
       <View style={{height:'45%'}}>
+
       <MapView
           style={{ alignSelf: 'stretch', height: '100%' }}
           region={this.state.mapRegion}
@@ -203,6 +234,68 @@ constructor(props) {
         
       </MapView>
       </View>
+
+
+
+       <PopupDialog
+        
+        height={'80%'}
+        dialogTitle={<DialogTitle title="Please enter your information" titleTextStyle={{alignSelf:'center',fontSize:23,fontWeight:'bold'}} />}
+    ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+  >
+
+<ScrollView >
+<InfoText text='Contact' />
+        <FormLabel>Name</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log('{formName:text}');
+          }}
+        />
+        
+        <FormLabel>Phone Number</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log('{formName:text}');
+          }}
+        />
+<InfoText text='Address' />
+                <FormLabel>Unit</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log('{formName:text}');
+          }}
+        />
+
+                <FormLabel>Street</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log(text);
+          }}
+        />
+
+
+              <FormLabel>City</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log(text);
+          }}
+        />
+
+
+              <FormLabel>Postal Code</FormLabel>
+        <FormInput
+          onChangeText={text => {
+            console.log(text);
+          }}
+        />
+        <View style={{padding:10, flexDirection: 'row', alignItems:'center', justifyContent: 'center'}}>
+        <Button  title="Cancel" />
+        <Button  title="Submit" />
+        </View>
+      </ScrollView>
+
+  </PopupDialog>
 
 
 </View>
