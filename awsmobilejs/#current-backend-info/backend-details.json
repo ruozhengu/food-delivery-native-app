@@ -4,7 +4,7 @@
 	"region": "us-east-1",
 	"state": "NORMAL",
 	"createdDate": "2018-07-10T23:02:12.025Z",
-	"lastUpdatedDate": "2018-07-15T17:35:49.014Z",
+	"lastUpdatedDate": "2018-07-17T05:10:45.113Z",
 	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/495f55c6-619d-4666-afdf-9c6c2ff40960/build",
 	"resources": [
 		{
@@ -14,7 +14,7 @@
 			"feature": "database",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
 			}
 		},
@@ -163,7 +163,7 @@
 			"feature": "analytics",
 			"attributes": {
 				"authType": "unauthenticated",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
 				"role": "fooddeliveryapp_unauth_MOBILEHUB_211733734"
 			}
 		},
@@ -173,9 +173,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "b904209a04cf18e3a6ef06160462e524",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "gnWd8PqqzyTvuBmCYDlG.cv_D7vdZOJu"
+				"eTag": "dacd303650d8b428db954057b7f13b53",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "sNBJz8txrLeJd3uS_szgUgPX_YCxIeJh"
 			}
 		},
 		{
@@ -184,9 +184,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "e83609751f2f40c0ce16aa19ba34888e",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "h1DWCMY27fCoEH7GWVOd3mtBGSK6Z22t"
+				"eTag": "5d542c6bbd62d08101188a5dc078e09f",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "ZZOt0h8cmMWB3bW_EREzVNn4wFsPZFRN"
 			}
 		},
 		{
@@ -195,9 +195,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "92561d21a216dcb1bb46f8f652d415c0",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "oCNSfo0ogiZiGlCLhnoFN0ls30lOPucy"
+				"eTag": "ea47c522014f6ef8c2b93254523ce939",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "dIF8qOVAMyECMZ.oL_xe6NPQoDBKk6ZS"
 			}
 		},
 		{
@@ -206,9 +206,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "9e90a0c6229dd7ce89d38fb3fae1b7ef",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "KmAzDQKrxuBfnRARPsqu3zQlRYbyY3mH"
+				"eTag": "45a4eefe6c93971589d4b49bf9f218c0",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "fgugLkYkhqhfBGJ5_szooWGMsxsF70nH"
 			}
 		},
 		{
@@ -217,9 +217,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "499e17552fd7f46436345fca4e6b4924",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "PR7ema9aE24.W9Sd2Tlj91cYIFwQEbl0"
+				"eTag": "6aff007d72f0b72eff22717ce5b02715",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "AprmK03UCDoS9QfGAg_ZmkmXQ_jePn0q"
 			}
 		},
 		{
@@ -228,9 +228,9 @@
 			"arn": null,
 			"feature": "cloud-api",
 			"attributes": {
-				"eTag": "b33335b34b6b04318bd3136c443f9a2c",
-				"lastUpdateRequestID": "cbe87112-9a03-4c4b-8c33-555a7b474241",
-				"versionID": "pr2O.NkU8L2vjGf3FRtCPGd3il4yE8wi"
+				"eTag": "2135e629dbc201207bd84341eade5aea",
+				"lastUpdateRequestID": "3763f972-bd29-45b8-a1f7-7b335afd8e4a",
+				"versionID": "79GxZJPpAJRVCyCays_K2RmQt8wGWMm9"
 			}
 		},
 		{

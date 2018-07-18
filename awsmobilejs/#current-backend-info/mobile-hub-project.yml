@@ -323,7 +323,7 @@ features:
             rangeKeyName: orderId
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-OrderTransactionTable
-            tablePrivacy: protected
+            tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
               category: S
@@ -353,7 +353,7 @@ features:
             rangeKeyName: rest_id
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-RestaurantProfileTable
-            tablePrivacy: protected
+            tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
               curr_holding_count: N

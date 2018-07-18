@@ -11,6 +11,7 @@ import {
   View,
   ListView,
   InteractionManager,
+  Keyboard,
 } from 'react-native';
 
 import {  ListItem } from 'react-native-elements';
@@ -58,6 +59,9 @@ const data = {
 
 
 export class Cart extends React.Component {
+
+
+
   static navigationOptions = ({ navigation }) => {
     badgeCount = navigation.state.params ? navigation.state.params.count : '0'
     return {
@@ -70,9 +74,9 @@ export class Cart extends React.Component {
     };
   };
 
-state = {
-  formName:"outside constructor",
-}
+
+    
+
 
 constructor(props) {
     super(props);
@@ -84,7 +88,12 @@ constructor(props) {
       longitude: data.longitude,
       latitudeDelta: 0.0622,
       longitudeDelta: 0.0321,
-      formName: "inside constructor",
+      name: "",
+      phone: "",
+      unit: "",
+      street: "",
+      city: "",
+      postalCode: "",
     },
     };
   }
@@ -102,15 +111,14 @@ componentWillMount () {
     // }
 }
 
-  componentDidMount() {
+  // componentDidMount() {
 
-  }
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.count != this.props.count) {
       this.setState({dataSource: ds.cloneWithRows(nextProps.data) });
       this.props.navigation.setParams({ count: nextProps.count.toString() });
-      console.log();
     }
   }
 
@@ -127,6 +135,30 @@ componentWillMount () {
   //   {text: 'OK', onPress: () => {console.log('OK Pressed'); this.props.dispatch(emptyCart())}},
   // ])
   this.popupDialog.show();
+  
+  }
+
+  handleSubmit(){
+    this.props.dispatch(emptyCart());
+    Keyboard.dismiss();
+    this.popupDialog.dismiss();
+
+    this.setState({
+      name:"",
+      phone: "",
+      unit: "",
+      street: "",
+      city: "",
+      postalCode: ""
+    })
+
+    Alert.alert("Your order is on its way!")
+    
+  }
+
+  handleCancel() {
+    this.popupDialog.dismiss();
+    Keyboard.dismiss();
   }
 
   render() {
@@ -215,7 +247,7 @@ componentWillMount () {
       </View>
       
 
-// <InfoText text="Track your Delivery" />
+// <InfoText text={"Track your Delivery"} />
 
       <View style={{height:'45%'}}>
 
@@ -238,8 +270,8 @@ componentWillMount () {
 
 
        <PopupDialog
-        
-        height={'80%'}
+                containerStyle={{paddingBottom:'30%'}}
+        height={420}
         dialogTitle={<DialogTitle title="Please enter your information" titleTextStyle={{alignSelf:'center',fontSize:23,fontWeight:'bold'}} />}
     ref={(popupDialog) => { this.popupDialog = popupDialog; }}
   >
@@ -247,54 +279,41 @@ componentWillMount () {
 <ScrollView >
 <InfoText text='Contact' />
         <FormLabel>Name</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log('{formName:text}');
-          }}
-        />
-        
+        <FormInput defaultValue={this.state.name}
+        onChangeText={(text) => this.setState({name:text})}/>
+
+
         <FormLabel>Phone Number</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log('{formName:text}');
-          }}
-        />
+        <FormInput keyboardType={'numeric'}
+        defaultValue={this.state.phone} 
+        onChangeText={(text) => this.setState({phone:text})}/>
+
 <InfoText text='Address' />
                 <FormLabel>Unit</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log('{formName:text}');
-          }}
-        />
+        <FormInput defaultValue={this.state.unit}
+        onChangeText={(text) => this.setState({unit:text})}/>
 
                 <FormLabel>Street</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log(text);
-          }}
-        />
+        <FormInput defaultValue={this.state.street}
+        onChangeText={(text) => this.setState({street:text})}/>
 
 
               <FormLabel>City</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log(text);
-          }}
-        />
+        <FormInput onChangeText={(text) => this.setState({city:text})}/>
 
 
               <FormLabel>Postal Code</FormLabel>
-        <FormInput
-          onChangeText={text => {
-            console.log(text);
-          }}
-        />
-        <View style={{padding:10, flexDirection: 'row', alignItems:'center', justifyContent: 'center'}}>
-        <Button  title="Cancel" />
-        <Button  title="Submit" />
-        </View>
-      </ScrollView>
+        <FormInput defaultValue={this.state.postalCode}
+        onChangeText={(text) => this.setState({postalCode:text})}/>
 
+
+
+
+      </ScrollView>
+        <View style={{padding:10, flexDirection: 'row', alignItems:'center', justifyContent: 'center'}}>
+        <Button  title="Cancel" onPress={() => this.handleCancel()}/>
+        <Button  title="Submit" onPress={() => this.handleSubmit()}/>
+        </View>
   </PopupDialog>
 
 

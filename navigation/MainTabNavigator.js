@@ -117,7 +117,21 @@ export default createMaterialBottomTabNavigator({
   CategoryScreen: { screen: CategoryScreen },
   ExploreScreen: { screen: ExploreScreen },
   CartScreen: { screen: CartScreen },
-  ProfileScreen: { screen: ProfileScreen },
+  ProfileScreen: { screen: ProfileScreen, 
+
+  navigationOptions: (navigation) => ({
+    header: null,
+      tabBarLabel : "Profile",
+  tabBarIcon : ({focused}) => (
+    <Feather 
+      name="user"
+      size={25}
+    />
+  ),
+  header:null
+  }),
+
+  },
 }, {
   initialRouteName: 'CartScreen',
   activeTintColor: 'blue',

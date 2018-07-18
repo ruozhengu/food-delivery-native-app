@@ -1,15 +1,7 @@
 import React from 'react';
-import { TextInput, Alert, Button, StyleSheet, Text, View } from 'react-native';
-
-
-import Amplify, { Auth } from 'aws-amplify'
-import config from '../aws-exports'
-
-Amplify.configure(config)
-
+import { TextInput, Button, StyleSheet, Text, View } from 'react-native';
 
 export default class Signup extends React.Component {
-  
   state = {
     username: '',
     password: '',
@@ -17,8 +9,6 @@ export default class Signup extends React.Component {
     email: '',
     confirmationCode: ''
   }
-
-
   onChangeText(key, value) {
     this.setState({
       [key]: value

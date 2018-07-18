@@ -4,6 +4,38 @@ apps:
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
+      CustomerProfileTableCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: CustomerProfileTableCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /CustomerProfileTable: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
+            description: 'Handler for calls to resource path : /CustomerProfileTable/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            memorySize: '128'
+            modified: '2018-07-12T23:25:51.543+0000'
+            name: CustomerProfileTable
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 2NSxhlGceY.AjoC4IAsIXHBahySOzyvh
+          '/CustomerProfileTable/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
+            description: 'Handler for calls to resource path : /CustomerProfileTable/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            memorySize: '128'
+            modified: '2018-07-12T23:25:51.543+0000'
+            name: CustomerProfileTable
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 5Qn56BRKEtNU.lhqKrP.SOmHe1H0x5fT
       FinalTestCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
           name: FinalTestCRUD
@@ -11,7 +43,7 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /FinalTest: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/FinalTest-20180715172055.zip
+            codeFilename: uploads/FinalTest-20180712192228.zip
             description: 'Handler for calls to resource path : /FinalTest/{proxy+}'
             enableCORS: true
             environment: {}
@@ -24,7 +56,7 @@ features:
             timeout: '3'
             version: EjM3l2iper21XrZpHu2ZWqZO38Yy8EpK
           '/FinalTest/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/FinalTest-20180715172055.zip
+            codeFilename: uploads/FinalTest-20180712192228.zip
             description: 'Handler for calls to resource path : /FinalTest/{proxy+}'
             enableCORS: true
             environment: {}
@@ -43,7 +75,7 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /RatedItems: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/RatedItems-20180715123652.zip
+            codeFilename: uploads/RatedItems-20180712192228.zip
             description: 'Handler for calls to resource path : /RatedItems/{proxy+}'
             enableCORS: true
             environment: {}
@@ -56,7 +88,7 @@ features:
             timeout: '3'
             version: PtXNlIstNQDyCmppGli.W93Ka8joCyjj
           '/RatedItems/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/RatedItems-20180715123652.zip
+            codeFilename: uploads/RatedItems-20180712192228.zip
             description: 'Handler for calls to resource path : /RatedItems/{proxy+}'
             enableCORS: true
             environment: {}
@@ -75,7 +107,7 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /RestaurantProfile: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/RestaurantProfile-20180715123652.zip
+            codeFilename: uploads/RestaurantProfile-20180712192228.zip
             description: 'Handler for calls to resource path : /RestaurantProfile/{proxy+}'
             enableCORS: true
             environment: {}
@@ -88,7 +120,7 @@ features:
             timeout: '3'
             version: XDrY9siKDuvTnSeu1MbKofvdBVlBJLsH
           '/RestaurantProfile/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/RestaurantProfile-20180715123652.zip
+            codeFilename: uploads/RestaurantProfile-20180712192228.zip
             description: 'Handler for calls to resource path : /RestaurantProfile/{proxy+}'
             enableCORS: true
             environment: {}
@@ -161,25 +193,6 @@ features:
             runtime: nodejs6.10
             timeout: '3'
             version: nf1LHMrDydCrHvZK4r3BvxBu0WMXsWgj
-      CustomerTableCRUD: !com.amazonaws.mobilehub.v0.API 
-        attributes:
-          name: CustomerTableCRUD
-          requires-signin: false
-        paths:
-          /CustomerTable: !com.amazonaws.mobilehub.v0.Function 
-            name: CustomerTable
-            codeFilename: uploads/CustomerTable-20180715172055.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
-          '/CustomerTable/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            name: CustomerTable
-            codeFilename: uploads/CustomerTable-20180715172055.zip
-            handler: lambda.handler
-            enableCORS: true
-            runtime: nodejs6.10
-            environment: {}
   database: !com.amazonaws.mobilehub.v0.Database 
     components:
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
@@ -310,7 +323,7 @@ features:
             rangeKeyName: orderId
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-OrderTransactionTable
-            tablePrivacy: protected
+            tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               category: S
@@ -340,7 +353,7 @@ features:
             rangeKeyName: rest_id
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-RestaurantProfileTable
-            tablePrivacy: protected
+            tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               curr_holding_count: N

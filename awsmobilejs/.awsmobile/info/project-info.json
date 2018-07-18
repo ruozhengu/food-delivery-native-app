@@ -6,14 +6,14 @@
 	"LastNPMInstallTime": "",
 	"FrontendLastBuildTime": "",
 	"LastPublishTime": "",
-	"BackendLastSyncTime": "2018-07-15-13-42-44",
-	"BackendLastBuildTime": "2018-07-15-17-21-08",
+	"BackendLastSyncTime": "2018-07-17-22-50-00",
+	"BackendLastBuildTime": "2018-07-17-22-43-32",
 	"BackendLastPushTime": "2018-07-12-19-28-53",
 	"BackendProjectID": "495f55c6-619d-4666-afdf-9c6c2ff40960",
 	"BackendProjectName": "FoodDeliveryApp",
 	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/495f55c6-619d-4666-afdf-9c6c2ff40960/build",
 	"BackendProjectCreationTime": "2018-07-10T23:02:12.025Z",
-	"BackendProjectLastUpdatedTime": "2018-07-15T17:35:49.014Z",
+	"BackendProjectLastUpdatedTime": "2018-07-17T05:10:45.113Z",
 	"Framework": "react-native",
 	"BackendLastSyncToDevTime": "2018-07-11-20-15-06"
 }
