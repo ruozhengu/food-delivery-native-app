@@ -45,13 +45,13 @@ export default class LaunchScreen extends Component {
   };
 
 
-    async getRestaurant() {
-      console.log('getRestaurant started')
-      const path = "/RestaurantProfileTable";
+    async getDriver() {
+      console.log('getDriver started')
+      const path = "/DriverTable";
 
       try {
         console.log('try started')
-        const apiResponse = await API.get("RestaurantProfileTableCRUD", path);
+        const apiResponse = await API.get("DriverTableCRUD", path);
         console.log('After api response')
         console.log(apiResponse);
         this.setState({apiResponse});
@@ -60,13 +60,44 @@ export default class LaunchScreen extends Component {
       }
     }
 
+    async saveCustomer() {
+    console.log('save customer called')
+    let newCustomer = {
+      body: {
+        "cust_id": this.state.username,
+        "default_address": {},
+        "email":"",
+        "firstname":"",
+        "history_order_id": "",
+        "lastname":"",
+        "phone":this.state.phone_number,
+        "profile_img": "http://advaion.com/wp-content/uploads/2017/11/placeholder.png",
+        "real_address":{},
+        "sex":""
+      }
+    }
+    const path = "/CustomerTable";
+
+    // Use the API module to save the note to the database
+    console.log('reached try block')
+    try {
+      console.log('try start')
+      const apiResponse = await API.put("CustomerTableCRUD", path, newRestaurant)
+      console.log('apiResponse called')
+      console.log(apiResponse);
+      this.setState({apiResponse});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  
 
   // Create a new Note according to the columns we defined earlier
   async saveRestaurant() {
     console.log('save rating called')
     let newRestaurant = {
       body: {
-  "category": "new post TEST FOOD",
+  "category": "new test 1",
   "closetime": "11pm",
   "curr_holding_count": 0,
   "email": "kfc@ofwa.com",
@@ -109,8 +140,8 @@ export default class LaunchScreen extends Component {
   "owner_name": "Gabriel Gu",
   "phone": "kfc 134 2156",
   "rating": 3,
-  "rest_id": "test1",
-  "rest_name": "Testing",
+  "rest_id": "commontest1",
+  "rest_name": "common test",
   "spicy_level": "hot",
   "total_order_count": 11,
   "total＿revenue": 44,
@@ -119,7 +150,7 @@ export default class LaunchScreen extends Component {
   {rating:5,
     comment:'TERRRIBBLLEEEE FOOOODDDDDDD',
     cust_id:'ali212', 
-    cust_name: "Emily Saeed", 
+    cust_name: "Megan Washington", 
     cust_image: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg", 
     rest_id:'kfc1'
   },
@@ -148,6 +179,43 @@ export default class LaunchScreen extends Component {
     }
   }
 
+
+   async saveDriver() {
+    console.log('save Driver called')
+    let newDriver = {
+      body: {
+        "userId":'bbbb',
+        "driverId":"bbbb",
+        "curr_holding_count":10,
+        "dly_completed_count":10,
+        "dly_earning":10,
+        "driving_license_id":"2esdqw",
+        "email":"fwee32",
+        "location":{},
+        "mtl_completed_count":10,
+        "mtl_earning":10,
+        "onduty":true,
+        "phone":"saf",
+        "plate":"3r2dfc",
+        "sex":"male",
+        "taker_name": "ali",
+        "working_hour":43,
+      }
+    }
+    const path = "/DriverTable";
+
+    // Use the API module to save the note to the database
+    console.log('reached try block')
+    try {
+      console.log('try start')
+      const apiResponse = await API.put("DriverTableCRUD", path, newDriver)
+      console.log('apiResponse called')
+      console.log(apiResponse);
+      this.setState({apiResponse});
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
 
   handleFindPress() {
@@ -180,7 +248,7 @@ export default class LaunchScreen extends Component {
           name="close" 
           color="white" 
           size={35} 
-          onPress={()=> this.handleClosePress()} />
+          onPress={()=> this.saveDriver()} />
         </View>
 
         <Text style={styles.heading}>Hungry?</Text>

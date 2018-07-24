@@ -4,141 +4,140 @@ apps:
 features: 
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic
     components: 
-      CustomerProfileTableCRUD: !com.amazonaws.mobilehub.v0.API
+      CustomerTableCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
-          name: CustomerProfileTableCRUD
+          name: CustomerTableCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
-          /CustomerProfileTable: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
-            description: "Handler for calls to resource path : /CustomerProfileTable/{proxy+}"
+          /CustomerTable: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/CustomerTable-20180722152054.zip
+            description: "Handler for calls to resource path : /CustomerTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            hashcode: n03gKaXN+/2SILAXQRQ0tdt0Iyak8BigR4lQ++XGEG4=
             memorySize: "128"
-            modified: "2018-07-12T23:25:51.543+0000"
-            name: CustomerProfileTable
+            modified: "2018-07-22T19:23:10.838+0000"
+            name: CustomerTable
             runtime: nodejs6.10
             timeout: "3"
-            version: 2NSxhlGceY.AjoC4IAsIXHBahySOzyvh
-          "/CustomerProfileTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/CustomerProfileTable-20180712192228.zip
-            description: "Handler for calls to resource path : /CustomerProfileTable/{proxy+}"
+            version: FWTWpH2PFxXHOy3wRvxV3HehAPgm7XOu
+          "/CustomerTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/CustomerTable-20180722152054.zip
+            description: "Handler for calls to resource path : /CustomerTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: HzhycZlzXx+WF27AHmpOENfLEm1G6jN+yMGuU+CL42M=
+            hashcode: n03gKaXN+/2SILAXQRQ0tdt0Iyak8BigR4lQ++XGEG4=
             memorySize: "128"
-            modified: "2018-07-12T23:25:51.543+0000"
-            name: CustomerProfileTable
+            modified: "2018-07-22T19:23:10.838+0000"
+            name: CustomerTable
             runtime: nodejs6.10
             timeout: "3"
-            version: 5Qn56BRKEtNU.lhqKrP.SOmHe1H0x5fT
-      FinalTestCRUD: !com.amazonaws.mobilehub.v0.API
+            version: JEeoqTaJsni9Vu_W6fcQY8zKrxKH857Q
+      DriverTableCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
-          name: FinalTestCRUD
+          name: DriverTableCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
-          /FinalTest: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/FinalTest-20180712192228.zip
-            description: "Handler for calls to resource path : /FinalTest/{proxy+}"
+          /DriverTable: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/DriverTable-20180722152054.zip
+            description: "Handler for calls to resource path : /DriverTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: mQP4zc/yObksss7pjFHr75DV7vJ47+PRnBfGRPDVP8I=
+            hashcode: K9uGMv/lcix7Oxu8O6pcLh/V0mih5fHKX5ObeW2JENA=
             memorySize: "128"
-            modified: "2018-07-12T23:25:50.998+0000"
-            name: FinalTest
+            modified: "2018-07-22T19:23:14.503+0000"
+            name: DriverTable
             runtime: nodejs6.10
             timeout: "3"
-            version: EjM3l2iper21XrZpHu2ZWqZO38Yy8EpK
-          "/FinalTest/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/FinalTest-20180712192228.zip
-            description: "Handler for calls to resource path : /FinalTest/{proxy+}"
+            version: _nZc2qE1ggK.fkoWl80hhB4AKxiENoGR
+          "/DriverTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/DriverTable-20180722152054.zip
+            description: "Handler for calls to resource path : /DriverTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: mQP4zc/yObksss7pjFHr75DV7vJ47+PRnBfGRPDVP8I=
+            hashcode: K9uGMv/lcix7Oxu8O6pcLh/V0mih5fHKX5ObeW2JENA=
             memorySize: "128"
-            modified: "2018-07-12T23:25:50.998+0000"
-            name: FinalTest
+            modified: "2018-07-22T19:23:14.503+0000"
+            name: DriverTable
             runtime: nodejs6.10
             timeout: "3"
-            version: LD.Ww3aX1OBgEW0jdR0VHI5gJ42rq5u_
-      RatedItemsCRUD: !com.amazonaws.mobilehub.v0.API
+            version: mYkPBCBvXoA.uykEqWeF7a7bRbWY95HK
+      OrderTakerCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
-          name: RatedItemsCRUD
+          name: OrderTakerCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
-          /RatedItems: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RatedItems-20180712192228.zip
-            description: "Handler for calls to resource path : /RatedItems/{proxy+}"
+          /OrderTaker: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/OrderTaker-20180722152054.zip
+            description: "Handler for calls to resource path : /OrderTaker/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: xhzF8uPO9595BN5C6Lu5xYFUA4RBusP62Y7mXZUWQRA=
+            hashcode: z46POUwlGGPdkpM2qAJRtXNzIKG7XAWzd7cV04TVRP4=
             memorySize: "128"
-            modified: "2018-07-12T23:25:55.513+0000"
-            name: RatedItems
+            modified: "2018-07-22T19:23:14.838+0000"
+            name: OrderTaker
             runtime: nodejs6.10
             timeout: "3"
-            version: PtXNlIstNQDyCmppGli.W93Ka8joCyjj
-          "/RatedItems/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RatedItems-20180712192228.zip
-            description: "Handler for calls to resource path : /RatedItems/{proxy+}"
+            version: EI0fM0BiD23PEo12J9s59HtlVUoyV2NC
+          "/OrderTaker/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/OrderTaker-20180722152054.zip
+            description: "Handler for calls to resource path : /OrderTaker/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: xhzF8uPO9595BN5C6Lu5xYFUA4RBusP62Y7mXZUWQRA=
+            hashcode: z46POUwlGGPdkpM2qAJRtXNzIKG7XAWzd7cV04TVRP4=
             memorySize: "128"
-            modified: "2018-07-12T23:25:55.513+0000"
-            name: RatedItems
+            modified: "2018-07-22T19:23:14.838+0000"
+            name: OrderTaker
             runtime: nodejs6.10
             timeout: "3"
-            version: WPWFggB462b3eXVwAI7J4pV46kn8UNfx
-      RestaurantProfileCRUD: !com.amazonaws.mobilehub.v0.API
+            version: z91WIW4DMXXBmYJCf7bP1TFCNlpFv51k
+      OrderTakerTableCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
-          name: RestaurantProfileCRUD
+          name: OrderTakerTableCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
-          /RestaurantProfile: !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RestaurantProfile-20180712192228.zip
-            description: "Handler for calls to resource path : /RestaurantProfile/{proxy+}"
+          /OrderTakerTable: !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/OrderTakerTable-20180722152054.zip
+            description: "Handler for calls to resource path : /OrderTakerTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: vtCBaZRD1QTpiyIZhvnx8WbAi4PFLKC5oOHp/0nLC/c=
+            hashcode: LwT0e4PltUJGy67ROT/8RY1fDLaV+OQjSKF2sysAT7E=
             memorySize: "128"
-            modified: "2018-07-12T23:25:51.659+0000"
-            name: RestaurantProfile
+            modified: "2018-07-22T19:23:14.300+0000"
+            name: OrderTakerTable
             runtime: nodejs6.10
             timeout: "3"
-            version: XDrY9siKDuvTnSeu1MbKofvdBVlBJLsH
-          "/RestaurantProfile/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            codeFilename: uploads/RestaurantProfile-20180712192228.zip
-            description: "Handler for calls to resource path : /RestaurantProfile/{proxy+}"
+            version: R54pB9xy4ccQoVvYQxPNQtgG2tiwjN27
+          "/OrderTakerTable/{proxy+}": !com.amazonaws.mobilehub.v0.Function
+            codeFilename: uploads/OrderTakerTable-20180722152054.zip
+            description: "Handler for calls to resource path : /OrderTakerTable/{proxy+}"
             enableCORS: true
             environment:  {}
             handler: lambda.handler
-            hashcode: vtCBaZRD1QTpiyIZhvnx8WbAi4PFLKC5oOHp/0nLC/c=
+            hashcode: LwT0e4PltUJGy67ROT/8RY1fDLaV+OQjSKF2sysAT7E=
             memorySize: "128"
-            modified: "2018-07-12T23:25:51.659+0000"
-            name: RestaurantProfile
+            modified: "2018-07-22T19:23:14.300+0000"
+            name: OrderTakerTable
             runtime: nodejs6.10
             timeout: "3"
-            version: AA_Uz0pwS89knub1GNgRNADmHMpgV.MC
+            version: m64EOXqVYSZ8xr8GqrS6FTOPEiKtJB6T
       RestaurantProfileTableCRUD: !com.amazonaws.mobilehub.v0.API
         attributes: 
           name: RestaurantProfileTableCRUD
           requires-signin: false
           sdk-generation-stage-name: Development
         paths: 
-          /: !com.amazonaws.mobilehub.v0.Function {}
           /RestaurantProfileTable: !com.amazonaws.mobilehub.v0.Function
             codeFilename: uploads/staurantProfileTable-20180712192228.zip
             description: "Handler for calls to resource path : /RestaurantProfileTable/{proxy+}"
@@ -165,34 +164,6 @@ features:
             runtime: nodejs6.10
             timeout: "3"
             version: P4FnID8r2oF6w07x3N5xPod8GVtJ2I58
-      newTest: !com.amazonaws.mobilehub.v0.API
-        attributes: 
-          name: newTest
-          requires-signin: false
-          sdk-generation-stage-name: Development
-        paths: 
-          /items: !com.amazonaws.mobilehub.v0.Function
-            description: "Handler for calls to resource path : /items/{proxy+}"
-            environment:  {}
-            handler: index.handler
-            hashcode: +OseghAo9ur20IwwGt+dScb9iZZ2dbaznvSLc9vy2zY=
-            memorySize: "128"
-            modified: "2018-07-12T02:38:41.526+0000"
-            name: itemsHandler
-            runtime: nodejs6.10
-            timeout: "3"
-            version: VQqoXTjG.X2cE4bJLUmxPp.GW91TYNmS
-          "/items/{proxy+}": !com.amazonaws.mobilehub.v0.Function
-            description: "Handler for calls to resource path : /items/{proxy+}"
-            environment:  {}
-            handler: index.handler
-            hashcode: +OseghAo9ur20IwwGt+dScb9iZZ2dbaznvSLc9vy2zY=
-            memorySize: "128"
-            modified: "2018-07-12T02:38:41.526+0000"
-            name: itemsHandler
-            runtime: nodejs6.10
-            timeout: "3"
-            version: nf1LHMrDydCrHvZK4r3BvxBu0WMXsWgj
   database: !com.amazonaws.mobilehub.v0.Database
     components: 
       database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase
@@ -246,27 +217,6 @@ features:
             tablePrivacy: public
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
-              closetime: S
-              createtime: S
-              cust_id: S
-              delivery_fee_withtax: N
-              destination_location: M
-              eta: N
-              extra_comment: S
-              meal_fee_withtax: N
-              order_detail: L
-              order_status: M
-              rest_id: S
-              taker_id: S
-              userId: S
-            hashKeyName: userId
-            hashKeyType: S
-            rangeKeyName: cust_id
-            rangeKeyType: S
-            tableName: ___DYNAMIC_PREFIX___-OrderTransaction
-            tablePrivacy: protected
-          - !com.amazonaws.mobilehub.v0.NoSQLTable
-            attributes: 
               default_address: S
               email: S
               firstname: S
@@ -283,24 +233,6 @@ features:
             rangeKeyName: itemId
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-CustomerProfileTable
-            tablePrivacy: protected
-          - !com.amazonaws.mobilehub.v0.NoSQLTable
-            attributes: 
-              default_address: M
-              email: S
-              firstname: S
-              history_order_id: L
-              lastname: S
-              phone: S
-              profile_img: S
-              real_address: M
-              sex: S
-              userId: S
-            hashKeyName: userId
-            hashKeyType: S
-            rangeKeyName: ""
-            rangeKeyType: ""
-            tableName: ___DYNAMIC_PREFIX___-CustomerProfile
             tablePrivacy: protected
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
@@ -354,6 +286,30 @@ features:
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-RestaurantProfileTable
             tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              curr_holding_count: N
+              dly_completed_count: N
+              dly_earning: N
+              driverId: S
+              driving_license_id: S
+              email: S
+              location: M
+              mtl_completed_count: N
+              mtl_earning: N
+              onduty: BOOL
+              phone: S
+              plate: S
+              sex: S
+              taker_name: S
+              userId: S
+              working_hour: N
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: driverId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-DriverTable
+            tablePrivacy: protected
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
               curr_holding_count: N
@@ -433,6 +389,45 @@ features:
             tablePrivacy: protected
           - !com.amazonaws.mobilehub.v0.NoSQLTable
             attributes: 
+              closetime: S
+              createtime: S
+              cust_id: S
+              delivery_fee_withtax: N
+              destination_location: M
+              eta: N
+              extra_comment: S
+              meal_fee_withtax: N
+              order_detail: L
+              order_status: M
+              rest_id: S
+              taker_id: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: cust_id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-OrderTransaction
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
+              default_address: M
+              email: S
+              firstname: S
+              history_order_id: L
+              lastname: S
+              phone: S
+              profile_img: S
+              real_address: M
+              sex: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: ""
+            rangeKeyType: ""
+            tableName: ___DYNAMIC_PREFIX___-CustomerProfile
+            tablePrivacy: protected
+          - !com.amazonaws.mobilehub.v0.NoSQLTable
+            attributes: 
               category: S
               details: S
               itemId: S
@@ -456,6 +451,23 @@ features:
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint
     components: 
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
-  sign-in: !com.amazonaws.mobilehub.v0.SignIn {}
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn
+    attributes: 
+      enabled: true
+      optional-sign-in: true
+    components: 
+      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider
+        attributes: 
+          alias-attributes: 
+            - email
+            - phone_number
+          mfa-configuration: ON
+          name: userpool
+          password-policy: !com.amazonaws.mobilehub.ConvertibleMap
+            min-length: "8"
+            require-lower-case: true
+            require-numbers: true
+            require-symbols: true
+            require-upper-case: true
 name: FoodDeliveryApp
 region: us-east-1

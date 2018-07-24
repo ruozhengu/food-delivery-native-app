@@ -1,4 +1,118 @@
 ###############################################################################################################
+DRIVER TABLE
+###############################################################################################################
+
+? Select Amazon DynamoDB table to connect to a CRUD API DriverTable
+? Restrict API access to signed-in users No
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/DriverTable/
+...
+Path to be used on API for get and remove an object should be like:
+/DriverTable/object/:driverId
+
+Path to be used on API for list objects on get method should be like:
+/DriverTable
+
+JSON to be used as data on put request should be like:
+{
+  "curr_holding_count": "INSERT VALUE HERE",
+  "dly_completed_count": "INSERT VALUE HERE",
+  "dly_earning": "INSERT VALUE HERE",
+  "driverId": "INSERT VALUE HERE",
+  "driving_license_id": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "location": "INSERT VALUE HERE",
+  "mtl_completed_count": "INSERT VALUE HERE",
+  "mtl_earning": "INSERT VALUE HERE",
+  "onduty": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "plate": "INSERT VALUE HERE",
+  "sex": "INSERT VALUE HERE",
+  "taker_name": "INSERT VALUE HERE",
+  "working_hour": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke DriverTableCRUD <method> <path> [init]
+
+
+
+
+###############################################################################################################
+ORDER TAKER
+###############################################################################################################
+
+
+? Select Amazon DynamoDB table to connect to a CRUD API OrderTaker
+? Restrict API access to signed-in users No
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/OrderTaker/
+...
+Path to be used on API for get and remove an object should be like:
+/OrderTaker/object
+
+Path to be used on API for list objects on get method should be like:
+/OrderTaker
+
+JSON to be used as data on put request should be like:
+{
+  "curr_holding_count": "INSERT VALUE HERE",
+  "dly_completed_count": "INSERT VALUE HERE",
+  "dly_earning": "INSERT VALUE HERE",
+  "driving_license_id": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "location": "INSERT VALUE HERE",
+  "mtl_completed_count": "INSERT VALUE HERE",
+  "mtl_earning": "INSERT VALUE HERE",
+  "onduty": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "plate": "INSERT VALUE HERE",
+  "sex": "INSERT VALUE HERE",
+  "taker_name": "INSERT VALUE HERE",
+  "working_hour": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke OrderTakerCRUD <method> <path> [init]
+
+
+
+###############################################################################################################
+ORDER TAKER TABLE
+###############################################################################################################
+
+? Select Amazon DynamoDB table to connect to a CRUD API OrderTakerTable
+? Restrict API access to signed-in users No
+Adding lambda function code on:
+/mnt/c/Users/alisa/OneDrive - University of Waterloo/Projects/Github/React-Native-App/awsmobilejs/backend/cloud-api/OrderTakerTable/
+...
+Path to be used on API for get and remove an object should be like:
+/OrderTakerTable/object/:driverId
+
+Path to be used on API for list objects on get method should be like:
+/OrderTakerTable
+
+JSON to be used as data on put request should be like:
+{
+  "curr_holding_count": "INSERT VALUE HERE",
+  "dly_completed_count": "INSERT VALUE HERE",
+  "dly_earning": "INSERT VALUE HERE",
+  "driverId": "INSERT VALUE HERE",
+  "driving_license_id": "INSERT VALUE HERE",
+  "email": "INSERT VALUE HERE",
+  "location": "INSERT VALUE HERE",
+  "mtl_completed_count": "INSERT VALUE HERE",
+  "mtl_earning": "INSERT VALUE HERE",
+  "onduty": "INSERT VALUE HERE",
+  "phone": "INSERT VALUE HERE",
+  "plate": "INSERT VALUE HERE",
+  "sex": "INSERT VALUE HERE",
+  "taker_name": "INSERT VALUE HERE",
+  "working_hour": "INSERT VALUE HERE"
+}
+To test the api from the command line (after awsmobile push) use this commands
+awsmobile cloud-api invoke OrderTakerTableCRUD <method> <path> [init]
+
+
+###############################################################################################################
 CUSTOMER TABLE
 ###############################################################################################################
 

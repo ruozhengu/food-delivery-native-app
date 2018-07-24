@@ -124,7 +124,7 @@ export default createMaterialBottomTabNavigator({
       tabBarLabel : "Profile",
   tabBarIcon : ({focused}) => (
     <Feather 
-      name="user"
+      name="users"
       size={25}
     />
   ),
@@ -133,7 +133,7 @@ export default createMaterialBottomTabNavigator({
 
   },
 }, {
-  initialRouteName: 'CartScreen',
+  initialRouteName: 'ProfileScreen',
   activeTintColor: 'blue',
   inactiveTintColor: '#3e2465',
   barStyle: { backgroundColor: '#dfdee0', height:'7%', alignItems:'center', justifyContent:'center'},

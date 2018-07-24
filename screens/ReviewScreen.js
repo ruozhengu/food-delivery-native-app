@@ -107,11 +107,14 @@ this.setState({ loading: false });
 
   handleSubmit() {
     // console.log(this.props.route.data.rest_id);
+    if (this.state.comment === '') {
+      Alert.alert('Comment box cannot be empty')
+    } else {
     let newReview = {
        "comment": this.state.comment,
        "cust_id": "ali212",
        "cust_image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-       "cust_name": "Emily Saeed",
+       "cust_name": "Megan Washington",
        "rating": this.state.ratings,
        "rest_id": this.props.route.data.rest_id,
     };
@@ -126,7 +129,9 @@ this.setState({ loading: false });
     this.setState({comment:""});
     Keyboard.dismiss();
     this.saveReview(this.props.route.data);
+    Alert.alert('Your review has been added and will appear here shortly');
   }
+}
 
   render() {
 

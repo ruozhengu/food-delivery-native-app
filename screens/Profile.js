@@ -4,9 +4,9 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 
-import CustomerProfile from './CustomerProfile';
-import DriverProfile from './DriverProfile';
-import RestaurantProfile from './RestaurantProfile';
+import CustomerProfilePage from './CustomerProfilePage';
+import DriverProfilePage from './DriverProfilePage';
+import RestaurantProfilePage from './RestaurantProfilePage';
 import CustomerProfileSign from './CustomerProfileSign'
 import DriverProfileSign from './DriverProfileSign';
 import RestaurantProfileSign from './RestaurantProfileSign';
@@ -20,6 +20,13 @@ import RestaurantProfileSign from './RestaurantProfileSign';
 import { Card } from 'react-native-elements'; // Version can be specified in package.json
 
 class ProfileScreen extends Component {
+
+      static navigationOptions = {
+    header: null,
+  };
+
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +38,7 @@ class ProfileScreen extends Component {
           onPress={() => {
             this.props.navigation.navigate('CustomerProfileSign');
           }}>
-          <Card title="Consumer" />
+          <Card title="Customer" />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -59,27 +66,45 @@ export default (RootNavi = createStackNavigator(
     ProfileScreen: {
       screen: ProfileScreen,
     },
-    CustomerProfile: {
-      screen: CustomerProfile,
+    CustomerProfilePage: {
+      screen: CustomerProfilePage,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
     CustomerProfileSign: {
       screen: CustomerProfileSign,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
-    DriverProfile: {
-      screen: DriverProfile,
+    DriverProfilePage: {
+      screen: DriverProfilePage,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
     DriverProfileSign: {
       screen: DriverProfileSign,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
-    RestaurantProfile: {
-      screen: RestaurantProfile,
+    RestaurantProfilePage: {
+      screen: RestaurantProfilePage,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
     RestaurantProfileSign: {
       screen: RestaurantProfileSign,
+      navigationOptions: (navigation) => ({
+        header:null
+      }),
     },
   },
   {
-    initialRouteName: 'ProfileScreen',
+    initialRouteName: 'RestaurantProfilePage',
     // initialRouteParams: { location: 'something' },
   }
 ));

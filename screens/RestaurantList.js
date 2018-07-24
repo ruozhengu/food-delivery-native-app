@@ -98,6 +98,8 @@ class RestaurantList extends Component {
         let ds = new ListView.DataSource({
           rowHasChanged: (r1, r2) => r1 !== r2,
         });
+        console.log('after API Response')
+        console.log(apiResponse)
         this.setState(
           {
             isLoading: false,
