@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation';
 
+import AwesomeButtonRick from 'react-native-really-awesome-button';
 
 import CustomerProfilePage from './CustomerProfilePage';
 import DriverProfilePage from './DriverProfilePage';
@@ -30,30 +31,100 @@ class ProfileScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 18, alignSelf: 'center', padding: 25 }}>
+        <Text style={{ fontSize: 18, alignSelf: 'center', padding: 25, color:'#fff' }}>
           Chose the option that best suits you
         </Text>
 
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate('CustomerProfileSign');
-          }}>
-          <Card title="Customer" />
-        </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('CustomerProfileSign')}
+              style={{
+                width: '80%',
+                alignItems: 'center',
+                margin: 20,
+                height: 120,
+              }}>
+              
+              <ImageBackground
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  marginTop: 0,
+                  borderWidth: 0
+                }}
+                source={{ uri: 'https://image.shutterstock.com/image-photo/girl-shopping-online-store-using-260nw-1121308838.jpg' }}>
+              <View style={{height: '100%', justifyContent:'center',backgroundColor:'rgba(0,0,0,0.5)',}}>
+              <Text style={{
+                            fontSize:27,
+                            fontWeight:'bold',
+                            alignSelf: 'center', 
+                            justifyContent:'center',
+                            color:"#fff"}}>
+                            Customer
+                            </Text>
+                            </View>
+              </ImageBackground>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate('DriverProfileSign');
-          }}>
-          <Card title="Driver" />
-        </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('DriverProfileSign')}
+              style={{
+                width: '80%',
+                alignItems: 'center',
+                margin: 20,
+                height: 120,
+              }}>
+              
+              <ImageBackground
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  marginTop: 0,
+                  borderWidth: 0
+                }}
+                source={{ uri: 'https://res.cloudinary.com/hhgz8qnrm/image/upload/t_optimized/hbzrnz0uzrfrqudlwdav.jpg' }}>
+              <View style={{height: '100%', justifyContent:'center',backgroundColor:'rgba(0,0,0,0.5)',}}>
+              <Text style={{
+                            fontSize:27,
+                            fontWeight:'bold',
+                            alignSelf: 'center', 
+                            justifyContent:'center',
+                            color:"#fff"}}>
+                            Driver
+                            </Text>
+                            </View>
+              </ImageBackground>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            this.props.navigation.navigate('RestaurantProfileSign');
-          }}>
-          <Card title="Restaurant" />
-        </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('RestaurantProfileSign')}
+              style={{
+                width: '80%',
+                alignItems: 'center',
+                margin: 20,
+                height: 120,
+              }}>
+              
+              <ImageBackground
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  marginTop: 0,
+                  borderWidth: 0
+                }}
+                source={{ uri: 'https://data.luebeck-tourismus.de/typo3temp/GB/csm_shutterstock_73748515_01_cf1fd34057_519ffe33ac.jpg' }}>
+              <View style={{height: '100%', justifyContent:'center',backgroundColor:'rgba(0,0,0,0.5)',}}>
+              <Text style={{
+                            fontSize:27,
+                            fontWeight:'bold',
+                            alignSelf: 'center', 
+                            justifyContent:'center',
+                            color:"#fff"}}>
+                            Restaurant
+                            </Text>
+                            </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
       </View>
     );
   }
@@ -104,7 +175,7 @@ export default (RootNavi = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'RestaurantProfilePage',
+    initialRouteName: 'ProfileScreen',
     // initialRouteParams: { location: 'something' },
   }
 ));
@@ -117,17 +188,14 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     padding: 15,
-    // alignItems: 'center',
+    alignItems: 'center',
 
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#191717',
+
     // flexWrap: 'wrap'
   },
-  paragraph: {
+  buttons: {
     margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#34495e',
   },
 });

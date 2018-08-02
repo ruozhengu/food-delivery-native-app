@@ -262,7 +262,7 @@ processData()  {
                 <View style={{marginLeft:10}}>
                 <Text style={{fontSize:19,}}>{item.name}</Text>
                 <View style={{ flexDirection: 'row', marginLeft:0}}>
-                  <Text style={{ fontSize: 14 }}>$15  | </Text>
+                  <Text style={{ fontSize: 14 }}>${item.price}  | </Text>
                   <MaterialCommunityIcons
                     name={'chili-' + item.spicy}
                     color="red"
@@ -304,14 +304,14 @@ processData()  {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
+// const mapStateToProps = (state) => {
+//   return {
     
-  }
-}
+//   }
+// }
 
 // upgrade our component to become Redux-aware
-export default connect(mapStateToProps)(OrderScreen)
+export default connect()(OrderScreen)
 
 
 const InfoText = ({ text }) => (

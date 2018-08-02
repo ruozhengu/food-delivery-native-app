@@ -167,7 +167,7 @@ class RestaurantList extends Component {
                   {' '}
                   {rowData.rest_name}
                 </Text>
-                <Text style={styles.distance}> 
+                <Text style={styles.distance}>
                                   <Feather
                     style={{ padding: 1 }}
                     name="star"
@@ -246,6 +246,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
+    backgroundColor:'#000'
   },
   touchable: {
     backgroundColor: '#fff',

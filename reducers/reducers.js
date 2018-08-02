@@ -3,6 +3,12 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   EMPTY_CART,
+  ADD_CUSTOMER,
+  REMOVE_CUSTOMER,
+  ADD_DRIVER,
+  REMOVE_DRIVER,
+  ADD_RESTAURANT,
+  REMOVE_RESTAURANT
 } from '../actions/actions'
 
 
@@ -12,6 +18,9 @@ const initialState = {
   location: null,
   items: [],
   count:0,
+  customer: {},
+  restaurant: {},
+  driver: {}
 }
 
 
@@ -38,6 +47,37 @@ function manageCart(state = initialState, action) {
       return Object.assign({}, state, {
         items: [],
         count: 0
+      })
+
+    case ADD_CUSTOMER:
+      return Object.assign({}, state, {
+
+        customer: action.customer
+      })
+
+    case REMOVE_CUSTOMER:
+      return Object.assign({}, state, {
+        customer: {}
+      })
+
+    case ADD_DRIVER:
+      return Object.assign({}, state, {
+        driver: action.driver
+      })
+
+    case REMOVE_DRIVER:
+      return Object.assign({}, state, {
+        driver: {}
+      })
+
+    case ADD_RESTAURANT:
+      return Object.assign({}, state, {
+        restaurant: action.restaurant
+      })
+
+    case REMOVE_RESTAURANT:
+      return Object.assign({}, state, {
+        restaurant: {}
       })
 
 

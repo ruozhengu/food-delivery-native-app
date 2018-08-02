@@ -133,7 +133,7 @@ export default createMaterialBottomTabNavigator({
 
   },
 }, {
-  initialRouteName: 'ProfileScreen',
+  initialRouteName: 'CartScreen',
   activeTintColor: 'blue',
   inactiveTintColor: '#3e2465',
   barStyle: { backgroundColor: '#dfdee0', height:'7%', alignItems:'center', justifyContent:'center'},

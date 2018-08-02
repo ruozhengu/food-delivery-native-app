@@ -21,6 +21,8 @@ import {
   FormInput,
   FormValidationMessage,
 } from 'react-native-elements';
+import { Constants } from 'expo';
+import { StatusBar } from 'react-native'
 
 
 import ActionButton from 'react-native-action-button';
@@ -106,7 +108,7 @@ componentWillMount () {
     // if (this.state.navigate) {
       // console.log('if statement is true')
       // this.state.navigate = false;
-      this.props.navigation.navigate('RestaurantList');
+      this.props.navigation.navigate('ExploreScreen');
       console.log('after navigation')
     // }
 }
@@ -161,12 +163,40 @@ componentWillMount () {
     Keyboard.dismiss();
   }
 
+
+
+  handleOrderRequest() {
+
+    let req = 'https://dw4tuyklva.execute-api.us-east-1.amazonaws.com/prod-test/createorder?{&cust_id=000001&phone=12342222&location={&unit=3&streetNumber=140&streetName=Clifton Ave&city=Toronto&postalCode=N2L3G5&},&extra_comment=I want more rice&order=[&{&category=main&item_id=3&name=curry chicken&price=7.1&rest_id=000000&spicy=hot&url"=www.google.com&}&]&}'
+        return fetch(req)
+      .then(response => response.json())
+      .then(responseJson => {
+        let ds = new ListView.DataSource({
+          rowHasChanged: (r1, r2) => r1 !== r2,
+        });
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: ds.cloneWithRows(data),
+          },
+          function() {
+            // In this block you can do something with new state.
+            this.arrayholder = data;
+          }
+        );
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
   render() {
+    StatusBar.setBarStyle('light-content', true);
     // console.log(this.props.navigation.state)
     return (
       
 
-      <View style={{paddingTop:12,height:'100%'}}>
+      <View style={{paddingTop:12,height:'100%',backgroundColor:'#000'}}>
 
 
       <InfoText text='Your Orders' />
@@ -345,13 +375,13 @@ const InfoText = ({ text }) => (
     style={{
       paddingTop: 12,
       paddingBottom: 12,
-      backgroundColor: '#F4F5F4',
+      backgroundColor: '#191717',
     }}>
     <Text
       style={{
         fontSize: 16,
         marginLeft: 20,
-        color: '#000',
+        color: '#fff',
         fontWeight: '500',
       }}>
       {text}

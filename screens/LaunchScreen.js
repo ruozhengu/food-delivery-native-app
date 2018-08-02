@@ -32,6 +32,8 @@ export default class LaunchScreen extends Component {
     this._getLocationAsync();
   }
 
+  
+
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
@@ -221,7 +223,6 @@ export default class LaunchScreen extends Component {
   handleFindPress() {
     console.log('Find me button pressed');
     //this.saveRating();
-    Alert.alert(this.state.locationResult);
     this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
   
@@ -232,6 +233,42 @@ export default class LaunchScreen extends Component {
     console.log('After get rating');
     this.props.navigation.navigate('Main', {location:this.state.locationResult});
   }
+
+
+    // async getInfo() {
+    //   console.log('getInfo started')
+    //   const path = 'https://dw4tuyklva.execute-api.us-east-1.amazonaws.com/prod-test/createorder?{&cust_id=000001&phone=12342222&location={&unit=3&streetNumber=140&streetName=Clifton Ave&city=Toronto&postalCode=N2L3G5&},&extra_comment=I want more rice&order=[&{&category=main&item_id=3&name=curry chicken&price=7.1&rest_id=000000&spicy=hot&url"=www.google.com&}&]&}';
+
+    //   try {
+    //     console.log('try started')
+    //     const apiResponse = await API.get("DriverTableCRUD", path);
+    //     console.log('After api response')
+    //     console.log(apiResponse);
+    //     this.setState({apiResponse});
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
+
+
+  async getInfo() {
+    url = 'https://dw4tuyklva.execute-api.us-east-1.amazonaws.com/prod-test/createorder?{&cust_id=000001&phone=12342222&location={&unit=3&streetNumber=140&streetName=Clifton Ave&city=Toronto&postalCode=N2L3G5&},&extra_comment=I want more rice&order=[&{&category=main&item_id=3&name=curry chicken&price=7.1&rest_id=000000&spicy=hot&url"=www.google.com&}&]&}'
+    return fetch(url, {
+            method: 'GET',
+            headers: {
+                'Cache-control': 'no-cache',
+                'Content-Type': 'application/json'
+            }
+        })
+      .then(response => response.json())
+      .then(responseJson => {
+        console.log(responseJson)
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
 
   render() {
     return (
@@ -248,7 +285,7 @@ export default class LaunchScreen extends Component {
           name="close" 
           color="white" 
           size={35} 
-          onPress={()=> this.saveDriver()} />
+          onPress={()=> this.getInfo()} />
         </View>
 
         <Text style={styles.heading}>Hungry?</Text>

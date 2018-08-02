@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, View, Alert, StyleSheet, Picker, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, ScrollView, View, Alert, StyleSheet, Picker,Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { TextInput, Button, } from 'react-native';
 // You can import from local files
 
@@ -16,6 +16,11 @@ import Amplify, { Auth, API } from 'aws-amplify'
 import AWSConfig from '../aws-exports'
 Amplify.configure(AWSConfig)
 
+import {
+  addDriver,
+} from '../actions/actions'
+
+import { connect } from 'react-redux'
 
 export class SignIn extends React.Component {
 
@@ -46,16 +51,23 @@ export class SignIn extends React.Component {
   }
   
 
+    handleAddDriver(obj) {
+      this.props.dispatch(addDriver(obj))
+    }
+
       async getDriver() {
       console.log('getDriver started')
       const path = "/DriverTable/object/" + this.state.username;
 
       try {
         console.log('try started')
-        const apiResponse = await API.get("DriverTableCRUD", path);
+        const driver = await API.get("DriverTableCRUD", path);
         console.log('After api response')
-        console.log(apiResponse);
-        this.setState({apiResponse});
+        // console.log(apiResponse);
+        this.setState({driver});
+        console.log('******************************************************************')
+        this.handleAddDriver(driver)
+        this.props.navigation.navigate('DriverProfilePage')
       } catch (e) {
         console.log(e);
       }
@@ -72,7 +84,7 @@ export class SignIn extends React.Component {
       this.setState({ user })
       console.log(user)
       this.getDriver()
-      this.props.navigation.navigate('DriverProfile')
+      Alert.alert('Sign in succesful!')
       // Alert.alert('Your Information is correct. Please enter the confirmation code you will receive via text')
     })
     .catch(err => {Alert.alert(JSON.stringify(err));console.log('error signing in!: ', err);})
@@ -107,26 +119,29 @@ export class SignIn extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={{fontSize:25, fontWeight:'bold',alignSelf:'center'}}>Driver Sign In Form</Text>
+      <Image style={{width: '100%', height: 180, marginBottom:25}} source={{uri:'../Images/driver.png'}}/>
         <TextInput
           onChangeText={value => this.onChangeText('username', value)}
           style={styles.input}
           placeholder='username'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('password', value)}
           style={styles.input}
           secureTextEntry={true}
           placeholder='password'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <Button title="Sign In" onPress={this.signIn.bind(this)} />
         <TextInput
           onChangeText={value => this.onChangeText('confirmationCode', value)}
           style={styles.input}
           placeholder='confirmation Code'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <View style={{justifyContent:'center', flexDirection:'row'}}>
         <Button title="Forgot Password" onPress={this.forgotPassword.bind(this)} />
@@ -163,7 +178,7 @@ class SignUp extends React.Component {
     licenseNumber: '',
     plateNumber: '',
     name: '',
-    sex: 'Male',
+    sex: 'Female',
 
   }
   onChangeText(key, value) {
@@ -248,32 +263,37 @@ class SignUp extends React.Component {
           onChangeText={value => this.onChangeText('name', value)}
           style={styles.input}
           placeholder='Name'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('plateNumber', value)}
           style={styles.input}
           placeholder='Plate Number'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('licenseNumber', value)}
           style={styles.input}
           placeholder='License Number'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('username', value)}
           style={styles.input}
           placeholder='username'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('password', value)}
           style={styles.input}
           secureTextEntry={true}
           placeholder='password'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('phoneNumber', value)}
@@ -281,23 +301,26 @@ class SignUp extends React.Component {
           placeholder='phone'
           defaultValue = '+1'
           keyboardType={'numeric'}
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('email', value)}
           style={styles.input}
           placeholder='email'
           keyboardType={'email-address'}
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
 
           <Picker
-            style={{ width: 400, height: 80, justifyContent: 'center', overflow: 'hidden' }}
+
+            style={{ width: 400, height: 80, justifyContent: 'center', overflow: 'hidden',  }}
             selectedValue={this.state.sex}
             onValueChange={(itemValue, itemIndex) => this.setState({ sex: itemValue })}>
-            <Picker.Item label="Male" value="Male" />
-            <Picker.Item label="Female" value="Female" />
-            <Picker.Item label="Other" value="Other" />
+            <Picker.Item label="Male" value="Male" color='#fff'/>
+            <Picker.Item label="Female" value="Female" color='#fff'/>
+            <Picker.Item label="Other" value="Other" color='#fff'/>
           </Picker>
 
         <Button title="Sign Up" 
@@ -306,7 +329,8 @@ class SignUp extends React.Component {
           onChangeText={value => this.onChangeText('confirmationCode', value)}
           style={styles.input}
           placeholder='confirmation Code'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <Button title="Confirm Sign Up" onPress={this.confirmSignUp.bind(this)} />
 
@@ -319,7 +343,7 @@ class SignUp extends React.Component {
 
 
 const config = {
-  SignIn: { screen: SignIn },
+  SignIn: { screen: connect()(SignIn) },
   SignUp: { screen: SignUp }
 }
 
@@ -331,14 +355,15 @@ export default createBottomTabNavigator(config)
 const styles = StyleSheet.create({
   input: {
     height: 50,
-    borderBottomWidth: 2,
-    borderBottomColor: '#2196F3',
     margin: 10,
-    marginTop: 1
+    padding:10,
+    backgroundColor:"rgba(225,255,255,0.2)",
+    color:'#fff',
+    borderRadius:15,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     justifyContent: 'center',
     paddingVertical: 30
   },

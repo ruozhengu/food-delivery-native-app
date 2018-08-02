@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, StatusBar } from 'react-native';
 
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 
@@ -54,16 +54,13 @@ export default class RestaurantPage extends Component {
   <TabBar
     {...props}
     indicatorStyle={{ backgroundColor: '#fff' }}
-    renderIcon={(props) => {<MaterialCommunityIcons
-                    name={'chili-mild' }
-                    color="red"
-                    size={19}
-                  />}}
     tabStyle={{backgroundColor: "#000", height:45}}
   />
 
   
   render() {
+        StatusBar.setBarStyle('dark-content', true);
+
   	// console.log(this.props.navigation.state.params)
     return (
       <TabView

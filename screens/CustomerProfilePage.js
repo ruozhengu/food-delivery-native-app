@@ -19,8 +19,11 @@ import { MaterialIcons, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLin
 // import Ionicons from '../Icons/Ionicons.tff';
 // import MaterialCommunityIcons from '../Icons/MaterialCommunityIcons.tff';
 
+import { connect } from 'react-redux';
 
-export default class ProfileScreen extends Component {
+
+
+export class ProfileScreen extends Component {
   // static navigationOptions = {
   //   header: null,
   //     tabBarLabel : "Profile",
@@ -35,6 +38,8 @@ export default class ProfileScreen extends Component {
   constructor(props) {
     super(props);
   }
+
+
 
   render() {
     const { onScroll = () => {} } = this.props;
@@ -93,19 +98,7 @@ export default class ProfileScreen extends Component {
         
         
         <InfoText text="Account" />
-        <ListItem
-          hideChevron
-          switchButton={true}
-          title="Push Notifications"
-          containerStyle={styles.listItemContainer}
-          leftIcon={<MaterialIcons 
-    style={{ padding: 3,}} 
-    name='notifications-none' 
-    color='#a09f9f'
-    size={25}
-    />}
 
-        />
         
         <ListItem
           title="Change Location"
@@ -121,7 +114,7 @@ export default class ProfileScreen extends Component {
     color='#a09f9f'
     size={35}
     />}
-          onPress={()=>Alert.alert('aasfaf')}
+          onPress={()=>console.log(this.props)}
         />
 
         <ListItem
@@ -138,7 +131,7 @@ export default class ProfileScreen extends Component {
     color='#a09f9f'
     size={35}
     />}
-          onPress={()=>Alert.alert('aasfaf')}
+          onPress={()=>console.log(this.state)}
         />
         
         <ListItem
@@ -161,22 +154,6 @@ export default class ProfileScreen extends Component {
         <InfoText text="More" />
         
         
-        <ListItem
-          title="Rate Us"
-          containerStyle={styles.listItemContainer}
-          leftIcon={<MaterialIcons 
-    style={{ padding: 3,}} 
-    name='rate-review' 
-    color='#a09f9f'
-    size={25}
-    />}
-    rightIcon={<MaterialIcons 
-    name='keyboard-arrow-right' 
-    color='#a09f9f'
-    size={35}
-    />}
-          onPress={()=>Alert.alert('aasfaf')}
-        />
         
         
         <ListItem
@@ -193,7 +170,7 @@ export default class ProfileScreen extends Component {
     color='#a09f9f'
     size={35}
     />}
-          onPress={()=>Alert.alert('aasfaf')}
+          onPress={()=>Alert.alert('+1 789-422-1234')}
         />
         
 
@@ -253,6 +230,18 @@ const BaseIcon = ({ containerStyle, icon }) => (
     />
   </View>
 );
+
+
+const mapStateToProps = state => {
+  return {
+    customer: state.manageCart.customer,
+  };
+};
+
+export default connect(mapStateToProps)(ProfileScreen);
+
+
+
 
 const window = Dimensions.get('window');
 

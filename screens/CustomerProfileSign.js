@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, View, Alert, StyleSheet, Picker, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, ScrollView, View, Alert, Image, StyleSheet, Picker, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { TextInput, Button, } from 'react-native';
 // You can import from local files
 
@@ -16,17 +16,26 @@ import Amplify, { Auth, API } from 'aws-amplify'
 import AWSConfig from '../aws-exports'
 Amplify.configure(AWSConfig)
 
+import {
+  addCustomer,
+} from '../actions/actions'
+
+import { connect } from 'react-redux'
+
 
 export class SignIn extends React.Component {
 
 
       static navigationOptions = {
     header: null,
+        tabBarActiveTintColor: 'red',
+    tabBarInactiveTintColor: 'green',
       tabBarLabel : "Sign In",
   tabBarIcon : ({focused}) => (
     <Feather 
       name="user-check"
       size={25}
+      color='#fff'
     />
   )
   };
@@ -41,6 +50,9 @@ export class SignIn extends React.Component {
   }
 
 
+  handleAddCustomer(obj) {
+      this.props.dispatch(addCustomer(obj))
+    }
 
 
      async getCustomer() {
@@ -49,10 +61,13 @@ export class SignIn extends React.Component {
 
       try {
         console.log('try started')
-        const apiResponse = await API.get("CustomerTableCRUD", path);
+        const customer = await API.get("CustomerTableCRUD", path);
         console.log('After api response')
-        console.log(apiResponse);
-        this.setState({apiResponse});
+        // console.log(customer);
+        this.setState({customer});
+        console.log('******************************************************************')
+        this.handleAddCustomer(customer)
+        // console.log(this.state)
       } catch (e) {
         console.log(e);
       }
@@ -75,9 +90,10 @@ export class SignIn extends React.Component {
     Auth.signIn(username, password)
     .then(user => {
       this.setState({ user })
-      console.log(user)
+      // console.log(user)
       this.getCustomer()
-      this.props.navigation.navigate('CustomerProfile')
+      // this.handleAddToCart(item)
+      this.props.navigation.navigate('CustomerProfilePage')
       // Alert.alert('Your Information is correct. Please enter the confirmation code you will receive via text')
     })
     .catch(err => {Alert.alert(JSON.stringify(err));console.log('error signing in!: ', err);})
@@ -112,26 +128,29 @@ export class SignIn extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={{fontSize:25, fontWeight:'bold',alignSelf:'center'}}>Customer Sign In Form</Text>
+      <Image style={{width: '100%', height: 180, marginBottom:25}} source={{uri:'https://static.wingify.com/vwo/wp-content/themes/vwo/images/page-features/customer_support@2x.png'}}/>
         <TextInput
           onChangeText={value => this.onChangeText('username', value)}
           style={styles.input}
           placeholder='username'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('password', value)}
           style={styles.input}
           secureTextEntry={true}
           placeholder='password'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <Button title="Sign In" onPress={this.signIn.bind(this)} />
         <TextInput
           onChangeText={value => this.onChangeText('confirmationCode', value)}
           style={styles.input}
           placeholder='confirmation Code'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <View style={{justifyContent:'center', flexDirection:'row'}}>
         <Button title="Forgot Password" onPress={this.forgotPassword.bind(this)} />
@@ -167,7 +186,7 @@ class SignUp extends React.Component {
     confirmationCode: '',
     firstname: '',
     lastname: '',
-    sex: 'Male',
+    sex: 'Female',
 
   }
   onChangeText(key, value) {
@@ -241,32 +260,39 @@ class SignUp extends React.Component {
     return (
 
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+
       <ScrollView>
+
       <Text style={{fontSize:25, fontWeight:'bold',alignSelf:'center'}}>Customer Sign Up Form</Text>
+
         <TextInput
           onChangeText={value => this.onChangeText('firstname', value)}
           style={styles.input}
           placeholder='First Name'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('lastname', value)}
           style={styles.input}
           placeholder='Last Name'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('username', value)}
           style={styles.input}
           placeholder='username'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('password', value)}
           style={styles.input}
           secureTextEntry={true}
           placeholder='password'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('phoneNumber', value)}
@@ -274,23 +300,25 @@ class SignUp extends React.Component {
           placeholder='phone'
           defaultValue = '+1'
           keyboardType={'numeric'}
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <TextInput
           onChangeText={value => this.onChangeText('email', value)}
           style={styles.input}
           placeholder='email'
           keyboardType={'email-address'}
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
 
           <Picker
             style={{ width: 400, height: 80, justifyContent: 'center', overflow: 'hidden' }}
             selectedValue={this.state.sex}
             onValueChange={(itemValue, itemIndex) => this.setState({ sex: itemValue })}>
-            <Picker.Item label="Male" value="Male" />
-            <Picker.Item label="Female" value="Female" />
-            <Picker.Item label="Other" value="Other" />
+            <Picker.Item label="Male" value="Male" color='#fff'/>
+            <Picker.Item label="Female" value="Female" color='#fff'/>
+            <Picker.Item label="Other" value="Other" color='#fff'/>
           </Picker>
 
         <Button title="Sign Up" 
@@ -299,7 +327,8 @@ class SignUp extends React.Component {
           onChangeText={value => this.onChangeText('confirmationCode', value)}
           style={styles.input}
           placeholder='confirmation Code'
-          underlineColorAndroid='#fff'
+          placeholderTextColor="grey" 
+          underlineColorAndroid='#000'
         />
         <Button title="Confirm Sign Up" onPress={this.confirmSignUp.bind(this)} />
 
@@ -312,26 +341,28 @@ class SignUp extends React.Component {
 
 
 const config = {
-  SignIn: { screen: SignIn },
-  SignUp: { screen: SignUp }
+  SignIn: { screen: connect()(SignIn) },
+  SignUp: { screen: SignUp },
+
 }
 
 export default createBottomTabNavigator(config)
 
 
-
+// export default connect()(OrderScreen)
 
 const styles = StyleSheet.create({
   input: {
     height: 50,
-    borderBottomWidth: 2,
-    borderBottomColor: '#2196F3',
     margin: 10,
-    marginTop: 1
+    padding:10,
+    backgroundColor:"rgba(225,255,255,0.2)",
+    color:'#fff',
+    borderRadius:15,
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     justifyContent: 'center',
     paddingVertical: 30
   },
